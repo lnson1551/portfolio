@@ -269,8 +269,8 @@ function ContactInfoContainer() {
       <div className="flex flex-col justify-center relative shrink-0">
         <p className="text-[#fefcfc] text-[12px]">
           <span className="leading-[16px]">{`LinkedIn: `}</span>
-          <a className="cursor-pointer leading-[16px]" href="https://www.linkedin.com/in/sea" target="_blank">
-            <span href="https://www.linkedin.com/in/sea" target="_blank">{`linkedin.com/in/sea`}</span>
+          <a className="cursor-pointer leading-[16px]" href="https://www.linkedin.com/in/seav/" target="_blank">
+            <span href="https://www.linkedin.com/in/seav/" target="_blank">{`linkedin.com/in/seav/`}</span>
           </a>
         </p>
       </div>
