@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Prefer local PP NeueBit when installed; fall back to Space Grotesk */
+@font-face {
+  font-family: 'PP NeueBit';
+  src: local('PP NeueBit'), local('PPNeueBit'), local('PP NeueBit Bold'), local('PPNeueBit-Bold'), local('Space Grotesk Bold'), local('SpaceGrotesk-Bold');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP_NeueBit:Semi_Bold';
+  src: local('PP NeueBit'), local('PPNeueBit'), local('PP NeueBit Bold'), local('PPNeueBit-Bold'), local('Space Grotesk Bold'), local('SpaceGrotesk-Bold');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP_NeueBit:Bold';
+  src: local('PP NeueBit'), local('PPNeueBit'), local('PP NeueBit Bold'), local('PPNeueBit-Bold'), local('Space Grotesk Bold'), local('SpaceGrotesk-Bold');
+  font-weight: 700;
+  font-style: normal;
+}
