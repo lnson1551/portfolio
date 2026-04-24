@@ -1334,7 +1334,7 @@ function WebsiteDesignLinksBlock() {
                   <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: isMobile ? "18px" : "20px", lineHeight: "32px", color: "#1e1c1c" }}>
                     {item.label}
                   </span>
-                  <span aria-hidden="true" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: isMobile ? "28px" : "40px", lineHeight: 1, color: "#1e1c1c" }}>
+                  <span aria-hidden="true" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: isMobile ? "18px" : "24px", lineHeight: 1, color: "#1e1c1c" }}>
                     ↗
                   </span>
                 </>
@@ -1478,9 +1478,9 @@ function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string
               stackGap={STACK_GAP}
             />
           ))}
-          <WebsiteDesignLinksBlock />
           {stickyEnabled && <div style={{ height: `${stackTail}px` }} />}
         </div>
+        <WebsiteDesignLinksBlock />
       </div>
     </section>
   );
