@@ -1296,7 +1296,6 @@ function WebsiteDesignLinksBlock() {
   return (
     <div
       style={{
-        borderBottom: "1px solid #1e1c1c",
         padding: isMobile ? "24px 20px" : isTablet ? "32px" : "40px",
       }}
     >
@@ -1334,7 +1333,7 @@ function WebsiteDesignLinksBlock() {
                   <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: isMobile ? "18px" : "20px", lineHeight: "32px", color: "#1e1c1c" }}>
                     {item.label}
                   </span>
-                  <span aria-hidden="true" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: isMobile ? "18px" : "24px", lineHeight: 1, color: "#1e1c1c" }}>
+                  <span aria-hidden="true" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: isMobile ? "14px" : "19px", lineHeight: 1, color: "#1e1c1c" }}>
                     ↗
                   </span>
                 </>
@@ -1386,10 +1385,11 @@ function WebsiteDesignSection() {
   const isMobile = w < 768;
   const isTablet = w >= 768 && w < 1024;
   const hPad = isMobile ? "20px" : isTablet ? "40px" : "60px";
+  const bottomGap = isMobile ? "64px" : isTablet ? "96px" : "120px";
 
   return (
     <section id="website-design" className="relative w-full" style={{ backgroundColor: "#f6f6f6" }}>
-      <div style={{ padding: `0 ${hPad}` }}>
+      <div style={{ padding: `0 ${hPad} ${bottomGap}` }}>
         <WebsiteDesignLinksBlock />
       </div>
     </section>
