@@ -1282,6 +1282,105 @@ function WorkCard({ work, index, onViewDetails, cardRef, stickyTop, stickyEnable
   );
 }
 
+function WebsiteDesignLinksBlock() {
+  const w = useWindowWidth();
+  const isMobile = w < 768;
+  const isTablet = w >= 768 && w < 1024;
+
+  const websiteLinks = [
+    { label: "Electric bird", href: "https://electricbird.vn/" },
+    { label: "Hoianese", href: "https://hoianese.com/" },
+    { label: "Helloclever", href: "https://helloclever.co/" },
+  ];
+
+  return (
+    <div
+      style={{
+        borderBottom: "1px solid #1e1c1c",
+        padding: isMobile ? "24px 20px" : isTablet ? "32px" : "40px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          gap: isMobile ? "20px" : isTablet ? "32px" : "56px",
+          alignItems: isMobile ? "stretch" : "flex-start",
+        }}
+      >
+        <div style={{ flex: isMobile ? "1 1 auto" : "0 0 48%", minWidth: 0 }}>
+          <p
+            style={{
+              fontFamily: DISPLAY_FONT,
+              fontWeight: 700,
+              fontSize: isMobile ? "28px" : isTablet ? "36px" : "48px",
+              lineHeight: isMobile ? "36px" : isTablet ? "44px" : "56px",
+              color: "#1e1c1c",
+              marginBottom: isMobile ? "8px" : "12px",
+            }}
+          >
+            Website Design
+          </p>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: isMobile ? "14px" : "16px", lineHeight: "24px", color: "#1e1c1c" }}>
+            Collaboration with branding department and clients to create a website can serve their business with aesthetic.
+          </p>
+        </div>
+
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ border: "1px solid #dfe2e4", backgroundColor: "#f7f7f7" }}>
+            {websiteLinks.map((item, index) => {
+              const content = (
+                <>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: isMobile ? "18px" : "20px", lineHeight: "32px", color: "#1e1c1c" }}>
+                    {item.label}
+                  </span>
+                  <span aria-hidden="true" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: isMobile ? "28px" : "40px", lineHeight: 1, color: "#1e1c1c" }}>
+                    ↗
+                  </span>
+                </>
+              );
+
+              return item.href ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    textDecoration: "none",
+                    padding: isMobile ? "14px 16px" : "16px 24px",
+                    borderBottom: index === websiteLinks.length - 1 ? "none" : "1px solid #dfe2e4",
+                  }}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div
+                  key={item.label}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: isMobile ? "14px 16px" : "16px 24px",
+                    borderBottom: index === websiteLinks.length - 1 ? "none" : "1px solid #dfe2e4",
+                  }}
+                >
+                  {content}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Featured Works Section ───────────────────────────────────────────────────
 function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string) => void }) {
   const w = useWindowWidth();
@@ -1379,6 +1478,7 @@ function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string
               stackGap={STACK_GAP}
             />
           ))}
+          <WebsiteDesignLinksBlock />
           {stickyEnabled && <div style={{ height: `${stackTail}px` }} />}
         </div>
       </div>
