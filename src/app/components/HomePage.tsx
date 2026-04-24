@@ -21,7 +21,9 @@ import {
   LINKEDIN_URL,
   MAILTO_HREF,
   SITE_NAME,
+  ACCIONA_ENABLED,
   SUPERSHIP_ENABLED,
+  WINX_ENABLED,
 } from "../config/site";
 import { useWindowWidth } from "../hooks/useWindowWidth";
 
@@ -92,7 +94,12 @@ const works = [
   },
 ];
 
-const visibleWorks = works.filter((work) => SUPERSHIP_ENABLED || work.id !== "supership");
+const visibleWorks = works.filter(
+  (work) =>
+    (SUPERSHIP_ENABLED || work.id !== "supership") &&
+    (ACCIONA_ENABLED || work.id !== "acciona") &&
+    (WINX_ENABLED || work.id !== "winx")
+);
 
 // ─── Global CSS ───────────────────────────────────────────────────────────────
 const GLOBAL_CSS = `

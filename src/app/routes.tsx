@@ -8,7 +8,7 @@ import AccionaDesignSystem from "../imports/AccionaDesignSystem";
 import WinXMembership from "../imports/WinXMembership";
 import UniVini from "../imports/UniVini";
 import Signify from "../imports/Signify";
-import { ACCIONA_SECTIONS, CASE_STUDY_SECTIONS, SUPERSHIP_ENABLED } from "./config/site";
+import { ACCIONA_ENABLED, ACCIONA_SECTIONS, CASE_STUDY_SECTIONS, SUPERSHIP_ENABLED, WINX_ENABLED } from "./config/site";
 
 function FishmapPage() {
   return (
@@ -37,6 +37,16 @@ function SupershipPage() {
 }
 
 function AccionaPage() {
+  if (!ACCIONA_ENABLED) {
+    return (
+      <LockedProjectPage
+        title="Acciona"
+        category="Design system"
+        description="This project is temporarily hidden. It will be available again later."
+      />
+    );
+  }
+
   return (
     <DetailPageLayout navSections={ACCIONA_SECTIONS}>
       <AccionaDesignSystem />
@@ -45,6 +55,16 @@ function AccionaPage() {
 }
 
 function WinXPage() {
+  if (!WINX_ENABLED) {
+    return (
+      <LockedProjectPage
+        title="WinX Membership"
+        category="Loyalty app"
+        description="This project is temporarily hidden. It will be available again later."
+      />
+    );
+  }
+
   return (
     <DetailPageLayout navSections={CASE_STUDY_SECTIONS}>
       <WinXMembership />
