@@ -10,9 +10,10 @@ import imgCardWinx from "../../assets/figma-home/card-winx.png";
 import imgCardUnivini from "../../assets/figma-home/card-univini.png";
 import imgCardSignify from "../../assets/figma-home/card-signify.png";
 import imgShowcaseBig from "../../assets/figma-home/showcase-big.png";
-import imgLogoSupership from "../../assets/figma-home/logo-supership.png";
-import imgLogoWinx from "../../assets/figma-home/logo-winx.png";
-import imgLogoUnivini from "../../assets/figma-home/logo-univini.png";
+import imgUniLogo from "../../../img/uni-logo.png";
+import imgLogoAcciona from "../../assets/figma-home/logo-supership.png";
+import imgLogoWinx from "../../assets/figma-home/logo-univini.png";
+import imgLogoUnivini from "../../assets/figma-home/logo-fishmap.png";
 import {
   CONTACT_EMAIL,
   HOME_NAV_ITEMS,
@@ -1600,25 +1601,20 @@ function CompaniesSection() {
               <div style={{ flex: 1, minWidth: 0, marginRight: "-1px", border: "1px solid black", height: isMobile ? "80px" : "120px" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", padding: "16px" }}>
                   <div style={{ position: "relative", width: isMobile ? "100px" : "166px", height: isMobile ? "42px" : "70px" }}>
-                    <div style={{ position: "absolute", inset: "0 71.82% 0 0" }}>
-                      <svg style={{ position: "absolute", display: "block", inset: 0, width: "100%", height: "100%" }} fill="none" preserveAspectRatio="none" viewBox="0 0 46.7771 69.9968">
-                        <path clipRule="evenodd" d={svgPaths.p1bf81ce0} fill="#F90000" fillRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div style={{ position: "absolute", inset: "24.49% 0 32.13% 22.06%" }}>
-                      <svg style={{ position: "absolute", display: "block", inset: 0, width: "100%", height: "100%" }} fill="none" preserveAspectRatio="none" viewBox="0 0 129.373 30.3611">
-                        <path clipRule="evenodd" d={svgPaths.p2a3efa40} fill="#231F20" fillRule="evenodd" />
-                      </svg>
-                    </div>
+                    <img
+                      src={imgLogoAcciona}
+                      alt="Acciona"
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
+                    />
                   </div>
                 </div>
               </div>
               <div style={{ flex: 1, minWidth: 0, marginRight: "-1px", border: "1px solid black", height: isMobile ? "80px" : "120px" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", padding: "16px" }}>
-                  <div style={{ position: "relative", width: isMobile ? "120px" : "196px", height: isMobile ? "36px" : "60px" }}>
+                  <div style={{ position: "relative", width: isMobile ? "95px" : "147px", height: isMobile ? "34px" : "56px" }}>
                     <img
-                      src={imgLogoSupership}
-                      alt="Supership"
+                      src={imgUniLogo}
+                      alt="UniVini"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
                     />
                   </div>
