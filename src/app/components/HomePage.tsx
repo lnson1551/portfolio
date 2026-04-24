@@ -1381,6 +1381,21 @@ function WebsiteDesignLinksBlock() {
   );
 }
 
+function WebsiteDesignSection() {
+  const w = useWindowWidth();
+  const isMobile = w < 768;
+  const isTablet = w >= 768 && w < 1024;
+  const hPad = isMobile ? "20px" : isTablet ? "40px" : "60px";
+
+  return (
+    <section id="website-design" className="relative w-full" style={{ backgroundColor: "#f6f6f6" }}>
+      <div style={{ padding: `0 ${hPad}` }}>
+        <WebsiteDesignLinksBlock />
+      </div>
+    </section>
+  );
+}
+
 // ─── Featured Works Section ───────────────────────────────────────────────────
 function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string) => void }) {
   const w = useWindowWidth();
@@ -1480,7 +1495,6 @@ function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string
           ))}
           {stickyEnabled && <div style={{ height: `${stackTail}px` }} />}
         </div>
-        <WebsiteDesignLinksBlock />
       </div>
     </section>
   );
@@ -1921,6 +1935,8 @@ export default function HomePage() {
         <div ref={worksRef as React.RefObject<HTMLDivElement>}>
           <FeaturedWorksSection onViewDetails={handleViewDetails} />
         </div>
+
+        <WebsiteDesignSection />
 
         <BigPhotoSection />
 
