@@ -10,8 +10,8 @@ import imgCardWinx from "../../assets/figma-home/card-winx.png";
 import imgCardUnivini from "../../assets/figma-home/card-univini.png";
 import imgCardSignify from "../../assets/figma-home/card-signify.png";
 import imgShowcaseBig from "../../assets/figma-home/showcase-big.png";
-import imgUniLogo from "../../../img/uni-logo.png";
 import imgLogoAcciona from "../../assets/figma-home/logo-supership.png";
+import imgLogoSupership from "../../assets/figma-home/logo-winx.png";
 import imgLogoWinx from "../../assets/figma-home/logo-univini.png";
 import imgLogoUnivini from "../../assets/figma-home/logo-fishmap.png";
 import {
@@ -1611,10 +1611,10 @@ function CompaniesSection() {
               </div>
               <div style={{ flex: 1, minWidth: 0, marginRight: "-1px", border: "1px solid black", height: isMobile ? "80px" : "120px" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", padding: "16px" }}>
-                  <div style={{ position: "relative", width: isMobile ? "95px" : "147px", height: isMobile ? "34px" : "56px" }}>
+                  <div style={{ position: "relative", width: isMobile ? "120px" : "196px", height: isMobile ? "36px" : "60px" }}>
                     <img
-                      src={imgUniLogo}
-                      alt="UniVini"
+                      src={imgLogoSupership}
+                      alt="Supership"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
                     />
                   </div>
