@@ -21,6 +21,7 @@ import {
   LINKEDIN_URL,
   MAILTO_HREF,
   SITE_NAME,
+  SUPERSHIP_ENABLED,
 } from "../config/site";
 import { useWindowWidth } from "../hooks/useWindowWidth";
 
@@ -90,6 +91,8 @@ const works = [
     route: "/work/signify",
   },
 ];
+
+const visibleWorks = works.filter((work) => SUPERSHIP_ENABLED || work.id !== "supership");
 
 // ─── Global CSS ───────────────────────────────────────────────────────────────
 const GLOBAL_CSS = `
@@ -1103,7 +1106,7 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
 
 // ─── Work Card ────────────────────────────────────────────────────────────────
 interface WorkCardProps {
-  work: (typeof works)[0];
+  work: (typeof visibleWorks)[number];
   index: number;
   onViewDetails: (route: string) => void;
   cardRef: (el: HTMLDivElement | null) => void;
@@ -1478,7 +1481,7 @@ function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string
                   minWidth: "48px",
                 }}
               >
-                {activeCard + 1}/{works.length}
+                {activeCard + 1}/{visibleWorks.length}
               </p>
             </div>
           </div>
@@ -1486,7 +1489,7 @@ function FeaturedWorksSection({ onViewDetails }: { onViewDetails: (route: string
 
         {/* ── Stacking cards ── */}
         <div style={{ display: "flex", flexDirection: "column", marginTop: `${CARD_TOP_GAP}px` }}>
-          {works.map((work, i) => (
+          {visibleWorks.map((work, i) => (
             <WorkCard
               key={work.id}
               work={work}

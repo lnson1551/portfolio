@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import svgPaths from "../../imports/svg-wudsbhooqk";
-import { CONTACT_EMAIL, MAILTO_HREF } from "../config/site";
+import { CONTACT_EMAIL, MAILTO_HREF, SUPERSHIP_ENABLED } from "../config/site";
 import { useWindowWidth } from "../hooks/useWindowWidth";
 
 interface DetailPageLayoutProps {
@@ -122,6 +122,13 @@ const DETAIL_CSS = `
   [data-name="Footer"] {
     display: none !important;
   }
+
+  ${!SUPERSHIP_ENABLED ? `
+  /* ── Temporarily hide Supership from "More works" cards ── */
+  [data-name="More Work Container"] a[href="/work/supership"] {
+    display: none !important;
+  }
+  ` : ""}
 
   /* ── Reflection section titles use the same display style as major section headings ── */
   [data-name="ReflectionSection"] > div > p:first-child {

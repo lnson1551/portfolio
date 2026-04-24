@@ -8,7 +8,7 @@ import AccionaDesignSystem from "../imports/AccionaDesignSystem";
 import WinXMembership from "../imports/WinXMembership";
 import UniVini from "../imports/UniVini";
 import Signify from "../imports/Signify";
-import { ACCIONA_SECTIONS, CASE_STUDY_SECTIONS } from "./config/site";
+import { ACCIONA_SECTIONS, CASE_STUDY_SECTIONS, SUPERSHIP_ENABLED } from "./config/site";
 
 function FishmapPage() {
   return (
@@ -19,6 +19,16 @@ function FishmapPage() {
 }
 
 function SupershipPage() {
+  if (!SUPERSHIP_ENABLED) {
+    return (
+      <LockedProjectPage
+        title="Supership"
+        category="Logistics platform"
+        description="This project is temporarily hidden. It will be available again later."
+      />
+    );
+  }
+
   return (
     <DetailPageLayout navSections={CASE_STUDY_SECTIONS}>
       <SupershipLogisticsPlatform />
