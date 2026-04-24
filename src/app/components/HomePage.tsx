@@ -937,7 +937,7 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
               justifyContent: "center",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px", alignItems: isMobile ? "center" : "flex-start" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: isMobile ? "center" : "flex-start", marginBottom: "16px" }}>
               <p
                 style={{
                   fontFamily: DISPLAY_FONT,
@@ -959,7 +959,7 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
                   display: "flex",
                   alignItems: "center",
                   backgroundColor: "white",
-                  padding: isMobile ? "3px 12px" : "4px 12px",
+                  padding: "0 12px",
                   boxShadow: "-6px 9px 0px 0px #000",
                   minWidth: isMobile ? "auto" : "auto",
                   height: boxHeight,
@@ -981,6 +981,8 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
                     color: "#1e1c1c",
                     whiteSpace: "nowrap",
                     flexShrink: 0,
+                    display: "inline-flex",
+                    alignItems: "center",
                   }}
                 >
                   I'm&nbsp;
@@ -1004,6 +1006,8 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
                     border: "none",
                     background: "transparent",
                     minWidth: 0,
+                    height: "100%",
+                    display: "block",
                   }}
                 />
                 <span
@@ -1016,6 +1020,8 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
                     animation: "blink 1s step-end infinite",
                     marginLeft: "-2px",
                     flexShrink: 0,
+                    display: "inline-flex",
+                    alignItems: "center",
                   }}
                 >
                   |
