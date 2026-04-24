@@ -937,7 +937,7 @@ function HeroSection({ name, onNameChange }: HeroSectionProps) {
               justifyContent: "center",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: isMobile ? "center" : "flex-start" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px", alignItems: isMobile ? "center" : "flex-start" }}>
               <p
                 style={{
                   fontFamily: DISPLAY_FONT,
