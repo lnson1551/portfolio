@@ -123,6 +123,15 @@ const DETAIL_CSS = `
     display: none !important;
   }
 
+  /* ── Reflection section titles use the same display style as major section headings ── */
+  [data-name="ReflectionSection"] > div > p:first-child {
+    font-family: 'PP NeueBit', 'PP_NeueBit:Semi_Bold', 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 48px !important;
+    line-height: 56px !important;
+    letter-spacing: 0 !important;
+  }
+
   /* ══════════════════════════════════════════════════════════════
      MOBILE RESPONSIVE OVERRIDES  (< 768px)
      ══════════════════════════════════════════════════════════════ */
@@ -418,6 +427,10 @@ const DETAIL_CSS = `
       font-size: 18px !important;
       line-height: 1.4 !important;
     }
+    [data-name="ReflectionSection"] > div > p:first-child {
+      font-size: 28px !important;
+      line-height: 36px !important;
+    }
     [data-name="TeamBar"] [class*="text-[18px]"] {
       font-size: 16px !important;
       line-height: 24px !important;
@@ -569,6 +582,10 @@ const DETAIL_CSS = `
     [class*="text-[36px]"] {
       font-size: 28px !important;
       line-height: 1.2 !important;
+    }
+    [data-name="ReflectionSection"] > div > p:first-child {
+      font-size: 36px !important;
+      line-height: 44px !important;
     }
   }
 `;
