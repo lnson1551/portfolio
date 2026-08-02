@@ -47,6 +47,7 @@
 
 .article-card__title {
   font-size: var(--text-body-xlarge-size);
+  font-weight: 400;
   line-height: var(--text-body-xlarge-line);
 }
 
