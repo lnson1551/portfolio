@@ -124,7 +124,7 @@
 
 .article-section__figure {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: min(100%, var(--article-image-width, 100%));
   margin: 0;
   padding: 0;
