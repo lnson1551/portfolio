@@ -52,6 +52,7 @@ type BankingPost = {
   title: string;
   category: string;
   href: string;
+  coverSrc: string;
   sections: DetailSection[];
 };
 
@@ -247,6 +248,23 @@ const certificateOfDepositSections: DetailSection[] = [
   },
 ];
 
+const corporateBondSections: DetailSection[] = [
+  {
+    title: "Trái phiếu doanh nghiệp",
+    body: [
+      "Trái phiếu doanh nghiệp là một loại chứng khoán có thời hạn từ 1 năm trở lên, do doanh nghiệp phát hành nhằm huy động vốn.",
+      "Trái phiếu thể hiện cam kết của doanh nghiệp trong việc thanh toán nợ và bảo đảm quyền lợi hợp pháp cho người sở hữu.",
+    ],
+  },
+  {
+    title: "Điểm cần đọc",
+    body: [
+      "Khách hàng cần xem tổ chức phát hành, kỳ hạn, lãi suất, tài sản bảo đảm nếu có, phương thức trả lãi và điều kiện mua bán lại.",
+      "Lợi suất cao hơn thường đi cùng mức rủi ro cao hơn, nên cần hiểu rõ khả năng trả nợ của doanh nghiệp phát hành.",
+    ],
+  },
+];
+
 const foreignExchangeSections: DetailSection[] = [
   {
     title: "Mua ngoại tệ",
@@ -370,72 +388,84 @@ const bankingPosts: BankingPost[] = [
     title: "Lãi suất",
     category: "Cơ bản",
     href: "#/banking-domain/lai-suat",
+    coverSrc: "/assets/figma/banking-covers/lai-suat.png",
     sections: loanInterestFormulaSections,
   },
   {
     title: "Biên độ lãi suất",
     category: "Cơ bản",
     href: "#/banking-domain/bien-do-lai-suat",
+    coverSrc: "/assets/figma/banking-covers/bien-do-lai-suat.png",
     sections: loanMarginSections,
   },
   {
     title: "Xác định hạn vay",
     category: "Cơ bản",
     href: "#/banking-domain/xac-dinh-han-vay",
+    coverSrc: "/assets/figma/banking-covers/xac-dinh-han-vay.png",
     sections: loanTermSections,
   },
   {
     title: "Kỳ hạn trả nợ",
     category: "Cơ bản",
     href: "#/banking-domain/ky-han-tra-no",
+    coverSrc: "/assets/figma/banking-covers/ky-han-tra-no.png",
     sections: repaymentPeriodSections,
   },
   {
     title: "Vay cầm cố tiền gửi",
     category: "Vay",
     href: "#/banking-domain/vay",
+    coverSrc: "/assets/figma/banking-covers/vay-cam-co-tien-gui.png",
     sections: pledgedDepositLoanSections,
   },
   {
     title: "Vay hạn mức thấu chi",
     category: "Vay",
     href: "#/banking-domain/vay-han-muc-thau-chi",
+    coverSrc: "/assets/figma/banking-covers/vay-han-muc-thau-chi.png",
     sections: overdraftLoanSections,
   },
   {
     title: "Tất toán khoản vay",
     category: "Vay",
     href: "#/banking-domain/tat-toan-khoan-vay",
+    coverSrc: "/assets/figma/banking-covers/tat-toan-khoan-vay.png",
     sections: loanSettlementSections,
   },
   {
     title: "Giảm lãi vay tự động",
     category: "Vay",
     href: "#/banking-domain/giam-lai-vay-tu-dong",
+    coverSrc: "/assets/figma/banking-covers/giam-lai-vay-tu-dong.png",
     sections: autoRateReductionSections,
   },
   {
     title: "Chứng chỉ tiền gửi",
     category: "Đầu tư",
     href: "#/banking-domain/chung-chi-tien-gui",
+    coverSrc: "/assets/figma/banking-covers/chung-chi-tien-gui.png",
     sections: certificateOfDepositSections,
   },
   {
-    title: "Giao dịch ngoại tệ",
+    title: "Trái phiếu doanh nghiệp",
     category: "Đầu tư",
-    href: "#/banking-domain/giao-dich-ngoai-te",
-    sections: foreignExchangeSections,
+    href: "#/banking-domain/trai-phieu-doanh-nghiep",
+    coverSrc: "/assets/figma/banking-covers/trai-phieu-doanh-nghiep.png",
+    sections: corporateBondSections,
   },
   {
     title: "Mua và bán ngoại tệ T0",
     category: "Giao dịch ngoại tệ",
     href: "#/banking-domain/mua-ban-ngoai-te-t0",
+    coverSrc: "/assets/figma/banking-covers/mua-ban-ngoai-te-t0.png",
     sections: foreignExchangeSections,
   },
   {
     title: "Chuyển ngoại tệ",
     category: "Giao dịch ngoại tệ",
     href: "#/banking-domain/chuyen-ngoai-te",
+    coverSrc: "/assets/figma/banking-covers/chuyen-ngoai-te.png",
     sections: foreignTransferSections,
   },
 ];
@@ -448,6 +478,7 @@ const bankingSwitcherItemsByCategory = bankingPosts.reduce<Record<string, Articl
 const bankingPostCards = bankingPosts.map((item, index) => ({
   title: item.title,
   href: item.href,
+  coverSrc: item.coverSrc,
   topic: item.category,
   tone: getCardTone(index),
 }));

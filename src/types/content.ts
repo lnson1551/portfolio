@@ -10,6 +10,7 @@ export type ThoughtCard = {
   title: string;
   href: string;
   tone: "mist" | "sage" | "cloud";
+  coverSrc?: string;
   description?: string;
 };
 
@@ -24,6 +25,7 @@ export type IndexCard = {
   title: string;
   href: string;
   tone?: CardTone;
+  coverSrc?: string;
   description?: string;
   topic?: string;
 };

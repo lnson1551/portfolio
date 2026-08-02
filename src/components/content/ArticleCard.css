@@ -19,6 +19,14 @@
     transform var(--duration-base) var(--ease-standard);
 }
 
+.article-card__cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
 .article-card[data-tone="sage"] .article-card__media {
   background-color: color-mix(in srgb, var(--color-sage-100) 35%, var(--color-background-secondary));
 }

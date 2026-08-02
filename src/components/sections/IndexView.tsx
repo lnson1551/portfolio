@@ -39,7 +39,7 @@ export function IndexView({ route }: IndexViewProps) {
                   {group.cards.map((card, index) => (
                     <ArticleCard
                       key={`${route.path}-${card.href}-${card.title}-${index}`}
-                      thought={{ title: card.title, href: card.href, tone: card.tone ?? "mist" }}
+                      thought={{ title: card.title, href: card.href, tone: card.tone ?? "mist", coverSrc: card.coverSrc }}
                     />
                   ))}
                 </div>
@@ -58,7 +58,7 @@ export function IndexView({ route }: IndexViewProps) {
             ) : (
               <ArticleCard
                 key={`${route.path}-${card.href}-${card.title}-${index}`}
-                thought={{ title: card.title, href: card.href, tone: card.tone ?? "mist" }}
+                thought={{ title: card.title, href: card.href, tone: card.tone ?? "mist", coverSrc: card.coverSrc }}
                 description={card.description}
               />
             )
