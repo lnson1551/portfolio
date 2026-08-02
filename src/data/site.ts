@@ -1131,9 +1131,333 @@ const bankingPostCards = bankingPosts.map((item, index) => ({
   tone: getCardTone(index),
 }));
 
+const designTokenSections: DetailSection[] = [
+  {
+    title: "Design Token là gì?",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Khi sản phẩm còn nhỏ, designer có thể dùng trực tiếp các giá trị như #FFFFFF, 16px hay 8px trong từng màn hình. Nhưng khi số lượng màn hình, component và nền tảng tăng lên, việc quản lý những giá trị riêng lẻ này trở nên khó khăn.",
+      },
+      {
+        type: "paragraph",
+        text: "Design Token ra đời để giải quyết vấn đề đó. Một token là một quyết định thiết kế được biểu diễn dưới dạng dữ liệu, gồm một tên duy nhất và một giá trị tương ứng.",
+        segments: [
+          { text: "Design Token ra đời để giải quyết vấn đề đó. Một token là " },
+          { text: "một quyết định thiết kế được biểu diễn dưới dạng dữ liệu", emphasized: true },
+          { text: ", gồm một tên duy nhất và một giá trị tương ứng." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Ví dụ, thay vì nói “hãy dùng màu #FFFFFF cho nền”, nhóm có thể nói “hãy dùng token background-default”. Cách gọi này giúp mọi người hiểu giá trị được dùng để làm gì, thay vì chỉ biết nó là một mã màu.",
+      },
+    ],
+  },
+  {
+    title: "Vì sao sản phẩm cần Design Token?",
+    blocks: [
+      { type: "heading", text: "Giảm quyết định cảm tính" },
+      {
+        type: "paragraph",
+        text: "Designer không phải lặp lại các câu hỏi như khoảng cách nên là 16px hay 20px, radius của button nên là bao nhiêu, hay màu description đang dùng là Neutral-700 hay Neutral-800.",
+      },
+      {
+        type: "paragraph",
+        text: "Token đưa các giá trị vào scale và quy tắc có sẵn. Ví dụ:\nradius-1x = 4px\nradius-2x = 8px\nradius-3x = 12px",
+      },
+      { type: "heading", text: "Tạo ngôn ngữ chung" },
+      {
+        type: "paragraph",
+        text: "Semantic token như text-secondary hoặc background-error-hover giúp designer, developer và product team trao đổi bằng ý nghĩa thiết kế thay vì chỉ gọi tên màu hoặc mã kỹ thuật.",
+      },
+      { type: "heading", text: "Dễ áp dụng thay đổi trên nhiều nền tảng" },
+      {
+        type: "paragraph",
+        text: "Một token như color-background-brand có thể chuyển thành CSS variable trên web, resource trên iOS hoặc Android. Giá trị kỹ thuật có thể khác nhau, nhưng ý nghĩa của token vẫn được giữ nguyên.",
+      },
+      { type: "heading", text: "Hỗ trợ theme và accessibility" },
+      {
+        type: "paragraph",
+        text: "Component chỉ cần dùng background-default. Trong light mode token này có thể trỏ đến neutral-000, trong dark mode có thể trỏ đến neutral-900. Component không cần biết màu thực tế là gì.",
+      },
+    ],
+  },
+  {
+    title: "Các lớp phổ biến",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Một hệ thống token thường có nhiều lớp: Value, Primitive Token, Semantic Token và Component-specific Token.",
+      },
+      {
+        type: "heading",
+        text: "Value",
+      },
+      {
+        type: "paragraph",
+        text: "Value là dữ liệu cuối cùng được dùng để hiển thị giao diện, ví dụ #FFFFFF, 16px, 100% hoặc rgba(0, 0, 0, 0.4).",
+      },
+      {
+        type: "heading",
+        text: "Primitive Token",
+      },
+      {
+        type: "paragraph",
+        text: "Primitive Token lưu trữ các giá trị nền tảng như neutral-000, neutral-900, spacing-200 hoặc radius-200. Lớp này mô tả giá trị là gì, nhưng chưa nói rõ nó được dùng ở đâu.",
+      },
+      {
+        type: "heading",
+        text: "Semantic Token",
+      },
+      {
+        type: "paragraph",
+        text: "Semantic Token mô tả vai trò của giá trị trong giao diện, chẳng hạn background-default, text-primary, border-subtle hoặc icon-disabled.",
+      },
+      {
+        type: "heading",
+        text: "Component-specific Token",
+      },
+      {
+        type: "paragraph",
+        text: "Component-specific Token được tạo cho một component cụ thể như button-background-hover, input-border-focus hoặc progress-track-background.",
+      },
+    ],
+  },
+  {
+    title: "Kiến trúc token",
+    blocks: [
+      {
+        type: "heading",
+        text: "Primitive trực tiếp đến Semantic hoặc Component",
+      },
+      {
+        type: "paragraph",
+        text: "Cấu trúc button-background-default → neutral-000 → #FFFFFF đơn giản và dễ bắt đầu, nhưng khi hệ thống lớn hơn, component có thể phụ thuộc quá nhiều vào primitive.",
+      },
+      {
+        type: "heading",
+        text: "Primitive → Semantic → Component-specific",
+      },
+      {
+        type: "paragraph",
+        text: "Cấu trúc button-background-default → background-default → neutral-000 → #FFFFFF có thêm lớp semantic để thể hiện ý nghĩa. Đây là hướng phù hợp hơn với hệ thống cần nhiều theme, nhiều sản phẩm hoặc nhiều nền tảng.",
+      },
+    ],
+  },
+  {
+    title: "Nguyên tắc sử dụng",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Không sử dụng hard-coded value trực tiếp trong component. Thay vì background: #FFFFFF, hãy dùng background: var(--button-background-default).",
+      },
+      {
+        type: "paragraph",
+        text: "Không để component phụ thuộc trực tiếp vào primitive khi không cần thiết. Button nên phụ thuộc vào ý nghĩa như background-default trước khi trỏ đến neutral-000.",
+      },
+      {
+        type: "paragraph",
+        text: "Ưu tiên Semantic Token cho các giá trị được dùng chung, có cùng ý nghĩa ở nhiều ngữ cảnh hoặc cần hỗ trợ theme.",
+      },
+      {
+        type: "paragraph",
+        text: "Chỉ dùng Component-specific Token khi component có yêu cầu riêng, semantic token hiện tại không mô tả đúng, hoặc component cần khả năng tùy chỉnh độc lập.",
+      },
+    ],
+  },
+  {
+    title: "Kết luận",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Design Token không chỉ là việc đổi tên một mã màu hoặc một giá trị spacing. Đây là phương pháp biến các quyết định thiết kế thành dữ liệu có cấu trúc.",
+      },
+      {
+        type: "list",
+        items: [
+          "Giúp hệ thống nhất quán hơn.",
+          "Giúp designer và developer trao đổi dễ hơn.",
+          "Giảm chi phí bảo trì khi giao diện thay đổi.",
+          "Hỗ trợ nhiều theme, nhiều nền tảng và accessibility.",
+        ],
+      },
+    ],
+  },
+];
+
+const namingConventionSections: DetailSection[] = [
+  {
+    title: "Vì sao Naming Convention quan trọng?",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Một Design System có thể bắt đầu với vài chục token, nhưng nhanh chóng phát triển thành hàng trăm hoặc hàng nghìn token. Nếu mỗi thành viên đặt tên theo một cách khác nhau, hệ thống sẽ rất khó đọc và khó mở rộng.",
+      },
+      {
+        type: "paragraph",
+        text: "Những tên như primary-blue, blue-primary, button-blue, main-color hay brand-color-1 có thể cùng nói về một giá trị nhưng không thể hiện rõ token thuộc nhóm nào, được dùng ở đâu, có vai trò gì hoặc đang mô tả trạng thái nào.",
+      },
+      {
+        type: "paragraph",
+        text: "Naming Convention tạo ra một cấu trúc chung để mọi người có thể đọc, hiểu và dự đoán tên token.",
+        segments: [
+          { text: "Naming Convention tạo ra một cấu trúc chung để mọi người có thể " },
+          { text: "đọc, hiểu và dự đoán tên token", emphasized: true },
+          { text: "." },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Tên token tốt truyền đạt ý nghĩa",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Tên token không nên chỉ mô tả giá trị hiện tại. Ví dụ blue-500 cho biết token liên quan đến màu xanh, nhưng không cho biết nó được dùng cho background, text, border hay icon.",
+      },
+      {
+        type: "paragraph",
+        text: "Ngược lại, color-background-brand cho biết đây là token màu sắc, được dùng cho background và có vai trò brand. Giá trị có thể thay đổi, nhưng mục đích của token vẫn ổn định.",
+      },
+    ],
+  },
+  {
+    title: "Cấu trúc cơ bản",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Một cấu trúc dễ áp dụng là foundation-property-modifier. Ví dụ: color-background-error-hover.",
+      },
+      {
+        type: "heading",
+        text: "Foundation",
+      },
+      {
+        type: "paragraph",
+        text: "Foundation cho biết loại thuộc tính thiết kế như color, space, radius, elevation, font hoặc motion.",
+      },
+      {
+        type: "heading",
+        text: "Property",
+      },
+      {
+        type: "paragraph",
+        text: "Property cho biết token được áp dụng lên thuộc tính nào của giao diện như background, text, border, icon hoặc shadow.",
+      },
+      {
+        type: "heading",
+        text: "Modifier",
+      },
+      {
+        type: "paragraph",
+        text: "Modifier bổ sung vai trò, mức độ nhấn mạnh hoặc trạng thái tương tác như error, hover, disabled, subtle hoặc primary.",
+      },
+    ],
+  },
+  {
+    title: "Mở rộng bằng câu hỏi",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Khi hệ thống lớn hơn, nhóm có thể xây dựng taxonomy dựa trên chuỗi câu hỏi: Where, What, Which, How và When.",
+      },
+      {
+        type: "list",
+        items: [
+          "Where: token thuộc phạm vi nào, ví dụ system, product, brand hoặc theme.",
+          "What: token mô tả thuộc tính nào, ví dụ color, font, space, border hoặc shadow.",
+          "Which: token dành cho component hoặc vai trò nào, ví dụ button, input, primary, danger.",
+          "How: token đang ở trạng thái nào, ví dụ default, hover, focus, pressed, disabled.",
+          "When: token dùng trên loại surface nào, ví dụ on-light, on-dark, raised hoặc lowered.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Mục tiêu không phải tạo tên dài nhất có thể, mà là tạo tên đủ thông tin để phân biệt token một cách rõ ràng.",
+      },
+    ],
+  },
+  {
+    title: "Đặt tên theo từng lớp",
+    blocks: [
+      {
+        type: "heading",
+        text: "Primitive Token",
+      },
+      {
+        type: "paragraph",
+        text: "Primitive thường được đặt theo giá trị hoặc scale như color-neutral-000, color-neutral-900, space-100, space-200, radius-100 và radius-200.",
+      },
+      {
+        type: "heading",
+        text: "Semantic Token",
+      },
+      {
+        type: "paragraph",
+        text: "Semantic nên được đặt theo vai trò sử dụng như color-background-default, color-text-primary hoặc color-border-error. Không nên dùng tên theo màu thực tế như text-gray hoặc button-blue.",
+      },
+      {
+        type: "heading",
+        text: "Component-specific Token",
+      },
+      {
+        type: "paragraph",
+        text: "Component-specific cần thể hiện rõ component, property, role hoặc state, ví dụ button-background-primary-hover hoặc input-border-focus.",
+      },
+    ],
+  },
+  {
+    title: "Nguyên tắc mở rộng",
+    blocks: [
+      {
+        type: "list",
+        items: [
+          "Dùng cùng một thứ tự từ xuyên suốt hệ thống.",
+          "Không đưa giá trị cụ thể vào Semantic Token.",
+          "Chỉ thêm lớp thông tin khi cần thiết.",
+          "Chọn một kiểu phân tách thống nhất.",
+          "Tránh dùng nhiều từ đồng nghĩa cho cùng một ý nghĩa.",
+          "Ưu tiên ngôn ngữ quen thuộc với cả designer và developer.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Viết mô tả cho token",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Tên token không cần chứa toàn bộ tài liệu sử dụng. Mỗi token nên có một mô tả ngắn, trả lời hai câu hỏi: token này đại diện cho điều gì và được dùng ở đâu.",
+      },
+      {
+        type: "paragraph",
+        text: "Ví dụ:\nToken: color-background-hover\nDescription: Màu nền cho trạng thái hover. Được dùng trên card, list item và table row có tương tác.",
+      },
+    ],
+  },
+  {
+    title: "Kết luận",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Naming Convention không chỉ là quy tắc viết tên. Nó là cấu trúc ngôn ngữ của Design System.",
+      },
+      {
+        type: "paragraph",
+        text: "Một tên token tốt không cần mô tả mọi thứ. Nó chỉ cần truyền đạt đúng thông tin, đúng thứ tự và tuân theo một quy luật mà toàn bộ đội ngũ có thể hiểu và sử dụng.",
+      },
+    ],
+  },
+];
+
 const designSystemCards = createCards(
-  ["Tokens", "Atomic component", "Naming convention", "Organize file Figma", "Multiple themes / brands", "Principals"],
-  (title) => (title === "Tokens" ? "#/design-system/tokens" : "#/design-system"),
+  ["Design Token", "Naming Convention"],
+  (title) => (title === "Design Token" ? "#/design-system/tokens" : "#/design-system/naming-convention"),
+  (title) =>
+    title === "Design Token"
+      ? "Biến quyết định thiết kế thành dữ liệu có cấu trúc, dễ bảo trì và mở rộng."
+      : "Cách đặt tên token rõ ràng, dễ nhớ và có thể dự đoán khi hệ thống lớn lên.",
 );
 
 const blogCards = createRepeatedCards(6, "Content blogs", "#/ux-bites/content-blogs");
@@ -1168,7 +1492,8 @@ export const pageRoutes: PageRoute[] = [
     title: "Design system",
     cards: designSystemCards,
   },
-  createArticleRoute("/design-system/tokens", "Tokens", [genericOverview]),
+  createArticleRoute("/design-system/tokens", "Design Token", designTokenSections),
+  createArticleRoute("/design-system/naming-convention", "Naming Convention", namingConventionSections),
   {
     kind: "index",
     path: "/ux-bites",
