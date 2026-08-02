@@ -306,79 +306,152 @@ const foreignTransferSections: DetailSection[] = [
 
 const loanInterestFormulaSections: DetailSection[] = [
   {
-    title: "Lãi suất",
-    body: [
-      "Lãi vay thường được tính theo dư nợ thực tế, lãi suất năm và số ngày sử dụng vốn.",
-      "Công thức tham khảo: Tiền lãi = Dư nợ thực tế x Lãi suất năm x Số ngày vay / 365.",
-    ],
-  },
-  {
-    title: "Ví dụ",
-    body: [
-      "Giả sử khoản vay 300 triệu đồng, thời gian sử dụng vốn 60 ngày và lãi suất giả định 7,5%/năm.",
-      "Tiền lãi tham khảo = 300.000.000 x 7,5% x 60 / 365. Kết quả thực tế phụ thuộc cách tính ngày, lịch trả nợ và điều khoản sản phẩm.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Lãi suất là tỷ lệ phần trăm dùng để tính số tiền người vay phải trả thêm cho ngân hàng, hoặc số tiền ngân hàng trả cho người gửi tiền.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/lai-suat-01.png",
+        alt: "Công thức tính tiền lãi",
+      },
+      {
+        type: "paragraph",
+        text: "Giả sử:\n Vay: 300 triệu đồng.\n Thời gian sử dụng: 60 ngày.\n Lãi suất giả định: 7,5%/năm.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/lai-suat-02.png",
+        alt: "Ví dụ tính tiền lãi",
+      },
     ],
   },
 ];
 
 const loanMarginSections: DetailSection[] = [
   {
-    title: "Biên độ lãi suất",
-    body: [
-      "Biên độ là phần ngân hàng cộng thêm để bù chi phí vốn, rủi ro và lợi nhuận mục tiêu.",
-      "Lãi suất vay = Lãi suất cơ sở + Biên độ.",
-    ],
-  },
-  {
-    title: "Yếu tố ảnh hưởng",
-    body: [
-      "Biên độ phụ thuộc sản phẩm vay, tài sản bảo đảm, hồ sơ tín dụng, thời hạn vay, chính sách từng thời kỳ và quan hệ hiện hữu của khách hàng với ngân hàng.",
-    ],
-  },
-  {
-    title: "Cách áp dụng",
-    body: [
-      "Biên độ có thể cố định, có điều kiện hoặc thay đổi theo từng giai đoạn của khoản vay.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Biên độ = phần ngân hàng cộng thêm để bù chi phí, rủi ro và lợi nhuận mục tiêu.\u2028Lãi suất vay = Lãi suất cơ sở + Biên độ\u2028\nBiên độ thường phản ánh chi phí và mức rủi ro của khoản vay. \nSản phẩm vay.\nTài sản bảo đảm.\nHồ sơ tín dụng của khách hàng.\nThời hạn vay.\nChính sách của ngân hàng.\nMức độ gắn kết của khách hàng với ngân hàng.\u2028\nTùy hợp đồng biên độ có sự thay đổi:\nBiên độ cố định: giữ nguyên trong suốt thời gian vay; chỉ lãi suất cơ sở thay đổi.\nBiên độ có điều kiện: có thể thay đổi khi khách hàng mất ưu đãi hoặc không còn đáp ứng điều kiện.\nBiên độ theo từng giai đoạn: mỗi giai đoạn của khoản vay có một mức khác nhau.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/bien-do-lai-suat-01.png",
+        alt: "Ví dụ biên độ lãi suất",
+      },
     ],
   },
 ];
 
 const loanTermSections: DetailSection[] = [
   {
-    title: "Xác định hạn vay",
-    body: [
-      "Thời hạn vay được xác định dựa trên mục đích vay, loại tài sản bảo đảm, dòng tiền trả nợ và quy định tối đa của từng sản phẩm.",
-      "Ngân hàng cần bảo đảm thời hạn vay phù hợp với khả năng trả nợ thực tế, thay vì chỉ dựa vào mong muốn của khách hàng.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Thời hạn vay là khoảng thời gian tính từ ngày ACB giải ngân đến ngày khách hàng phải hoàn thành toàn bộ nghĩa vụ trả nợ theo hợp đồng.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/xac-dinh-han-vay-01.png",
+        alt: "Ví dụ thời hạn vay",
+      },
+      {
+        type: "paragraph",
+        text: "Đến ngày 31/12/2026, khách hàng phải thanh toán hết phần gốc còn lại, lãi và các nghĩa vụ liên quan.",
+      },
     ],
   },
   {
-    title: "Dựa trên dòng tiền",
-    body: [
-      "Nếu nguồn trả nợ đến từ lương hoặc thu nhập định kỳ, kỳ hạn thường được thiết kế để số tiền trả mỗi kỳ không vượt quá khả năng tài chính của khách hàng.",
-      "Nếu nguồn trả nợ theo mùa vụ hoặc dòng tiền kinh doanh, lịch trả nợ có thể được chia theo chu kỳ phù hợp hơn.",
+    title: "Nguyên tắc",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:\n1. Thời hạn khách hàng đề nghị;\n2. Thời hạn tối đa sản phẩm cho phép;\n3. Thời gian còn lại của sổ tiết kiệm;\n4. Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/xac-dinh-han-vay-02.png",
+        alt: "Nguyên tắc xác định hạn vay 1",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/xac-dinh-han-vay-03.png",
+        alt: "Nguyên tắc xác định hạn vay 2",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/xac-dinh-han-vay-04.png",
+        alt: "Nguyên tắc xác định hạn vay 3",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-basic/xac-dinh-han-vay-05.png",
+        alt: "Nguyên tắc xác định hạn vay 4",
+      },
     ],
   },
 ];
 
 const repaymentPeriodSections: DetailSection[] = [
   {
-    title: "Số kỳ trả nợ",
-    body: [
-      "Số kỳ = Thời hạn vay / Tần suất trả nợ. Ví dụ: khoản vay 5 năm trả hàng tháng sẽ có 60 kỳ.",
-      "Sau khi xác định thời hạn, ngân hàng xác định khách hàng trả nợ hàng tháng, hàng quý, sáu tháng một lần, theo mùa vụ hoặc trả gốc cuối kỳ và trả lãi định kỳ.",
+    title: "Tổng quan",
+    body: ["Là khoảng cách giữa các lần khách hàng phải thanh toán gốc hoặc lãi."],
+  },
+  {
+    title: "Hình thức",
+    blocks: [
+      { type: "heading", text: "Trả cuối kỳ" },
+      {
+        type: "paragraph",
+        text: "Phù hợp khi khách hàng dự kiến có tiền vào một thời điểm xác định.\nVí dụ:\nNgày vay: 1/8.\nNgày đáo hạn: 1/10.\nĐến 1/10 khách hàng trả toàn bộ gốc và lãi.",
+      },
+      { type: "heading", text: "Trả định kỳ" },
+      { type: "paragraph", text: "Phù hợp khi khách hàng có dòng tiền đều:" },
+      { type: "heading", text: "Trả định kỳ" },
+      { type: "paragraph", text: "Trả một phần gốc theo lịch.\nDư nợ giảm dần nên tiền lãi kỳ sau giảm theo." },
     ],
   },
   {
-    title: "Cách chia tiền trả",
+    title: "Số kỳ",
     body: [
-      "Tiền gốc có thể được chia đều cho các kỳ, hoặc tổng số tiền trả mỗi kỳ tương đối bằng nhau tùy phương thức trả nợ.",
-      "Trong một số khoản vay, khách hàng có thể chỉ trả lãi trong thời gian vay và trả toàn bộ gốc ở kỳ cuối.",
+      "Số kỳ của một khoản vay được quyết định chủ yếu bởi:\nSố kỳ = Thời hạn vay ÷ Tần suất trả nợ\u2028\nVí dụ\nThời hạn vay: 5 năm.\nTrả nợ hàng tháng.\nSố kỳ trả nợ: 5 × 12 = 60 kỳ.",
     ],
   },
   {
-    title: "Tái định lãi suất",
+    title: "Lãi suất",
     body: [
-      "Kỳ tái định lãi suất là khoảng thời gian ngân hàng giữ nguyên lãi suất trước khi cập nhật theo công thức hoặc chính sách mới, ví dụ mỗi 3 tháng.",
+      "Khoảng thời gian ngân hàng giữ nguyên mức lãi suất đang áp dụng, trước khi xác định lại lãi suất cho giai đoạn tiếp theo.\nVí dụ khoản vay quy định tái định lãi suất mỗi 3 tháng:\n 01/01–31/03: Áp dụng 9%/năm.\n Ngày 01/04: [BANK] xác định lại lãi suất.\n 01/04–30/06: Áp dụng mức lãi suất mới, chẳng hạn 9,5%/năm.\n Ngày 01/07: Tiếp tục tái định cho kỳ tiếp theo.",
+    ],
+  },
+  {
+    title: "Phương thức trả nợ",
+    blocks: [
+      { type: "heading", text: "Gốc đều" },
+      {
+        type: "paragraph",
+        text: "Tiền gốc được chia đều cho các kỳ:\nGốc mỗi kỳ = Dư nợ ban đầu ÷ Số kỳ\n\nLãi giảm dần vì dư nợ giảm sau mỗi kỳ.",
+      },
+      { type: "heading", text: "Trả góp đều" },
+      {
+        type: "paragraph",
+        text: "Tổng số tiền trả mỗi kỳ tương đối bằng nhau. Trong những kỳ đầu:\n• Phần lãi thường cao hơn.\u2028• Phần gốc thấp hơn.\nVề sau phần gốc tăng và phần lãi giảm.",
+      },
+      { type: "heading", text: "Gốc cuối kỳ" },
+      {
+        type: "paragraph",
+        text: "Trong thời gian vay, khách hàng có thể chỉ trả lãi; đến kỳ cuối mới trả toàn bộ tiền gốc.\nVẫn có nhiều kỳ thanh toán lãi, nhưng chỉ có một kỳ trả gốc lớn.",
+      },
+    ],
+  },
+  {
+    title: "Tần suất trả nợ",
+    body: [
+      "Sau khi xác định thời hạn, ngân hàng xác định khách hàng trả nợ theo:\nHàng tháng.\nHàng quý.\nSáu tháng một lần.\nTheo mùa vụ.\nTrả gốc cuối kỳ, trả lãi định kỳ.\nTrả cả gốc và lãi đều mỗi kỳ.\n\nVí dụ khoản vay 3 năm:\nTrả hàng tháng: 36 kỳ.\nTrả hàng quý: 12 kỳ.\nTrả sáu tháng một lần: 6 kỳ.\nDo đó, hai khoản vay cùng thời hạn nhưng có thể có số kỳ khác nhau.",
     ],
   },
 ];

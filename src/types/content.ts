@@ -32,6 +32,21 @@ export type IndexCard = {
 
 export type DetailSection = {
   title: string;
+  blocks?: Array<
+    | {
+        type: "paragraph";
+        text: string;
+      }
+    | {
+        type: "heading";
+        text: string;
+      }
+    | {
+        type: "image";
+        src: string;
+        alt: string;
+      }
+  >;
   body?: string[];
   items?: Array<{
     title: string;

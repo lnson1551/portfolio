@@ -66,9 +66,22 @@
 }
 
 .article-section__body p,
+.article-section__subheading,
 .article-callout h3,
 .article-callout p {
   margin: 0;
+}
+
+.article-section__body p {
+  white-space: pre-line;
+}
+
+.article-section__subheading {
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-body-xlarge-size);
+  font-weight: 400;
+  line-height: var(--text-body-xlarge-line);
 }
 
 .article-section__items {
