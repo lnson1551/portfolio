@@ -98,11 +98,6 @@
     gap: var(--space-3);
   }
 
-  .page-header__title {
-    font-size: 1.75rem;
-    line-height: 2rem;
-  }
-
   .page-header__mark {
     width: 3rem;
     height: 3rem;
@@ -117,11 +112,6 @@
 
   .page-header__title-row {
     flex: 1 1 auto;
-  }
-
-  .page-header__title {
-    font-size: 1.5rem;
-    line-height: 1.75rem;
   }
 
   .page-header__mark {
