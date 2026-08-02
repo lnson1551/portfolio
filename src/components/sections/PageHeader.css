@@ -1,4 +1,6 @@
 .page-header {
+  position: relative;
+  z-index: 20;
   display: flex;
   flex: 0 0 auto;
   min-height: 6.6875rem;

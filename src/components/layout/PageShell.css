@@ -63,6 +63,11 @@
     overflow: hidden;
   }
 
+  .page-shell .page-header:has(.article-switcher.is-open) {
+    z-index: 100;
+    overflow: visible;
+  }
+
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav:not([data-open="true"]),
   .page-shell[data-mobile-chrome-hidden="true"] .page-header {
     min-height: 0;
