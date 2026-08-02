@@ -42,6 +42,36 @@
   .page-shell__main {
     height: calc(100vh - (var(--space-3) * 2));
   }
+
+  .page-shell .mobile-nav,
+  .page-shell .page-header {
+    overflow: hidden;
+    transition:
+      max-height var(--duration-base) var(--ease-standard),
+      min-height var(--duration-base) var(--ease-standard),
+      padding var(--duration-base) var(--ease-standard),
+      opacity var(--duration-fast) var(--ease-standard),
+      transform var(--duration-base) var(--ease-standard);
+  }
+
+  .page-shell .mobile-nav {
+    max-height: 6rem;
+  }
+
+  .page-shell .page-header {
+    max-height: 14rem;
+  }
+
+  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav,
+  .page-shell[data-mobile-chrome-hidden="true"] .page-header {
+    min-height: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.75rem);
+  }
 }
 
 @media (max-width: 520px) {
