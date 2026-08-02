@@ -18,7 +18,7 @@
 
 .article-view__content {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-8);
   height: 100%;
   min-height: 0;
   align-content: start;
@@ -39,7 +39,6 @@
 .article-section::after {
   content: "";
   grid-column: 2;
-  margin-top: var(--space-6);
   border-bottom: 1px solid var(--color-border-default);
 }
 
