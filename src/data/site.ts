@@ -75,8 +75,8 @@ export const navigationSections: NavigationSection[] = [
   {
     title: "Suy nghĩ",
     items: [
-      { label: "UX bites", href: "#/ux-bites" },
-      { label: "Thinking", href: "#/thinking" },
+      { label: "UX bites", href: "#/ux-bites", comingSoon: true },
+      { label: "Thinking", href: "#/thinking", comingSoon: true },
     ],
   },
 ];

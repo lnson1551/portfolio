@@ -32,13 +32,20 @@ export function Sidebar({ activePath, sections, socialLinks }: SidebarProps) {
             <ul className="sidebar-section__list">
               {section.items.map((item) => (
                 <li key={item.href}>
-                  <a
-                    aria-current={activePath.startsWith(hrefToPath(item.href)) ? "page" : undefined}
-                    className="sidebar-section__link"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </a>
+                  {item.comingSoon ? (
+                    <span className="sidebar-section__link sidebar-section__link--disabled" aria-disabled="true">
+                      <span>{item.label}</span>
+                      <span className="sidebar-section__tag">Coming soon</span>
+                    </span>
+                  ) : (
+                    <a
+                      aria-current={activePath.startsWith(hrefToPath(item.href)) ? "page" : undefined}
+                      className="sidebar-section__link"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

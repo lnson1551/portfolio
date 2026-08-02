@@ -47,7 +47,10 @@
 }
 
 .sidebar-section__link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
   min-height: 1.75rem;
   padding: 0 var(--space-4);
   border-radius: 0.25rem;
@@ -64,6 +67,26 @@
 .sidebar-section__link[aria-current="page"] {
   background: color-mix(in srgb, var(--color-sage-100) 58%, var(--color-background-primary));
   color: var(--color-text-primary);
+}
+
+.sidebar-section__link--disabled {
+  color: var(--color-text-tertiary);
+  cursor: default;
+}
+
+.sidebar-section__link--disabled:hover {
+  background: transparent;
+  color: var(--color-text-tertiary);
+}
+
+.sidebar-section__tag {
+  flex: 0 0 auto;
+  padding: 0.0625rem 0.375rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-sage-100) 50%, var(--color-background-primary));
+  color: var(--color-text-tertiary);
+  font-size: 0.625rem;
+  line-height: 0.875rem;
 }
 
 .sidebar-section__link:focus-visible {

@@ -3,6 +3,7 @@ export type NavigationSection = {
   items: Array<{
     label: string;
     href: string;
+    comingSoon?: boolean;
   }>;
 };
 
