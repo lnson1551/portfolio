@@ -1536,13 +1536,6 @@ export const pageRoutes: PageRoute[] = [
           "In the immortal words of Wu-Tang Clan “Cash rules everything around me—CREAM. Get the money, dollar dollar bill y’all”. Replace the cash bit with money, the dollars with pounds and we approve this message. Whether we like it or not,",
         tone: "sage",
       },
-      {
-        title: "Fishmap",
-        href: "#/projects/fishmap",
-        description:
-          "In the immortal words of Wu-Tang Clan “Cash rules everything around me—CREAM. Get the money, dollar dollar bill y’all”. Replace the cash bit with money, the dollars with pounds and we approve this message. Whether we like it or not,",
-        tone: "cloud",
-      },
     ],
   },
   {
