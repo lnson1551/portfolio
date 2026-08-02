@@ -49,9 +49,9 @@
 .info-section h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: var(--text-title-large-size);
   font-weight: 400;
-  line-height: 2rem;
+  line-height: var(--text-title-large-line);
 }
 
 .info-section__body {
@@ -166,7 +166,7 @@
   }
 
   .info-section h2 {
-    font-size: 1.75rem;
-    line-height: 2rem;
+    font-size: var(--text-title-large-size);
+    line-height: var(--text-title-large-line);
   }
 }
