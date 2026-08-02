@@ -74,8 +74,13 @@
     transform: translateY(-0.75rem);
   }
 
+  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav:not([data-open="true"]) {
+    overflow: hidden;
+  }
+
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav[data-open="true"] {
     max-height: 6rem;
+    overflow: visible;
     padding-top: var(--space-4);
     padding-bottom: var(--space-4);
     opacity: 1;
