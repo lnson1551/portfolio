@@ -52,9 +52,9 @@
   margin: 0;
   color: var(--color-text-primary);
   font-family: var(--font-display);
-  font-size: var(--text-title-large-size);
+  font-size: 2rem;
   font-weight: 600;
-  line-height: var(--text-title-large-line);
+  line-height: 2.5rem;
 }
 
 .article-section__body {
@@ -176,11 +176,6 @@
     gap: var(--space-5);
     padding: 2.5rem var(--space-3) 5rem;
     border-radius: var(--radius-small);
-  }
-
-  .article-section__title {
-    font-size: 1.5rem;
-    line-height: 1.75rem;
   }
 
   .article-callout {
