@@ -2,7 +2,8 @@ import { PageHeader } from "./PageHeader";
 import "./InfoView.css";
 
 const experiences = [
-  { company: "Enosta", date: "(11/2024 - 04/2026)", title: "Product designer" },
+  { company: "ACB Bank", date: "(11/2026 - Present)", title: "Product designer" },
+  { company: "Enosta", date: "(11/2024 - 05/2026)", title: "Product designer" },
   { company: "Freelancer", date: "(05/2024 - 10/2024)", title: "Product designer" },
   { company: "Leonis", date: "(09/2022 - 03/2024)", title: "UX/UI Designer" },
 ];
