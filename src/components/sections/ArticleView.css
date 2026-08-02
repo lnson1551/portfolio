@@ -33,7 +33,7 @@
   display: grid;
   grid-template-columns: minmax(12rem, 17.5rem) minmax(0, 1fr);
   column-gap: 2.5rem;
-  row-gap: var(--space-4);
+  row-gap: var(--space-8);
 }
 
 .article-section::after {
