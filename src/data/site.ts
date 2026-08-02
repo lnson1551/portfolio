@@ -116,7 +116,7 @@ const pledgedDepositLoanSections: DetailSection[] = [
   {
     title: "Dùng sổ đi vay",
     body: [
-      "\"Vay cầm cố tiền gửi\" rộng hơn \"vay cầm cố sổ tiết kiệm\". Sổ hoặc thẻ tiết kiệm chỉ là một loại tài sản thuộc nhóm này.",
+      "“Vay cầm cố tiền gửi” rộng hơn “vay cầm cố sổ tiết kiệm”. Sổ hoặc thẻ tiết kiệm chỉ là một loại tài sản thuộc nhóm này.",
     ],
   },
   genericOverview,
@@ -124,103 +124,368 @@ const pledgedDepositLoanSections: DetailSection[] = [
     title: "Hạn mức vay",
     body: [
       "Theo nhu cầu vay vốn thực tế và lên đến 100% trị giá tài sản cầm cố.",
-      "Cụm từ \"lên đến 100%\" không có nghĩa mọi khách hàng mặc nhiên được vay đúng 100%. Số tiền được duyệt còn phụ thuộc nhu cầu hợp lệ, loại tiền gửi, thời hạn còn lại và nghĩa vụ cần bảo đảm.",
+      "Cụm từ “lên đến 100%”: không có nghĩa mọi khách hàng mặc nhiên được vay đúng 100%.",
+      "Số tiền được duyệt còn phụ thuộc nhu cầu hợp lệ của khách hàng.",
+      "Phụ thuộc loại tiền gửi hoặc giấy tờ có giá.",
+      "Phụ thuộc thời hạn còn lại, đồng tiền, tổ chức phát hành và các nghĩa vụ cần bảo đảm.",
+      "Phải chừa đủ giá trị để xử lý gốc, lãi và nghĩa vụ liên quan theo quy định của sản phẩm.",
     ],
   },
   {
     title: "Điều kiện",
     body: [
-      "Mức vay tối đa 100 triệu/khách. Phải có sổ tiết kiệm. Số tiền vay không được vượt quá sổ tiết kiệm. Thời hạn vay là thời hạn còn lại của sổ tiết kiệm được chọn và không vượt quá 12 tháng.",
-    ],
-  },
-  {
-    title: "Trả trước",
-    body: [
-      "Khách hàng trả thêm một phần tiền gốc trước lịch. Sau đó ngân hàng có thể giảm số tiền phải trả mỗi kỳ nhưng giữ nguyên ngày kết thúc khoản vay, hoặc giữ gần như nguyên số tiền trả mỗi kỳ nhưng rút ngắn số kỳ còn lại.",
-      "Ví dụ: dư nợ 500 triệu đồng, khách hàng trả trước 100 triệu đồng. Từ ngày hạch toán thành công, lãi các ngày tiếp theo chỉ tính trên khoảng 400 triệu đồng.",
-    ],
-  },
-  {
-    title: "Phí trả nợ trước hạn",
-    body: [
-      "Phí trả trước = Số tiền gốc trả trước x Tỷ lệ phí.",
-      "Tỷ lệ phí thường phụ thuộc vào năm thứ mấy của khoản vay, loại sản phẩm vay, khoản trả trước một phần hay toàn bộ, nguồn tiền trả nợ, chính sách hoặc hợp đồng cụ thể.",
-      "Phí có thể giảm dần theo thời gian, chẳng hạn năm đầu cao hơn và những năm sau thấp hơn.",
-    ],
-  },
-  {
-    title: "Tất toán",
-    body: [
-      "Nếu khách hàng trả đủ gốc, lãi và nghĩa vụ liên quan: khoản vay được tất toán, liên kết cầm cố được đóng và tiền gửi được giải tỏa.",
-      "Nếu khách hàng không trả nợ: ngân hàng có quyền xử lý tài sản cầm cố theo hợp đồng và pháp luật. Tiền thu được dùng để thanh toán nghĩa vụ; phần còn dư, nếu có, được xử lý theo thỏa thuận và quy định áp dụng.",
-      "Khách hàng không được tự hiểu rằng khoản vay sẽ kéo dài thêm.",
+      "Mức vay tối đa 100 triệu/khách.",
+      "Phải có sổ tiết kiệm.",
+      "Số tiền vay không được vượt quá sổ tiết kiệm.",
+      "Thời hạn vay là thời hạn còn lại của sổ tiết kiệm được chọn và không vượt quá 12 tháng.",
     ],
   },
 ];
 
 const overdraftLoanSections: DetailSection[] = [
   {
-    title: "Chi tiêu trước trả tiền sau",
+    title: "Tổng quan",
     body: [
-      "Khi tài khoản về 0đ, thanh toán vẫn được chấp nhận.",
-      "Lãi suất chỉ phát sinh trên số tiền bạn đã chi vượt mức và tính theo số ngày thực tế tiền bị âm. Khi tài khoản có tiền, như lương về hoặc nạp tiền vào, hệ thống sẽ tự động trừ để cấn trừ nợ thấu chi.",
+      "Khi tài khoản về 0đ thanh toán vẫn được chấp nhận.",
+      "Lãi suất chỉ phát sinh trên số tiền bạn đã chi vượt mức và tính theo số ngày thực tế tiền bị âm. Khi tài khoản có tiền (lương về, nạp tiền vào), hệ thống sẽ tự động trừ để cấn trừ nợ thấu chi.",
     ],
   },
   {
-    title: "Có 2 loại",
-    items: [
-      { title: "Thấu chi tín chấp", body: "Dựa vào lương và lịch sử tín dụng." },
-      { title: "Thấu chi thế chấp", body: "Dựa vào tài sản tiết kiệm hoặc bất động sản." },
+    title: "Điều kiện",
+    blocks: [
+      { type: "paragraph", text: "Miễn phí lãi nếu thanh toán trước 17 giờ cùng ngày." },
+      { type: "paragraph", text: "Lãi 1.5% khi thanh toán sau 17h." },
+      {
+        type: "paragraph",
+        text: "Là công dân Việt Nam trong độ tuổi quy định (thường từ 18 đến 65 hoặc 70 tuổi), có thu nhập ổn định hoặc tài sản bảo đảm hợp lệ, không có nợ xấu.",
+      },
+      {
+        type: "paragraph",
+        text: "Gồm giấy đề nghị cấp hạn mức thấu chi, CMND/CCCD còn hiệu lực và giấy tờ chứng minh thu nhập hoặc tài sản thế chấp.",
+      },
+      { type: "paragraph", text: "Vay tối đa 12 tháng", segments: [{ text: "Vay tối đa 12 tháng", emphasized: true }] },
     ],
   },
   {
-    title: "Thời gian và điều kiện",
-    body: [
-      "Thời gian tối đa 12 tháng.",
-      "Miễn phí lãi nếu thanh toán trước 17 giờ cùng ngày. Lãi 1.5% khi thanh toán sau 17h.",
-      "Khách hàng là công dân Việt Nam trong độ tuổi quy định, thường từ 18 đến 65 hoặc 70 tuổi, có thu nhập ổn định hoặc tài sản bảo đảm hợp lệ, không có nợ xấu.",
-      "Hồ sơ gồm giấy đề nghị cấp hạn mức thấu chi, CMND/CCCD còn hiệu lực và giấy tờ chứng minh thu nhập hoặc tài sản thế chấp.",
+    title: "Hình thức",
+    blocks: [
+      { type: "paragraph", text: "Có 2 loại" },
+      {
+        type: "paragraph",
+        text: "Thấu chi tín chấp: Dựa vào lương và lịch sử tín dụng",
+        segments: [
+          { text: "Thấu chi tín chấp:", emphasized: true },
+          { text: " Dựa vào lương và lịch sử tín dụng" },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Thấu chi thế chấp: Dựa vào tài sản tiết kiệm, bất động sản",
+        segments: [
+          { text: "Thấu chi thế chấp:", emphasized: true },
+          { text: " Dựa vào tài sản tiết kiệm, bất động sản" },
+        ],
+      },
     ],
   },
 ];
 
 const loanSettlementSections: DetailSection[] = [
   {
-    title: "Trả trước một phần",
-    body: [
-      "Khách hàng trả thêm một phần tiền gốc trước lịch. Ngân hàng có thể giảm số tiền phải trả mỗi kỳ nhưng giữ nguyên ngày kết thúc khoản vay, hoặc giữ gần như nguyên số tiền trả mỗi kỳ nhưng rút ngắn số kỳ còn lại.",
-      "Ví dụ: dư nợ 500 triệu đồng, khách hàng trả trước 100 triệu đồng. Từ ngày hạch toán thành công, lãi các ngày tiếp theo chỉ tính trên khoảng 400 triệu đồng.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Thanh toán đầy đủ các khoản nợ gốc và lãi vay còn lại cho khoản vay trước thời hạn quy định trong hợp đồng vay giữa khách hàng và ngân hàng. Giúp khách hàng giải phóng tài sản bảo đảm (nếu có) và tránh phát sinh thêm lãi vay cho khoản vay còn lại.",
+      },
+      {
+        type: "paragraph",
+        text: "Ví dụ:\nKhách hàng vay ngân hàng 1 tỷ đồng với kỳ hạn 5 năm. Sau 2 năm, khách hàng có đủ khả năng tài chính và muốn thanh toán toàn bộ số tiền gốc và lãi vay còn lại cho khoản vay này. Việc thực hiện thanh toán đầy đủ trước thời hạn 3 năm được gọi là tất toán khoản vay.",
+        segments: [
+          { text: "Ví dụ:", emphasized: true },
+          {
+            text: "\nKhách hàng vay ngân hàng 1 tỷ đồng với kỳ hạn 5 năm. Sau 2 năm, khách hàng có đủ khả năng tài chính và muốn thanh toán toàn bộ số tiền gốc và lãi vay còn lại cho khoản vay này. Việc thực hiện thanh toán đầy đủ trước thời hạn 3 năm được gọi là tất toán khoản vay.",
+          },
+        ],
+      },
+      { type: "list", items: ["Khoản vay đến hạn: 31/12/2026.", "Khách hàng trả hết: 15/11/2026."] },
+      {
+        type: "paragraph",
+        text: "Đây là tất toán trước hạn. Sau khi khách hàng hoàn thành toàn bộ nghĩa vụ, [BANK] thực hiện đóng khoản vay và giải tỏa tài sản bảo đảm theo quy trình.\n* Việc có phí hay không phải căn cứ hợp đồng và biểu phí áp dụng.",
+        segments: [
+          { text: "Đây là tất toán trước hạn. Sau khi khách hàng hoàn thành toàn bộ nghĩa vụ, " },
+          { text: "[BANK] thực hiện đóng khoản vay và giải tỏa tài sản bảo đảm theo quy trình.", emphasized: true },
+          { text: "\n* Việc có phí hay không phải căn cứ hợp đồng và biểu phí áp dụng." },
+        ],
+      },
     ],
   },
   {
-    title: "Tất toán toàn bộ",
-    body: [
-      "Khoản vay kết thúc khi khách hàng thanh toán đủ gốc còn lại, lãi phát sinh đến ngày tất toán, phí trả nợ trước hạn nếu có và các khoản phí liên quan theo hợp đồng.",
-      "Sau khi tất toán, ngân hàng đóng nghĩa vụ khoản vay và giải tỏa tài sản bảo đảm theo quy định áp dụng.",
+    title: "Tất toán trước hạn",
+    blocks: [
+      { type: "heading", text: "1. Trả trước một phần" },
+      { type: "paragraph", text: "Khách hàng trả thêm một phần tiền gốc trước lịch." },
+      { type: "paragraph", text: "Sau đó ngân hàng có thể áp dụng một trong hai cách:" },
+      {
+        type: "list",
+        items: [
+          "Giảm số tiền phải trả mỗi kỳ, nhưng giữ nguyên ngày kết thúc khoản vay.",
+          "Giữ gần như nguyên số tiền trả mỗi kỳ, nhưng rút ngắn số kỳ còn lại.",
+        ],
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-vay/tat-toan-truoc-han.png",
+        alt: "Minh họa trả trước một phần khoản vay",
+      },
+      {
+        type: "paragraph",
+        text: "Ví dụ:\nDư nợ: 500 triệu đồng.\nKhách hàng trả trước 100 triệu đồng.\nTừ ngày hạch toán thành công, lãi các ngày tiếp theo chỉ tính trên khoảng 400 triệu đồng.\n→Trả trước thường giúp giảm tổng tiền lãi.",
+        segments: [
+          { text: "Ví dụ:\nDư nợ: 500 triệu đồng.\nKhách hàng trả trước 100 triệu đồng.\nTừ ngày hạch toán thành công, lãi các ngày tiếp theo chỉ tính trên khoảng 400 triệu đồng.\n" },
+          { text: "→Trả trước thường giúp giảm tổng tiền lãi.", emphasized: true },
+        ],
+      },
+      { type: "heading", text: "2. Khách hàng trả toàn bộ trước hạn" },
+      {
+        type: "list",
+        items: [
+          "Gốc còn lại.",
+          "Lãi phát sinh đến ngày tất toán.",
+          "Phí trả nợ trước hạn, nếu có.",
+          "Các khoản phí hoặc nghĩa vụ còn tồn tại.",
+        ],
+      },
+      { type: "paragraph", text: "Sau khi hoàn tất, khoản vay kết thúc ngay và các kỳ thanh toán còn lại bị hủy." },
     ],
   },
   {
     title: "Phí trả nợ trước hạn",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Phí trả trước = Số tiền gốc trả trước × Tỷ lệ phí",
+        segments: [{ text: "Phí trả trước = Số tiền gốc trả trước × Tỷ lệ phí", emphasized: true }],
+      },
+      { type: "paragraph", text: "Tỷ lệ phí thường phụ thuộc vào:" },
+      {
+        type: "list",
+        items: [
+          "Năm thứ mấy của khoản vay.",
+          "Loại sản phẩm vay.",
+          "Khoản trả trước một phần hay toàn bộ.",
+          "Nguồn tiền trả nợ.",
+          "Chính sách hoặc hợp đồng cụ thể.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "*Phí có thể giảm dần theo thời gian, chẳng hạn năm đầu cao hơn và những năm sau thấp hơn.",
+      },
+    ],
+  },
+  {
+    title: "Giải chấp hoặc xử lý tài sản",
     body: [
-      "Phí trả trước = Số tiền gốc trả trước x Tỷ lệ phí.",
-      "Tỷ lệ phí thường phụ thuộc vào sản phẩm vay, năm thứ mấy của khoản vay, khoản trả trước một phần hay toàn bộ, nguồn tiền trả nợ và chính sách trong từng hợp đồng.",
+      "Sau khi khoản vay được tất toán, ngân hàng thực hiện giải chấp tài sản bảo đảm theo quy trình và trả lại quyền sử dụng tài sản cho khách hàng.",
+      "Nếu khách hàng không hoàn thành nghĩa vụ trả nợ, ngân hàng có thể xử lý tài sản bảo đảm theo hợp đồng và quy định pháp luật để thu hồi gốc, lãi và các nghĩa vụ liên quan.",
     ],
   },
 ];
 
 const autoRateReductionSections: DetailSection[] = [
   {
-    title: "Cơ chế giảm lãi",
-    body: [
-      "Giảm lãi suất vay tự động áp dụng cho khoản vay hiện hữu hoặc khoản vay mới khi khách hàng duy trì số dư không kỳ hạn bình quân theo điều kiện sản phẩm.",
-      "Thời gian áp dụng thường theo từng kỳ tái định lãi suất, ví dụ 03 tháng cho mỗi kỳ.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Giảm lãi suất vay tự động cho khoản vay hiện hữu hoặc khoản vay mới khi duy trì số dư không kỳ hạn bình quân.",
+      },
+      {
+        type: "paragraph",
+        text: "Thời gian áp dụng: 03 tháng cho mỗi kỳ tái định lãi suất.",
+        segments: [
+          { text: "Thời gian áp dụng:", emphasized: true },
+          { text: " 03 tháng cho mỗi kỳ tái định lãi suất." },
+        ],
+      },
+      { type: "paragraph", text: "Điều kiện:", segments: [{ text: "Điều kiện:", emphasized: true }] },
+      {
+        type: "list",
+        items: [
+          "Không có nợ quá hạn từ nhóm 2 - 5.",
+          "Số dư tiền gửi không kỳ hạn bình quân 03 tháng ≥ 10 triệu đồng.",
+          "Khoản vay còn ít nhất một kỳ tái định và không tham gia chương trình giảm lãi suất khác.",
+        ],
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-vay/giam-lai-vay-tu-dong.png",
+        alt: "Minh họa giảm lãi vay tự động",
+      },
+    ],
+  },
+];
+
+const creditCardSections: DetailSection[] = [
+  {
+    title: "Không cần thế chấp",
+    blocks: [
+      { type: "paragraph", text: "Khác với thẻ ghi nợ (Debit):", segments: [{ text: "Khác với thẻ ghi nợ (Debit):", emphasized: true }] },
+      {
+        type: "list",
+        items: ["Thẻ ghi nợ sử dụng tiền có sẵn trong tài khoản.", "Thẻ tín dụng sử dụng hạn mức do ngân hàng cấp."],
+      },
+      { type: "paragraph", text: "Rút tiền mặt, trả thiếu hoặc trả trễ có thể phát sinh phí và lãi." },
     ],
   },
   {
-    title: "Điều kiện",
-    body: [
-      "Hệ thống ghi nhận số dư bình quân, đối chiếu với mức điều kiện và tự động xác định phần ưu đãi nếu khoản vay đủ tiêu chí.",
-      "Ưu đãi có thể thay đổi theo chính sách, loại khoản vay, thời hạn còn lại và hồ sơ khách hàng.",
+    title: "Tổng quan",
+    blocks: [
+      { type: "paragraph", text: "Thẻ tín dụng là một hạn mức vay quay vòng do [BANK] cấp:" },
+      {
+        type: "paragraph",
+        text: "[BANK] cấp hạn mức → khách hàng chi tiêu/rút tiền → phát sinh dư nợ → [BANK] chốt sao kê → khách hàng thanh toán → hạn mức được phục hồi.",
+        segments: [
+          {
+            text: "[BANK] cấp hạn mức → khách hàng chi tiêu/rút tiền → phát sinh dư nợ → [BANK] chốt sao kê → khách hàng thanh toán → hạn mức được phục hồi.",
+            emphasized: true,
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Hạn mức khả dụng: Là số tiền khách hàng còn có thể sử dụng tại thời điểm xem. Sau khi khách hàng trả nợ và khoản tiền được ACB ghi nhận, hạn mức sẽ được phục hồi tương ứng.",
+        segments: [
+          { text: "Hạn mức khả dụng:", emphasized: true },
+          {
+            text: " Là số tiền khách hàng còn có thể sử dụng tại thời điểm xem. Sau khi khách hàng trả nợ và khoản tiền được ACB ghi nhận, hạn mức sẽ được phục hồi tương ứng.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Đăng ký: ACB ONE → Thẻ → Đăng ký thẻ tín dụng → Chọn sản phẩm → Xác nhận thông tin → Xác thực → Chờ kết quả",
+        segments: [
+          { text: "Đăng ký:", emphasized: true },
+          { text: " ACB ONE → Thẻ → Đăng ký thẻ tín dụng → Chọn sản phẩm → Xác nhận thông tin → Xác thực → Chờ kết quả" },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Vượt hạn mức: 0,1%/ngày trên số tiền vượt hạn mức, tối thiểu 10.000 đồng.",
+        segments: [
+          { text: "Vượt hạn mức:", emphasized: true },
+          { text: " 0,1%/ngày trên số tiền vượt hạn mức, tối thiểu 10.000 đồng." },
+        ],
+      },
+      { type: "paragraph", text: "Cấp thẻ: Nhận tại quầy / Giao tận nơi" },
+    ],
+  },
+  {
+    title: "Điều kiện mở thẻ",
+    blocks: [
+      { type: "heading", text: "Hình thức tín chấp theo thu nhập" },
+      {
+        type: "list",
+        items: [
+          "Công dân Việt Nam từ 18 tuổi.",
+          "Cư trú tại khu vực [BANK] hoạt động.",
+          "Có công việc và thu nhập ổn định.",
+          "Thời gian công tác thường từ 6–12 tháng.",
+          "Thu nhập tham khảo: Hà Nội và TP.HCM từ khoảng 7 triệu đồng/tháng; các tỉnh, thành khác từ khoảng 5 triệu đồng/tháng.",
+          "Có lịch sử tín dụng phù hợp và đáp ứng tiêu chí nội bộ của ACB.",
+          "CIC và lịch sử trả nợ.",
+          "Tổng nghĩa vụ nợ hiện tại.",
+          "Đơn vị công tác.",
+          "Thời gian làm việc.",
+          "Mức thu nhập thực nhận.",
+          "Quan hệ hiện hữu với [BANK].",
+          "Loại thẻ và hạn mức khách hàng đăng ký.",
+        ],
+      },
+      { type: "heading", text: "Hình thức có tài sản bảo đảm" },
+      {
+        type: "list",
+        items: [
+          "Khách hàng dùng tài sản được ACB chấp thuận để bảo đảm cho hạn mức thẻ, chẳng hạn: tiền gửi hoặc sổ tiết kiệm, giấy tờ có giá, hoặc một số tài sản khác theo chính sách từng thời kỳ.",
+          "ACB công bố nhóm khách hàng này có thể gồm công dân Việt Nam hoặc người nước ngoài từ 18 tuổi, cư trú hợp pháp tại Việt Nam.",
+          "Tài sản và tỷ lệ cấp hạn mức phải được ACB thẩm định, chấp thuận.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Loại thẻ",
+    blocks: [
+      { type: "heading", text: "1. Thẻ tín dụng nội địa: ACB Express – Napas" },
+      {
+        type: "list",
+        items: [
+          "Chi tiêu trong nước.",
+          "Nhu cầu tài chính ngắn hạn.",
+          "Rút tiền mặt.",
+          "Khách hàng ưu tiên mức lãi thấp hơn một số thẻ quốc tế.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "*ACB hiện giới thiệu ACB Express với lãi suất trong hạn 20%/năm và miễn phí rút tiền mặt theo điều kiện sản phẩm.",
+      },
+      { type: "heading", text: "2. Thẻ tín dụng quốc tế: Visa, Mastercard, JCB" },
+      {
+        type: "list",
+        items: ["Thanh toán trong và ngoài nước.", "Thanh toán online.", "Du lịch.", "Hoàn tiền hoặc tích điểm.", "Ưu đãi đối tác quốc tế."],
+      },
+    ],
+  },
+  {
+    title: "Cách thanh toán",
+    blocks: [
+      { type: "heading", text: "1. Trả toàn bộ dư nợ sao kê" },
+      { type: "paragraph", text: "Khách hàng thanh toán toàn bộ số tiền đã chốt trên sao kê trước ngày đến hạn." },
+      { type: "list", items: ["Tránh phí không thanh toán tối thiểu.", "Hạn mức được phục hồi."] },
+      { type: "heading", text: "2. Trả số tiền tối thiểu" },
+      { type: "paragraph", text: "Khách hàng chỉ trả mức tối thiểu ghi trên sao kê." },
+      {
+        type: "list",
+        items: ["Tránh được tình trạng không trả khoản tối thiểu.", "Phần dư nợ chưa trả tiếp tục bị tính lãi theo điều khoản thẻ."],
+      },
+      { type: "paragraph", text: "*Người dùng dễ rơi vào vòng lặp dư nợ kéo dài." },
+      { type: "heading", text: "3. Trả một số tiền tùy chọn" },
+      { type: "paragraph", text: "Khách hàng trả nhiều hơn mức tối thiểu nhưng ít hơn toàn bộ dư nợ sao kê." },
+      {
+        type: "list",
+        items: [
+          "Dư nợ sao kê: 10 triệu đồng.",
+          "Tối thiểu cần trả: 1 triệu đồng.",
+          "Khách hàng trả: 6 triệu đồng.",
+          "Dư nợ còn lại: 4 triệu đồng, cộng lãi/phí.",
+        ],
+      },
+      { type: "heading", text: "4. Trích nợ tự động" },
+      { type: "paragraph", text: "Khách hàng đăng ký để ACB tự động lấy tiền từ tài khoản thanh toán vào kỳ đến hạn." },
+      { type: "list", items: ["Trích toàn bộ dư nợ.", "Trích số tiền tối thiểu."] },
+    ],
+  },
+  {
+    title: "Phí và lãi",
+    blocks: [
+      { type: "paragraph", text: "Thẻ khác nhau phí khác nhau." },
+      {
+        type: "paragraph",
+        text: "*Lãi suất quá hạn được công bố bằng 150% lãi suất trong hạn.",
+        segments: [
+          { text: "*Lãi suất quá hạn được công bố bằng " },
+          { text: "150%", emphasized: true },
+          { text: " lãi suất trong hạn." },
+        ],
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-vay/tin-dung-phi-lai.png",
+        alt: "Bảng phí và lãi thẻ tín dụng",
+      },
     ],
   },
 ];
@@ -646,6 +911,13 @@ const bankingPosts: BankingPost[] = [
     href: "#/banking-domain/giam-lai-vay-tu-dong",
     coverSrc: "/assets/figma/banking-covers/giam-lai-vay-tu-dong.svg",
     sections: autoRateReductionSections,
+  },
+  {
+    title: "Tín dụng",
+    category: "Vay",
+    href: "#/banking-domain/tin-dung",
+    coverSrc: "/assets/figma/banking-covers/tin-dung.svg",
+    sections: creditCardSections,
   },
   {
     title: "Chứng chỉ tiền gửi",
