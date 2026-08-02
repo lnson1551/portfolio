@@ -24,6 +24,7 @@
 .article-card__cover {
   display: block;
   width: min(96px, 32%);
+  max-height: 96px;
   height: auto;
   object-fit: contain;
 }

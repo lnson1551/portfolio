@@ -1,7 +1,5 @@
-<svg width="360" height="216" viewBox="0 0 360 216" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="360" height="216" rx="12" fill="#F3F3F3"/>
-  <path d="M134 82C134 74.268 140.268 68 148 68H212C219.732 68 226 74.268 226 82V134C226 141.732 219.732 148 212 148H148C140.268 148 134 141.732 134 134V82Z" fill="#BBBBBB"/>
-  <path d="M150 91H210" stroke="white" stroke-width="8" stroke-linecap="round"/>
-  <path d="M151 124H174" stroke="white" stroke-width="8" stroke-linecap="round"/>
-  <path d="M190 124H209" stroke="white" stroke-width="8" stroke-linecap="round"/>
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="72" height="79.95" viewBox="0 0 72 79.95" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="vector">
+<path id="vector_2" d="M60 0H12C5.36 0 0 5.32 0 11.88V55.52C0 62.08 5.36 67.4 12 67.4H15.04C18.24 67.4 21.28 68.64 23.52 70.88L30.36 77.64C33.48 80.72 38.56 80.72 41.68 77.64L48.52 70.88C50.76 68.64 53.84 67.4 57 67.4H60C66.64 67.4 72 62.08 72 55.52V11.88C72 5.32 66.64 0 60 0ZM36 15C41.16 15 45.32 19.16 45.32 24.32C45.32 29.48 41.16 33.64 36 33.64C30.84 33.64 26.68 29.44 26.68 24.32C26.68 19.16 30.84 15 36 15ZM46.72 52.24H25.28C22.04 52.24 20.16 48.64 21.96 45.96C24.68 41.92 29.96 39.2 36 39.2C42.04 39.2 47.32 41.92 50.04 45.96C51.84 48.64 49.92 52.24 46.72 52.24Z" fill="#FF732D"/>
+</g>
 </svg>
