@@ -5,6 +5,7 @@ import "./MobileNav.css";
 
 type MobileNavProps = {
   activePath: string;
+  onOpenChange?: (isOpen: boolean) => void;
   sections: NavigationSection[];
 };
 
@@ -12,11 +13,16 @@ function hrefToPath(href: string) {
   return href.replace(/^#/, "");
 }
 
-export function MobileNav({ activePath, sections }: MobileNavProps) {
+export function MobileNav({ activePath, onOpenChange, sections }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  function setMenuOpen(nextOpen: boolean) {
+    setIsOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  }
+
   return (
-    <header className="mobile-nav">
+    <header className="mobile-nav" data-open={isOpen}>
       <div className="mobile-nav__bar">
         <BrandMark />
         <button
@@ -25,7 +31,7 @@ export function MobileNav({ activePath, sections }: MobileNavProps) {
           aria-label="Open navigation"
           className="mobile-nav__toggle"
           type="button"
-          onClick={() => setIsOpen((current) => !current)}
+          onClick={() => setMenuOpen(!isOpen)}
         >
           <span aria-hidden="true" />
           <span aria-hidden="true" />
@@ -43,7 +49,7 @@ export function MobileNav({ activePath, sections }: MobileNavProps) {
                   className="mobile-nav__link"
                   href={item.href}
                   key={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </a>

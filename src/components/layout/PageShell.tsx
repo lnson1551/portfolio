@@ -55,7 +55,15 @@ export function PageShell({ activePath, children }: PageShellProps) {
     <div className="page-shell" data-mobile-chrome-hidden={isMobileChromeHidden}>
       <Sidebar activePath={activePath} sections={navigationSections} socialLinks={socialLinks} />
       <div className="page-shell__main" onScrollCapture={handleScrollCapture}>
-        <MobileNav activePath={activePath} sections={navigationSections} />
+        <MobileNav
+          activePath={activePath}
+          sections={navigationSections}
+          onOpenChange={(isOpen) => {
+            if (isOpen) {
+              setMobileChromeState({ hidden: false, path: activePath });
+            }
+          }}
+        />
         {children}
       </div>
     </div>

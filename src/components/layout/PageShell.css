@@ -45,7 +45,6 @@
 
   .page-shell .mobile-nav,
   .page-shell .page-header {
-    overflow: hidden;
     transition:
       max-height var(--duration-base) var(--ease-standard),
       min-height var(--duration-base) var(--ease-standard),
@@ -56,13 +55,15 @@
 
   .page-shell .mobile-nav {
     max-height: 6rem;
+    overflow: visible;
   }
 
   .page-shell .page-header {
     max-height: 14rem;
+    overflow: hidden;
   }
 
-  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav,
+  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav:not([data-open="true"]),
   .page-shell[data-mobile-chrome-hidden="true"] .page-header {
     min-height: 0;
     max-height: 0;
@@ -71,6 +72,15 @@
     opacity: 0;
     pointer-events: none;
     transform: translateY(-0.75rem);
+  }
+
+  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav[data-open="true"] {
+    max-height: 6rem;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
   }
 }
 
@@ -82,5 +92,10 @@
   .page-shell__main {
     height: calc(100vh - (var(--space-2) * 2));
     border-radius: 1.125rem;
+  }
+
+  .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav[data-open="true"] {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
   }
 }
