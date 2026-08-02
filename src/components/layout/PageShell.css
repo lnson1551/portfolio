@@ -18,13 +18,6 @@
   overflow: hidden;
 }
 
-@media (min-width: 1500px) {
-  .page-shell {
-    grid-template-columns: var(--sidebar-width) minmax(0, var(--content-max-width));
-    justify-content: center;
-  }
-}
-
 @media (max-width: 1180px) {
   .page-shell {
     grid-template-columns: 13rem minmax(0, 1fr);
