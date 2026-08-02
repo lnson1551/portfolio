@@ -12,7 +12,7 @@ type PageShellProps = {
 export function PageShell({ activePath, children }: PageShellProps) {
   const [mobileChromeState, setMobileChromeState] = useState({ hidden: false, path: activePath });
   const lastScrollRef = useRef({ path: activePath, top: 0 });
-  const mobileChromeLockUntilRef = useRef(0);
+  const mobileChromeSettleTimerRef = useRef<number | null>(null);
   const snapFrameRef = useRef<number | null>(null);
   const isMobileChromeHidden = mobileChromeState.path === activePath && mobileChromeState.hidden;
 
@@ -24,6 +24,11 @@ export function PageShell({ activePath, children }: PageShellProps) {
         window.cancelAnimationFrame(snapFrameRef.current);
         snapFrameRef.current = null;
       }
+
+      if (mobileChromeSettleTimerRef.current !== null) {
+        window.clearTimeout(mobileChromeSettleTimerRef.current);
+        mobileChromeSettleTimerRef.current = null;
+      }
     };
   }, [activePath]);
 
@@ -33,9 +38,17 @@ export function PageShell({ activePath, children }: PageShellProps) {
         return current;
       }
 
-      mobileChromeLockUntilRef.current = performance.now() + 360;
       return { hidden, path: activePath };
     });
+  }
+
+  function clearMobileChromeSettleTimer() {
+    if (mobileChromeSettleTimerRef.current === null) {
+      return;
+    }
+
+    window.clearTimeout(mobileChromeSettleTimerRef.current);
+    mobileChromeSettleTimerRef.current = null;
   }
 
   function snapMobileChromeToTop(scrollTarget: HTMLElement) {
@@ -58,6 +71,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
       scrollTarget.closest(".mobile-nav__menu") ||
       document.querySelector(".article-switcher.is-open")
     ) {
+      clearMobileChromeSettleTimer();
       return;
     }
 
@@ -66,6 +80,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
     }
 
     if (!window.matchMedia("(max-width: 900px)").matches) {
+      clearMobileChromeSettleTimer();
       setMobileChromeHidden(false);
       return;
     }
@@ -74,43 +89,33 @@ export function PageShell({ activePath, children }: PageShellProps) {
     const previousScrollTop = lastScrollRef.current.top;
     const isScrollingTowardTop = nextScrollTop < previousScrollTop;
 
-    if (isMobileChromeHidden && isScrollingTowardTop && nextScrollTop < 96) {
-      snapMobileChromeToTop(scrollTarget);
-      lastScrollRef.current = { path: activePath, top: 0 };
-      setMobileChromeHidden(false);
-      return;
-    }
-
-    if (nextScrollTop < 32) {
-      lastScrollRef.current = { path: activePath, top: nextScrollTop };
-      setMobileChromeHidden(false);
-      return;
-    }
-
-    if (performance.now() < mobileChromeLockUntilRef.current) {
-      lastScrollRef.current = { ...lastScrollRef.current, path: activePath, top: nextScrollTop };
-      return;
-    }
-
     if (lastScrollRef.current.path !== activePath) {
       lastScrollRef.current = { path: activePath, top: nextScrollTop };
       setMobileChromeHidden(false);
       return;
     }
 
-    if (!isMobileChromeHidden && nextScrollTop > 144) {
-      setMobileChromeHidden(true);
-      lastScrollRef.current = { path: activePath, top: nextScrollTop };
-      return;
-    }
-
-    if (isMobileChromeHidden && nextScrollTop < 48) {
-      setMobileChromeHidden(false);
-      lastScrollRef.current = { path: activePath, top: nextScrollTop };
-      return;
-    }
-
     lastScrollRef.current = { path: activePath, top: nextScrollTop };
+    clearMobileChromeSettleTimer();
+    mobileChromeSettleTimerRef.current = window.setTimeout(() => {
+      mobileChromeSettleTimerRef.current = null;
+
+      if (document.querySelector(".article-switcher.is-open")) {
+        return;
+      }
+
+      const settledScrollTop = scrollTarget.scrollTop;
+
+      if (settledScrollTop < 32 || (isMobileChromeHidden && isScrollingTowardTop && settledScrollTop < 112)) {
+        snapMobileChromeToTop(scrollTarget);
+        setMobileChromeHidden(false);
+        return;
+      }
+
+      if (!isMobileChromeHidden && settledScrollTop > 180) {
+        setMobileChromeHidden(true);
+      }
+    }, 140);
   }
 
   return (
@@ -122,7 +127,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
           sections={navigationSections}
           onOpenChange={(isOpen) => {
             if (isOpen) {
-              mobileChromeLockUntilRef.current = performance.now() + 360;
+              clearMobileChromeSettleTimer();
               setMobileChromeState({ hidden: false, path: activePath });
             }
           }}
