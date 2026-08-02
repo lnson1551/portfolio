@@ -1,0 +1,62 @@
+export type NavigationSection = {
+  title: string;
+  items: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
+export type ThoughtCard = {
+  title: string;
+  href: string;
+  tone: "mist" | "sage" | "cloud";
+  description?: string;
+};
+
+export type HeroStatement = {
+  eyebrow: string;
+  lines: string[];
+};
+
+export type CardTone = "mist" | "sage" | "cloud";
+
+export type IndexCard = {
+  title: string;
+  href: string;
+  tone?: CardTone;
+  description?: string;
+  topic?: string;
+};
+
+export type DetailSection = {
+  title: string;
+  body?: string[];
+  items?: Array<{
+    title: string;
+    body?: string;
+  }>;
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+
+export type ArticleSwitcherItem = {
+  title: string;
+  href: string;
+};
+
+export type ArticleRoute = {
+  kind: "article";
+  path: string;
+  title: string;
+  sections: DetailSection[];
+  switcherItems?: ArticleSwitcherItem[];
+  currentItemTitle?: string;
+};
+
+export type PageRoute =
+  | { kind: "home"; path: string; title: string }
+  | { kind: "index"; path: string; title: string; cards: IndexCard[]; layout?: "grid" | "grouped" | "project-list" }
+  | ArticleRoute
+  | { kind: "info"; path: string; title: string };

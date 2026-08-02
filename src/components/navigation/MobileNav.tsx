@@ -1,0 +1,57 @@
+import { useState } from "react";
+import type { NavigationSection } from "../../types/content";
+import { BrandMark } from "../content/BrandMark";
+import "./MobileNav.css";
+
+type MobileNavProps = {
+  activePath: string;
+  sections: NavigationSection[];
+};
+
+function hrefToPath(href: string) {
+  return href.replace(/^#/, "");
+}
+
+export function MobileNav({ activePath, sections }: MobileNavProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="mobile-nav">
+      <div className="mobile-nav__bar">
+        <BrandMark />
+        <button
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
+          aria-label="Open navigation"
+          className="mobile-nav__toggle"
+          type="button"
+          onClick={() => setIsOpen((current) => !current)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+      </div>
+      <nav className="mobile-nav__menu" data-open={isOpen} id="mobile-navigation" aria-label="Primary navigation">
+        {sections.map((section) => (
+          <section className="mobile-nav__section" key={section.title}>
+            <p className="mobile-nav__section-title">{section.title}</p>
+            <div className="mobile-nav__links">
+              {section.items.map((item) => (
+                <a
+                  aria-current={activePath.startsWith(hrefToPath(item.href)) ? "page" : undefined}
+                  className="mobile-nav__link"
+                  href={item.href}
+                  key={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </nav>
+    </header>
+  );
+}

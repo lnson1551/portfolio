@@ -1,0 +1,70 @@
+.recent-thoughts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: var(--space-6);
+  align-items: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-small);
+  background: var(--color-background-primary);
+}
+
+.recent-thoughts__title {
+  display: grid;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.recent-thoughts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+@media (max-width: 1180px) {
+  .recent-thoughts {
+    gap: var(--space-5);
+    padding: var(--space-5);
+  }
+
+  .recent-thoughts__grid {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 900px) {
+  .recent-thoughts {
+    grid-template-columns: 1fr;
+  }
+
+  .recent-thoughts__title {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .recent-thoughts {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+  }
+
+  .recent-thoughts__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 420px) {
+  .recent-thoughts {
+    padding: var(--space-4);
+  }
+
+  .recent-thoughts__title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}

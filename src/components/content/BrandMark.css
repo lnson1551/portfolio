@@ -1,0 +1,38 @@
+.brand-mark {
+  display: inline-block;
+  height: 1.5rem;
+  aspect-ratio: 208 / 24;
+}
+
+.brand-mark__vector {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-mark__part {
+  position: absolute;
+  display: block;
+}
+
+.brand-mark__part--left {
+  top: 0;
+  left: 0;
+  width: 52.218%;
+  height: 81.177%;
+}
+
+.brand-mark__part--mark {
+  top: 6.47%;
+  left: 52.7%;
+  width: 9.619%;
+  height: 83.333%;
+}
+
+.brand-mark__part--right {
+  top: 1.18%;
+  left: 63.19%;
+  width: 36.811%;
+  height: 98.823%;
+}

@@ -1,0 +1,28 @@
+.home-view {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 0;
+  align-content: start;
+  height: 100%;
+  overflow: hidden;
+  padding: var(--space-3);
+  border-radius: var(--radius-large);
+  background: var(--color-background-secondary);
+}
+
+@media (max-width: 900px) {
+  .home-view {
+    grid-template-rows: auto auto;
+    overflow-y: auto;
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 520px) {
+  .home-view {
+    padding: var(--space-2);
+  }
+}
