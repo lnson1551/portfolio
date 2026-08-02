@@ -50,7 +50,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-title-large-size);
-  font-weight: 600;
+  font-weight: 500;
   line-height: var(--text-title-large-line);
 }
 
@@ -90,7 +90,7 @@
 .experience-item strong {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5rem;
 }
 

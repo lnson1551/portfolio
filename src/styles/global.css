@@ -3,9 +3,9 @@
 @font-face {
   font-family: "Hahmlet";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-display: swap;
-  src: url("/fonts/hahmlet-semibold.ttf") format("truetype");
+  src: url("/fonts/hahmlet-medium.ttf") format("truetype");
 }
 
 * {
