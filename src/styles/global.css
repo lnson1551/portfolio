@@ -1,11 +1,11 @@
 @import "./tokens.css";
 
 @font-face {
-  font-family: "Abhaya Libre";
+  font-family: "Hahmlet";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("/fonts/abhaya-libre-semibold.ttf") format("truetype");
+  src: url("/fonts/hahmlet-semibold.ttf") format("truetype");
 }
 
 * {

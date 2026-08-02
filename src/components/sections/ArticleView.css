@@ -52,9 +52,9 @@
   margin: 0;
   color: var(--color-text-primary);
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: var(--text-title-large-size);
   font-weight: 600;
-  line-height: 2.5rem;
+  line-height: var(--text-title-large-line);
 }
 
 .article-section__body {
@@ -78,7 +78,7 @@
 }
 
 .article-section__body strong {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .article-section__list {
