@@ -46,9 +46,6 @@
   .page-shell .mobile-nav,
   .page-shell .page-header {
     transition:
-      max-height var(--duration-base) var(--ease-standard),
-      min-height var(--duration-base) var(--ease-standard),
-      padding var(--duration-base) var(--ease-standard),
       opacity var(--duration-fast) var(--ease-standard),
       transform var(--duration-base) var(--ease-standard);
   }
