@@ -124,7 +124,7 @@
 }
 
 .article-section__figure {
-  width: 100%;
+  width: min(100%, var(--article-image-width, 100%));
   margin: 0;
   padding: var(--space-2);
   border-radius: 0.25rem;

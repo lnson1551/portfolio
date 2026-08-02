@@ -1,4 +1,5 @@
 import type { ArticleRoute } from "../../types/content";
+import type { CSSProperties } from "react";
 import { ArticleSwitcher } from "./ArticleSwitcher";
 import { PageHeader } from "./PageHeader";
 import "./ArticleView.css";
@@ -21,7 +22,11 @@ export function ArticleView({ route }: ArticleViewProps) {
 
         if (block.type === "image") {
           return (
-            <figure className="article-section__figure" key={key}>
+            <figure
+              className="article-section__figure"
+              key={key}
+              style={block.width ? ({ "--article-image-width": block.width } as CSSProperties) : undefined}
+            >
               <img className="article-section__image" src={block.src} alt={block.alt} />
             </figure>
           );
@@ -89,7 +94,10 @@ export function ArticleView({ route }: ArticleViewProps) {
           </div>
         ) : null}
         {section.image ? (
-          <figure className="article-section__figure">
+          <figure
+            className="article-section__figure"
+            style={section.image.width ? ({ "--article-image-width": section.image.width } as CSSProperties) : undefined}
+          >
             <img className="article-section__image" src={section.image.src} alt={section.image.alt} />
           </figure>
         ) : null}

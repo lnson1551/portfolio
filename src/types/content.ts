@@ -57,6 +57,7 @@ export type DetailSection = {
         type: "image";
         src: string;
         alt: string;
+        width?: string;
       }
   >;
   body?: string[];
@@ -67,6 +68,7 @@ export type DetailSection = {
   image?: {
     src: string;
     alt: string;
+    width?: string;
   };
 };
 

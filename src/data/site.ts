@@ -492,40 +492,134 @@ const creditCardSections: DetailSection[] = [
 
 const certificateOfDepositSections: DetailSection[] = [
   {
-    title: "Chứng chỉ tiền gửi",
-    body: [
-      "[BANK] phát hành chứng chỉ tiền gửi với đơn vị tính mệnh giá, ví dụ 1 chứng chỉ tiền gửi = 1 triệu VND.",
-      "Một lần phát hành thường theo lô, có lợi suất, ngày phát hành và ngày đáo hạn được xác định trước.",
+    title: "Cho bank mượn tiền",
+    blocks: [
+      { type: "paragraph", text: "Cách [BANK] dùng vốn:", segments: [{ text: "Cách [BANK] dùng vốn:", emphasized: true }] },
+      {
+        type: "paragraph",
+        text: "Bạn đầu tư vào Chứng chỉ tiền gửi → [BANK] huy động nguồn vốn → nguồn vốn được sử dụng theo quy định để phục vụ hoạt động ngân hàng.",
+      },
+      {
+        type: "list",
+        items: [
+          "Cấp tín dụng.",
+          "Cung ứng dịch vụ tài chính.",
+          "Quản lý thanh khoản và các hoạt động kinh doanh ngân hàng khác theo quy định.",
+        ],
+      },
     ],
   },
   {
-    title: "Khác gì sổ tiết kiệm",
-    body: [
-      "Sổ tiết kiệm thường yêu cầu nắm giữ đến ngày đáo hạn để nhận đúng lãi suất kỳ hạn. Nếu rút trước hạn, khách hàng có thể chỉ nhận lãi không kỳ hạn.",
-      "Chứng chỉ tiền gửi có thể được nắm giữ đến đáo hạn hoặc bán trước hạn theo cơ chế sản phẩm. Phần lãi nhận được phụ thuộc thời gian nắm giữ và quy định bán lại.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "[BANK] phát hành một loại giấy tờ gọi là CCTG với đơn vị tính mệnh giá: 1 CCTG = 1 triệu VND.",
+      },
+      {
+        type: "paragraph",
+        text: "Một lần phát hành sẽ theo lô có nhiều CCTG. Mỗi lô gắn với lợi suất sinh lời cụ thể và có ngày đáo hạn, tương tự tiết kiệm.",
+      },
+      {
+        type: "paragraph",
+        text: "*Sản phẩm CCTG này đang tập trung vào luồng bán trước hạn.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-investment/chung-chi-tien-gui.png",
+        alt: "Minh họa chứng chỉ tiền gửi",
+        width: "22.25rem",
+      },
     ],
   },
   {
-    title: "Ngân hàng dùng vốn",
+    title: "Điều kiện",
     body: [
-      "Ngân hàng phát hành chứng chỉ tiền gửi để huy động vốn, phân bổ vốn cho hoạt động tín dụng hoặc đầu tư, sau đó thanh toán gốc và lãi cho khách hàng theo cam kết sản phẩm.",
+      "User gửi tiết kiệm phải giữ theo thời hạn cụ thể mới hưởng được lãi tốt. Nếu rút tiết kiệm trước hạn, bất kể sớm hay muộn, khoản tiền thường chỉ được tính lãi không kỳ hạn khoảng 0.01–0.5% theo chính sách chung.",
+      "User mua CCTG có thể giữ đến đáo hạn để nhận tiền lời hoặc bán trước hạn CCTG linh hoạt để nhận lãi theo thời gian nắm giữ. Ví dụ 3 ngày được 3%, 10 ngày được 4%, 15 ngày được 5%, tùy chính sách sản phẩm.",
+    ],
+  },
+  {
+    title: "Tham gia",
+    body: [
+      "Số tiền tối thiểu là 10 triệu đồng và theo bội số 1 triệu đồng, tương đương ít nhất 10 CCTG.",
+      "Thời điểm tham gia phụ thuộc ngày đáo hạn của CCTG hoặc hạn bán.",
+      "Có phí giao dịch.",
+      "Giao dịch mua bán thực hiện trong khung thời gian quy định, thường từ thứ 2 đến thứ 6 trong giờ hành chính.",
     ],
   },
 ];
 
 const corporateBondSections: DetailSection[] = [
   {
-    title: "Trái phiếu doanh nghiệp",
-    body: [
-      "Trái phiếu doanh nghiệp là một loại chứng khoán có thời hạn từ 1 năm trở lên, do doanh nghiệp phát hành nhằm huy động vốn.",
-      "Trái phiếu thể hiện cam kết của doanh nghiệp trong việc thanh toán nợ và bảo đảm quyền lợi hợp pháp cho người sở hữu.",
+    title: "Tổng quan",
+    blocks: [
+      {
+        type: "paragraph",
+        text:
+          "Trái phiếu doanh nghiệp được hiểu là một loại chứng khoán có thời hạn từ 1 năm trở lên, do doanh nghiệp phát hành nhằm huy động vốn. Trái phiếu này thể hiện cam kết của doanh nghiệp trong việc thanh toán nợ và đảm bảo quyền lợi hợp pháp cho người sở hữu.",
+      },
+      {
+        type: "image",
+        src: "/assets/figma/banking-investment/trai-phieu-doanh-nghiep.png",
+        alt: "Minh họa trái phiếu doanh nghiệp",
+      },
     ],
   },
   {
-    title: "Điểm cần đọc",
+    title: "Đặc điểm",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Kỳ hạn của trái phiếu: Tùy thuộc vào nhu cầu sử dụng vốn của mỗi doanh nghiệp để xác định kỳ hạn của mỗi đợt phát hành trái phiếu.",
+        segments: [
+          { text: "Kỳ hạn của trái phiếu:", emphasized: true },
+          { text: " Tùy thuộc vào nhu cầu sử dụng vốn của mỗi doanh nghiệp để xác định kỳ hạn của mỗi đợt phát hành trái phiếu." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Số lượng phát hành: Doanh nghiệp được tự do quyết định số lượng phát hành trái phiếu, căn cứ trên nhu cầu sử dụng vốn và khả năng huy động trên thị trường tương ứng với từng thời kỳ.",
+        segments: [
+          { text: "Số lượng phát hành:", emphasized: true },
+          {
+            text: " Doanh nghiệp được tự do quyết định số lượng phát hành trái phiếu, căn cứ trên nhu cầu sử dụng vốn và khả năng huy động trên thị trường tương ứng với từng thời kỳ.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Mệnh giá trái phiếu: Đối với thị trường trong nước, mệnh giá trái phiếu là 100.000 VNĐ hoặc bội số của 100.000 VNĐ.",
+        segments: [
+          { text: "Mệnh giá trái phiếu:", emphasized: true },
+          { text: " Đối với thị trường trong nước, mệnh giá trái phiếu là 100.000 VNĐ hoặc bội số của 100.000 VNĐ." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Hình thức phát hành: Bút toán ghi nợ, chứng chỉ hoặc dữ liệu điện tử, tùy theo quyết định của doanh nghiệp tại thời kỳ phát hành.",
+        segments: [
+          { text: "Hình thức phát hành:", emphasized: true },
+          { text: " Bút toán ghi nợ, chứng chỉ hoặc dữ liệu điện tử, tùy theo quyết định của doanh nghiệp tại thời kỳ phát hành." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "So với cổ phiếu, trái phiếu có độ rủi ro thấp hơn. Trong trường hợp doanh nghiệp phá sản, nhà đầu tư trái phiếu được ưu tiên thanh toán trước cổ đông.",
+      },
+      {
+        type: "paragraph",
+        text: "Trường hợp giá trái phiếu tăng, nhà đầu tư có thể bán trái phiếu với giá cao hơn, từ đó tạo ra lợi nhuận chênh lệch.",
+      },
+    ],
+  },
+  {
+    title: "Tham gia",
     body: [
-      "Khách hàng cần xem tổ chức phát hành, kỳ hạn, lãi suất, tài sản bảo đảm nếu có, phương thức trả lãi và điều kiện mua bán lại.",
-      "Lợi suất cao hơn thường đi cùng mức rủi ro cao hơn, nên cần hiểu rõ khả năng trả nợ của doanh nghiệp phát hành.",
+      "Số tiền tối thiểu là 10 triệu đồng và theo bội số 1 triệu đồng.",
+      "Thời điểm giao dịch phụ thuộc ngày đáo hạn hoặc hạn bán của sản phẩm.",
+      "Có phí giao dịch.",
+      "Giao dịch mua bán thực hiện trong khung thời gian quy định, thường từ thứ 2 đến thứ 6 trong giờ hành chính.",
     ],
   },
 ];
