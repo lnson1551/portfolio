@@ -626,39 +626,114 @@ const corporateBondSections: DetailSection[] = [
 
 const foreignExchangeSections: DetailSection[] = [
   {
-    title: "Mua ngoại tệ",
-    body: [
-      "Khách hàng mua ngoại tệ từ ngân hàng theo tỷ giá bán ra để phục vụ nhu cầu thanh toán quốc tế, du lịch, du học hoặc chuyển tiền ra nước ngoài.",
+    title: "Tổng quan",
+    blocks: [
+      { type: "paragraph", text: "Mua ngoại tệ:", segments: [{ text: "Mua ngoại tệ:", emphasized: true }] },
+      {
+        type: "list",
+        items: [
+          "Khách hàng mua ngoại tệ từ ngân hàng hoặc tổ chức tài chính theo tỷ giá bán ra.",
+          "Phục vụ nhu cầu thanh toán quốc tế, du lịch, du học, chuyển tiền ra nước ngoài.",
+        ],
+      },
+      { type: "paragraph", text: "Bán ngoại tệ:", segments: [{ text: "Bán ngoại tệ:", emphasized: true }] },
+      {
+        type: "list",
+        items: [
+          "Khách hàng bán ngoại tệ cho ngân hàng theo tỷ giá mua vào.",
+          "Chuyển đổi ngoại tệ sang nội tệ (VND).",
+        ],
+      },
+      { type: "paragraph", text: "Tỷ giá", segments: [{ text: "Tỷ giá", emphasized: true }] },
+      {
+        type: "list",
+        items: [
+          "Tỷ giá mua vào / bán ra do ngân hàng niêm yết, dựa trên tỷ giá trung tâm của NHNN.",
+          "Tỉ giá trên màn hình chỉ là tham khảo, tỉ giá cuối là khi ngân hàng thực hiện giao dịch.",
+        ],
+      },
     ],
   },
   {
-    title: "Bán ngoại tệ",
-    body: [
-      "Khách hàng bán ngoại tệ cho ngân hàng theo tỷ giá mua vào để chuyển đổi ngoại tệ sang VND hoặc loại tiền được hỗ trợ.",
+    title: "Điều kiện",
+    blocks: [
+      { type: "paragraph", text: "Khách hàng cần:" },
+      {
+        type: "list",
+        items: [
+          "Có tài khoản ngoại tệ tại [BANK].",
+          "Có đủ số dư ngoại tệ khả dụng.",
+          "Có tài khoản VND để nhận tiền.",
+          "Thực hiện trong thời gian giao dịch mà hệ thống hỗ trợ.",
+        ],
+      },
+      { type: "paragraph", text: "Tại [BANK] công bố thời gian giao dịch:" },
+      { type: "list", items: ["Thứ Hai đến Thứ Sáu: 8:00–17:30.", "Thứ Bảy: 8:00–12:00."] },
     ],
   },
   {
-    title: "Tỷ giá",
-    body: [
-      "Tỷ giá mua vào và bán ra do ngân hàng niêm yết, tham chiếu theo thị trường và tỷ giá trung tâm của Ngân hàng Nhà nước.",
-      "Tỷ giá trên màn hình chỉ mang tính tham khảo; tỷ giá cuối cùng là tỷ giá tại thời điểm ngân hàng thực hiện giao dịch.",
+    title: "Hình thức",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Giao ngay (Spot): Mua/bán với tỷ giá hiện tại, thanh toán trong 2 ngày làm việc.",
+        segments: [
+          { text: "Giao ngay (Spot):", emphasized: true },
+          { text: " Mua/bán với tỷ giá hiện tại, thanh toán trong 2 ngày làm việc." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Kỳ hạn (Forward): Thỏa thuận tỷ giá trước, thực hiện tại thời điểm tương lai.",
+        segments: [
+          { text: "Kỳ hạn (Forward):", emphasized: true },
+          { text: " Thỏa thuận tỷ giá trước, thực hiện tại thời điểm tương lai." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Hoán đổi (Swap): Kết hợp mua và bán cùng loại ngoại tệ với kỳ hạn khác nhau.",
+        segments: [
+          { text: "Hoán đổi (Swap):", emphasized: true },
+          { text: " Kết hợp mua và bán cùng loại ngoại tệ với kỳ hạn khác nhau." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Quyền chọn (Option): Quyền mua/bán ngoại tệ tại tỷ giá thỏa thuận trước.",
+        segments: [
+          { text: "Quyền chọn (Option):", emphasized: true },
+          { text: " Quyền mua/bán ngoại tệ tại tỷ giá thỏa thuận trước." },
+        ],
+      },
     ],
   },
 ];
 
 const foreignTransferSections: DetailSection[] = [
   {
-    title: "Chuyển ngoại tệ",
-    body: [
-      "Khách hàng chuyển ngoại tệ từ tài khoản ngoại tệ theo mục đích hợp lệ và trong phạm vi loại tiền được ngân hàng hỗ trợ.",
-      "Giao dịch cần đủ số dư khả dụng, thông tin người nhận và chứng từ theo yêu cầu của từng mục đích chuyển tiền.",
-    ],
-  },
-  {
-    title: "Điều kiện",
-    body: [
-      "Khách hàng có tài khoản ngoại tệ tại ngân hàng, có đủ số dư ngoại tệ khả dụng và có tài khoản VND hoặc tài khoản liên quan để ghi nhận phí, chênh lệch hoặc khoản quy đổi nếu phát sinh.",
-      "Thời gian xử lý phụ thuộc khung giờ giao dịch, loại ngoại tệ, kênh thực hiện và quy định kiểm soát ngoại hối.",
+    title: "Tổng quan",
+    blocks: [
+      { type: "paragraph", text: "Chuyển ngoại tệ có hai lựa chọn:" },
+      {
+        type: "list",
+        items: [
+          "Trong [BANK]: chuyển ngoại tệ đến tài khoản ngoại tệ mở tại [BANK].",
+          "Ngoài [BANK]: chuyển đến tài khoản tại ngân hàng khác.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Người nhận: Chỉ cho chọn tài khoản thụ hưởng đã được đăng ký/xác minh. Tìm kiếm tên công ty để chọn người nhận.",
+        segments: [
+          { text: "Người nhận:", emphasized: true },
+          { text: " Chỉ cho chọn tài khoản thụ hưởng đã được đăng ký/xác minh. Tìm kiếm tên công ty để chọn người nhận." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "*Phí giao dịch cùng ngân hàng [BANK] miễn phí, khác ngân hàng tuỳ ngân hàng quyết định.",
+      },
     ],
   },
 ];
