@@ -50,6 +50,10 @@ export type DetailSection = {
         items: string[];
       }
     | {
+        type: "ordered-list";
+        items: string[];
+      }
+    | {
         type: "image";
         src: string;
         alt: string;

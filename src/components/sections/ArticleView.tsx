@@ -20,7 +20,11 @@ export function ArticleView({ route }: ArticleViewProps) {
         const key = `${section.title}-${block.type}-${index}`;
 
         if (block.type === "image") {
-          return <img className="article-section__image" src={block.src} alt={block.alt} key={key} />;
+          return (
+            <figure className="article-section__figure" key={key}>
+              <img className="article-section__image" src={block.src} alt={block.alt} />
+            </figure>
+          );
         }
 
         if (block.type === "heading") {
@@ -38,6 +42,16 @@ export function ArticleView({ route }: ArticleViewProps) {
                 <li key={`${key}-${item}`}>{item}</li>
               ))}
             </ul>
+          );
+        }
+
+        if (block.type === "ordered-list") {
+          return (
+            <ol className="article-section__list article-section__list--ordered" key={key}>
+              {block.items.map((item) => (
+                <li key={`${key}-${item}`}>{item}</li>
+              ))}
+            </ol>
           );
         }
 
@@ -74,7 +88,11 @@ export function ArticleView({ route }: ArticleViewProps) {
             ))}
           </div>
         ) : null}
-        {section.image ? <img className="article-section__image" src={section.image.src} alt={section.image.alt} /> : null}
+        {section.image ? (
+          <figure className="article-section__figure">
+            <img className="article-section__image" src={section.image.src} alt={section.image.alt} />
+          </figure>
+        ) : null}
       </>
     );
   }

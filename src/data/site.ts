@@ -411,15 +411,21 @@ const loanTermSections: DetailSection[] = [
     blocks: [
       {
         type: "paragraph",
-        text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:\n1. Thời hạn khách hàng đề nghị;\n2. Thời hạn tối đa sản phẩm cho phép;\n3. Thời gian còn lại của sổ tiết kiệm;\n4. Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
+        text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:",
         segments: [
           {
-            text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:\n",
+            text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:",
             emphasized: true,
           },
-          {
-            text: "1. Thời hạn khách hàng đề nghị;\n2. Thời hạn tối đa sản phẩm cho phép;\n3. Thời gian còn lại của sổ tiết kiệm;\n4. Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
-          },
+        ],
+      },
+      {
+        type: "ordered-list",
+        items: [
+          "Thời hạn khách hàng đề nghị;",
+          "Thời hạn tối đa sản phẩm cho phép;",
+          "Thời gian còn lại của sổ tiết kiệm;",
+          "Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
         ],
       },
       {
@@ -465,7 +471,7 @@ const repaymentPeriodSections: DetailSection[] = [
       },
       { type: "heading", text: "2. Trả định kỳ" },
       { type: "list", items: ["Phù hợp khi khách hàng có dòng tiền đều:"] },
-      { type: "heading", text: "3. Trả định kỳ" },
+      { type: "heading", text: "3. Trả gốc định kỳ" },
       { type: "list", items: ["Trả một phần gốc theo lịch.", "Dư nợ giảm dần nên tiền lãi kỳ sau giảm theo."] },
     ],
   },
