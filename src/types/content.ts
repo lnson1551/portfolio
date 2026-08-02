@@ -36,10 +36,18 @@ export type DetailSection = {
     | {
         type: "paragraph";
         text: string;
+        segments?: Array<{
+          text: string;
+          emphasized?: boolean;
+        }>;
       }
     | {
         type: "heading";
         text: string;
+      }
+    | {
+        type: "list";
+        items: string[];
       }
     | {
         type: "image";

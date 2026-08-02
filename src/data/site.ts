@@ -319,7 +319,11 @@ const loanInterestFormulaSections: DetailSection[] = [
       },
       {
         type: "paragraph",
-        text: "Giả sử:\n Vay: 300 triệu đồng.\n Thời gian sử dụng: 60 ngày.\n Lãi suất giả định: 7,5%/năm.",
+        text: "Giả sử:",
+      },
+      {
+        type: "list",
+        items: ["Vay: 300 triệu đồng.", "Thời gian sử dụng: 60 ngày.", "Lãi suất giả định: 7,5%/năm."],
       },
       {
         type: "image",
@@ -336,7 +340,43 @@ const loanMarginSections: DetailSection[] = [
     blocks: [
       {
         type: "paragraph",
-        text: "Biên độ = phần ngân hàng cộng thêm để bù chi phí, rủi ro và lợi nhuận mục tiêu.\u2028Lãi suất vay = Lãi suất cơ sở + Biên độ\u2028\nBiên độ thường phản ánh chi phí và mức rủi ro của khoản vay. \nSản phẩm vay.\nTài sản bảo đảm.\nHồ sơ tín dụng của khách hàng.\nThời hạn vay.\nChính sách của ngân hàng.\nMức độ gắn kết của khách hàng với ngân hàng.\u2028\nTùy hợp đồng biên độ có sự thay đổi:\nBiên độ cố định: giữ nguyên trong suốt thời gian vay; chỉ lãi suất cơ sở thay đổi.\nBiên độ có điều kiện: có thể thay đổi khi khách hàng mất ưu đãi hoặc không còn đáp ứng điều kiện.\nBiên độ theo từng giai đoạn: mỗi giai đoạn của khoản vay có một mức khác nhau.",
+        text: "Biên độ = phần ngân hàng cộng thêm để bù chi phí, rủi ro và lợi nhuận mục tiêu.\nLãi suất vay = Lãi suất cơ sở + Biên độ",
+        segments: [
+          {
+            text: "Biên độ = phần ngân hàng cộng thêm để bù chi phí, rủi ro và lợi nhuận mục tiêu.\n",
+          },
+          {
+            text: "Lãi suất vay = Lãi suất cơ sở + Biên độ",
+            emphasized: true,
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Biên độ thường phản ánh chi phí và mức rủi ro của khoản vay.",
+      },
+      {
+        type: "list",
+        items: [
+          "Sản phẩm vay.",
+          "Tài sản bảo đảm.",
+          "Hồ sơ tín dụng của khách hàng.",
+          "Thời hạn vay.",
+          "Chính sách của ngân hàng.",
+          "Mức độ gắn kết của khách hàng với ngân hàng.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Tùy hợp đồng biên độ có sự thay đổi:",
+      },
+      {
+        type: "list",
+        items: [
+          "Biên độ cố định: giữ nguyên trong suốt thời gian vay; chỉ lãi suất cơ sở thay đổi.",
+          "Biên độ có điều kiện: có thể thay đổi khi khách hàng mất ưu đãi hoặc không còn đáp ứng điều kiện.",
+          "Biên độ theo từng giai đoạn: mỗi giai đoạn của khoản vay có một mức khác nhau.",
+        ],
       },
       {
         type: "image",
@@ -372,6 +412,15 @@ const loanTermSections: DetailSection[] = [
       {
         type: "paragraph",
         text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:\n1. Thời hạn khách hàng đề nghị;\n2. Thời hạn tối đa sản phẩm cho phép;\n3. Thời gian còn lại của sổ tiết kiệm;\n4. Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
+        segments: [
+          {
+            text: "Thời hạn vay được duyệt = Giá trị nhỏ nhất của:\n",
+            emphasized: true,
+          },
+          {
+            text: "1. Thời hạn khách hàng đề nghị;\n2. Thời hạn tối đa sản phẩm cho phép;\n3. Thời gian còn lại của sổ tiết kiệm;\n4. Các giới hạn khác theo chính sách và hồ sơ khách hàng.",
+          },
+        ],
       },
       {
         type: "image",
@@ -405,43 +454,96 @@ const repaymentPeriodSections: DetailSection[] = [
   {
     title: "Hình thức",
     blocks: [
-      { type: "heading", text: "Trả cuối kỳ" },
+      { type: "heading", text: "1. Trả cuối kỳ" },
       {
         type: "paragraph",
-        text: "Phù hợp khi khách hàng dự kiến có tiền vào một thời điểm xác định.\nVí dụ:\nNgày vay: 1/8.\nNgày đáo hạn: 1/10.\nĐến 1/10 khách hàng trả toàn bộ gốc và lãi.",
+        text: "Phù hợp khi khách hàng dự kiến có tiền vào một thời điểm xác định.\nVí dụ:",
       },
-      { type: "heading", text: "Trả định kỳ" },
-      { type: "paragraph", text: "Phù hợp khi khách hàng có dòng tiền đều:" },
-      { type: "heading", text: "Trả định kỳ" },
-      { type: "paragraph", text: "Trả một phần gốc theo lịch.\nDư nợ giảm dần nên tiền lãi kỳ sau giảm theo." },
+      {
+        type: "list",
+        items: ["Ngày vay: 1/8.", "Ngày đáo hạn: 1/10.", "Đến 1/10 khách hàng trả toàn bộ gốc và lãi."],
+      },
+      { type: "heading", text: "2. Trả định kỳ" },
+      { type: "list", items: ["Phù hợp khi khách hàng có dòng tiền đều:"] },
+      { type: "heading", text: "3. Trả định kỳ" },
+      { type: "list", items: ["Trả một phần gốc theo lịch.", "Dư nợ giảm dần nên tiền lãi kỳ sau giảm theo."] },
     ],
   },
   {
     title: "Số kỳ",
-    body: [
-      "Số kỳ của một khoản vay được quyết định chủ yếu bởi:\nSố kỳ = Thời hạn vay ÷ Tần suất trả nợ\u2028\nVí dụ\nThời hạn vay: 5 năm.\nTrả nợ hàng tháng.\nSố kỳ trả nợ: 5 × 12 = 60 kỳ.",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Số kỳ của một khoản vay được quyết định chủ yếu bởi:\nSố kỳ = Thời hạn vay ÷ Tần suất trả nợ",
+        segments: [
+          {
+            text: "Số kỳ của một khoản vay được quyết định chủ yếu bởi:\n",
+          },
+          {
+            text: "Số kỳ = Thời hạn vay ÷ Tần suất trả nợ",
+            emphasized: true,
+          },
+        ],
+      },
+      { type: "paragraph", text: "Ví dụ" },
+      {
+        type: "list",
+        items: ["Thời hạn vay: 5 năm.", "Trả nợ hàng tháng.", "Số kỳ trả nợ: 5 × 12 = 60 kỳ."],
+      },
     ],
   },
   {
     title: "Lãi suất",
-    body: [
-      "Khoảng thời gian ngân hàng giữ nguyên mức lãi suất đang áp dụng, trước khi xác định lại lãi suất cho giai đoạn tiếp theo.\nVí dụ khoản vay quy định tái định lãi suất mỗi 3 tháng:\n 01/01–31/03: Áp dụng 9%/năm.\n Ngày 01/04: [BANK] xác định lại lãi suất.\n 01/04–30/06: Áp dụng mức lãi suất mới, chẳng hạn 9,5%/năm.\n Ngày 01/07: Tiếp tục tái định cho kỳ tiếp theo.",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Khoảng thời gian ngân hàng giữ nguyên mức lãi suất đang áp dụng, trước khi xác định lại lãi suất cho giai đoạn tiếp theo.\nVí dụ khoản vay quy định tái định lãi suất mỗi 3 tháng:",
+      },
+      {
+        type: "list",
+        items: [
+          "01/01–31/03: Áp dụng 9%/năm.",
+          "Ngày 01/04: [BANK] xác định lại lãi suất.",
+          "01/04–30/06: Áp dụng mức lãi suất mới, chẳng hạn 9,5%/năm.",
+          "Ngày 01/07: Tiếp tục tái định cho kỳ tiếp theo.",
+        ],
+      },
     ],
   },
   {
     title: "Phương thức trả nợ",
     blocks: [
-      { type: "heading", text: "Gốc đều" },
+      { type: "heading", text: "1. Gốc đều" },
       {
         type: "paragraph",
         text: "Tiền gốc được chia đều cho các kỳ:\nGốc mỗi kỳ = Dư nợ ban đầu ÷ Số kỳ\n\nLãi giảm dần vì dư nợ giảm sau mỗi kỳ.",
+        segments: [
+          {
+            text: "Tiền gốc được chia đều cho các kỳ:\n",
+          },
+          {
+            text: "Gốc mỗi kỳ = Dư nợ ban đầu ÷ Số kỳ\n",
+            emphasized: true,
+          },
+          {
+            text: "\nLãi giảm dần vì dư nợ giảm sau mỗi kỳ.",
+          },
+        ],
       },
-      { type: "heading", text: "Trả góp đều" },
+      { type: "heading", text: "2. Trả góp đều" },
       {
         type: "paragraph",
-        text: "Tổng số tiền trả mỗi kỳ tương đối bằng nhau. Trong những kỳ đầu:\n• Phần lãi thường cao hơn.\u2028• Phần gốc thấp hơn.\nVề sau phần gốc tăng và phần lãi giảm.",
+        text: "Tổng số tiền trả mỗi kỳ tương đối bằng nhau. Trong những kỳ đầu:",
       },
-      { type: "heading", text: "Gốc cuối kỳ" },
+      {
+        type: "list",
+        items: ["Phần lãi thường cao hơn.", "Phần gốc thấp hơn."],
+      },
+      {
+        type: "paragraph",
+        text: "Về sau phần gốc tăng và phần lãi giảm.",
+      },
+      { type: "heading", text: "3. Gốc cuối kỳ" },
       {
         type: "paragraph",
         text: "Trong thời gian vay, khách hàng có thể chỉ trả lãi; đến kỳ cuối mới trả toàn bộ tiền gốc.\nVẫn có nhiều kỳ thanh toán lãi, nhưng chỉ có một kỳ trả gốc lớn.",
@@ -450,8 +552,34 @@ const repaymentPeriodSections: DetailSection[] = [
   },
   {
     title: "Tần suất trả nợ",
-    body: [
-      "Sau khi xác định thời hạn, ngân hàng xác định khách hàng trả nợ theo:\nHàng tháng.\nHàng quý.\nSáu tháng một lần.\nTheo mùa vụ.\nTrả gốc cuối kỳ, trả lãi định kỳ.\nTrả cả gốc và lãi đều mỗi kỳ.\n\nVí dụ khoản vay 3 năm:\nTrả hàng tháng: 36 kỳ.\nTrả hàng quý: 12 kỳ.\nTrả sáu tháng một lần: 6 kỳ.\nDo đó, hai khoản vay cùng thời hạn nhưng có thể có số kỳ khác nhau.",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Sau khi xác định thời hạn, ngân hàng xác định khách hàng trả nợ theo:",
+      },
+      {
+        type: "list",
+        items: [
+          "Hàng tháng.",
+          "Hàng quý.",
+          "Sáu tháng một lần.",
+          "Theo mùa vụ.",
+          "Trả gốc cuối kỳ, trả lãi định kỳ.",
+          "Trả cả gốc và lãi đều mỗi kỳ.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Ví dụ khoản vay 3 năm:",
+      },
+      {
+        type: "list",
+        items: ["Trả hàng tháng: 36 kỳ.", "Trả hàng quý: 12 kỳ.", "Trả sáu tháng một lần: 6 kỳ."],
+      },
+      {
+        type: "paragraph",
+        text: "Do đó, hai khoản vay cùng thời hạn nhưng có thể có số kỳ khác nhau.",
+      },
     ],
   },
 ];

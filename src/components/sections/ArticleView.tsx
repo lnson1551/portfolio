@@ -31,6 +31,30 @@ export function ArticleView({ route }: ArticleViewProps) {
           );
         }
 
+        if (block.type === "list") {
+          return (
+            <ul className="article-section__list" key={key}>
+              {block.items.map((item) => (
+                <li key={`${key}-${item}`}>{item}</li>
+              ))}
+            </ul>
+          );
+        }
+
+        if (block.segments) {
+          return (
+            <p key={key}>
+              {block.segments.map((segment, segmentIndex) =>
+                segment.emphasized ? (
+                  <strong key={`${key}-${segmentIndex}`}>{segment.text}</strong>
+                ) : (
+                  <span key={`${key}-${segmentIndex}`}>{segment.text}</span>
+                ),
+              )}
+            </p>
+          );
+        }
+
         return <p key={key}>{block.text}</p>;
       });
     }
