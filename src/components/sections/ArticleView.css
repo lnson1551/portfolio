@@ -59,7 +59,7 @@
 
 .article-section__body {
   display: grid;
-  gap: var(--space-4);
+  gap: 0;
   min-width: 0;
   color: var(--color-text-primary);
   font-size: var(--text-body-large-size);
