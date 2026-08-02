@@ -53,7 +53,7 @@
   color: var(--color-text-primary);
   font-family: var(--font-display);
   font-size: var(--text-title-large-size);
-  font-weight: 500;
+  font-weight: 400;
   line-height: var(--text-title-large-line);
 }
 
@@ -96,7 +96,7 @@
   color: var(--color-text-primary);
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.75rem;
 }
 
