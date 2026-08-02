@@ -33,9 +33,9 @@
   margin: 0;
   padding: 0 var(--space-4);
   color: var(--color-text-tertiary);
-  font-size: var(--text-body-large-size);
-  font-weight: 600;
-  line-height: var(--text-body-large-line);
+  font-size: var(--text-body-base-size);
+  font-weight: 400;
+  line-height: var(--text-body-base-line);
 }
 
 .sidebar-section__list {
@@ -50,9 +50,10 @@
   display: block;
   min-height: 1.75rem;
   padding: 0 var(--space-4);
-  border-radius: 0;
+  border-radius: 0.25rem;
   color: var(--color-text-primary);
   font-size: var(--text-body-large-size);
+  font-weight: 400;
   line-height: var(--text-body-large-line);
   transition:
     background-color var(--duration-fast) var(--ease-standard),

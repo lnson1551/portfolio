@@ -58,22 +58,22 @@ type BankingPost = {
 
 export const navigationSections: NavigationSection[] = [
   {
-    title: "About me",
+    title: "Về Sea",
     items: [
       { label: "Info", href: "#/info" },
-      { label: "Photography", href: "#/photography" },
-      { label: "Projects", href: "#/projects" },
+      { label: "Ảnh kỉ niệm", href: "#/photography" },
+      { label: "Dự án", href: "#/projects" },
     ],
   },
   {
-    title: "Sharing",
+    title: "Kiến thức",
     items: [
       { label: "Banking domain", href: "#/banking-domain" },
       { label: "Design system", href: "#/design-system" },
     ],
   },
   {
-    title: "My thoughts",
+    title: "Suy nghĩ",
     items: [
       { label: "UX bites", href: "#/ux-bites" },
       { label: "Thinking", href: "#/thinking" },
