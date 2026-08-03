@@ -33,6 +33,7 @@
   }
 
   .page-shell__main {
+    position: relative;
     height: calc(100vh - (var(--space-3) * 2));
   }
 
@@ -45,10 +46,18 @@
   }
 
   .page-shell .mobile-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     overflow: visible;
   }
 
   .page-shell .page-header {
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    left: 0;
     overflow: hidden;
   }
 
@@ -61,7 +70,7 @@
   .page-shell[data-mobile-chrome-hidden="true"] .page-header {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-1rem);
+    transform: translateY(-1.25rem);
   }
 
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav[data-open="true"] {

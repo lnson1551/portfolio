@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode, type UIEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { Sidebar } from "../navigation/Sidebar";
 import { MobileNav } from "../navigation/MobileNav";
 import { navigationSections, socialLinks } from "../../data/site";
@@ -11,6 +11,7 @@ type PageShellProps = {
 
 export function PageShell({ activePath, children }: PageShellProps) {
   const [mobileChromeState, setMobileChromeState] = useState({ hidden: false, path: activePath });
+  const mainRef = useRef<HTMLDivElement | null>(null);
   const lastScrollRef = useRef({ path: activePath, top: 0 });
   const isMobileChromeHidden = mobileChromeState.path === activePath && mobileChromeState.hidden;
 
@@ -18,7 +19,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
     lastScrollRef.current = { path: activePath, top: 0 };
   }, [activePath]);
 
-  function setMobileChromeHidden(hidden: boolean) {
+  const setMobileChromeHidden = useCallback((hidden: boolean) => {
     setMobileChromeState((current) => {
       if (current.path === activePath && current.hidden === hidden) {
         return current;
@@ -26,59 +27,81 @@ export function PageShell({ activePath, children }: PageShellProps) {
 
       return { hidden, path: activePath };
     });
-  }
+  }, [activePath]);
 
-  function handleScrollCapture(event: UIEvent<HTMLDivElement>) {
-    const scrollTarget = event.target;
+  useEffect(() => {
+    const mainElement = mainRef.current;
 
-    if (
-      !(scrollTarget instanceof HTMLElement) ||
-      scrollTarget.closest(".mobile-nav__menu") ||
-      document.querySelector(".article-switcher.is-open")
-    ) {
+    if (!mainElement) {
       return;
     }
 
-    if (scrollTarget.scrollHeight <= scrollTarget.clientHeight) {
-      return;
-    }
+    function handleScroll(event: Event) {
+      const scrollTarget = event.target;
 
-    if (!window.matchMedia("(max-width: 900px)").matches) {
-      setMobileChromeHidden(false);
-      return;
-    }
+      if (
+        !(scrollTarget instanceof HTMLElement) ||
+        scrollTarget.closest(".mobile-nav__menu") ||
+        document.querySelector(".article-switcher.is-open")
+      ) {
+        return;
+      }
 
-    const nextScrollTop = scrollTarget.scrollTop;
-    const previousScrollTop = lastScrollRef.current.top;
-    const scrollDelta = nextScrollTop - previousScrollTop;
+      if (scrollTarget.scrollHeight <= scrollTarget.clientHeight) {
+        return;
+      }
 
-    if (lastScrollRef.current.path !== activePath) {
+      if (!window.matchMedia("(max-width: 900px)").matches) {
+        setMobileChromeHidden(false);
+        return;
+      }
+
+      const nextScrollTop = scrollTarget.scrollTop;
+      const previousScrollTop = lastScrollRef.current.top;
+      const scrollDelta = nextScrollTop - previousScrollTop;
+
+      if (lastScrollRef.current.path !== activePath) {
+        lastScrollRef.current = { path: activePath, top: nextScrollTop };
+        setMobileChromeHidden(false);
+        return;
+      }
+
       lastScrollRef.current = { path: activePath, top: nextScrollTop };
-      setMobileChromeHidden(false);
-      return;
+
+      if (nextScrollTop < 24) {
+        setMobileChromeHidden(false);
+        return;
+      }
+
+      if (scrollDelta > 8 && nextScrollTop > 120) {
+        setMobileChromeHidden(true);
+        return;
+      }
+
+      if (scrollDelta < -8) {
+        setMobileChromeHidden(false);
+      }
     }
 
-    lastScrollRef.current = { path: activePath, top: nextScrollTop };
+    const scrollElements = mainElement.querySelectorAll<HTMLElement>(
+      ".article-view__content, .catalog-view__grid, .catalog-view__grouped, .catalog-view__project-list, .info-view__content, .home-view",
+    );
 
-    if (nextScrollTop < 24) {
-      setMobileChromeHidden(false);
-      return;
-    }
+    scrollElements.forEach((scrollElement) => {
+      scrollElement.addEventListener("scroll", handleScroll, { passive: true });
+    });
 
-    if (scrollDelta > 8 && nextScrollTop > 120) {
-      setMobileChromeHidden(true);
-      return;
-    }
-
-    if (scrollDelta < -8) {
-      setMobileChromeHidden(false);
-    }
-  }
+    return () => {
+      scrollElements.forEach((scrollElement) => {
+        scrollElement.removeEventListener("scroll", handleScroll);
+      });
+    };
+  }, [activePath, isMobileChromeHidden, setMobileChromeHidden]);
 
   return (
     <div className="page-shell" data-mobile-chrome-hidden={isMobileChromeHidden}>
       <Sidebar activePath={activePath} sections={navigationSections} socialLinks={socialLinks} />
-      <div className="page-shell__main" onScrollCapture={handleScrollCapture}>
+      <div className="page-shell__main" ref={mainRef}>
         <MobileNav
           activePath={activePath}
           sections={navigationSections}
