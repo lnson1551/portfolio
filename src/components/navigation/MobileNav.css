@@ -24,10 +24,6 @@
     gap: var(--space-4);
   }
 
-  .mobile-nav__bar .brand-mark {
-    display: none;
-  }
-
   .mobile-nav__toggle {
     display: inline-grid;
     width: 2.5rem;

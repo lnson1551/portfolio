@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { NavigationSection } from "../../types/content";
-import { BrandMark } from "../content/BrandMark";
 import "./MobileNav.css";
 
 type MobileNavProps = {
@@ -24,7 +23,6 @@ export function MobileNav({ activePath, onOpenChange, sections }: MobileNavProps
   return (
     <header className="mobile-nav" data-open={isOpen}>
       <div className="mobile-nav__bar">
-        <BrandMark />
         <button
           aria-controls="mobile-navigation"
           aria-expanded={isOpen}
