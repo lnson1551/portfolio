@@ -37,6 +37,21 @@
     height: calc(100vh - (var(--space-3) * 2));
   }
 
+  .page-shell__main::before {
+    content: "";
+    position: absolute;
+    z-index: 15;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 14.5rem;
+    background: var(--color-background-primary);
+    pointer-events: none;
+    transition:
+      opacity var(--duration-base) var(--ease-standard),
+      transform var(--duration-base) var(--ease-standard);
+  }
+
   .page-shell .mobile-nav,
   .page-shell .page-header {
     will-change: opacity, transform;
@@ -67,7 +82,8 @@
   }
 
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav:not([data-open="true"]),
-  .page-shell[data-mobile-chrome-hidden="true"] .page-header {
+  .page-shell[data-mobile-chrome-hidden="true"] .page-header,
+  .page-shell[data-mobile-chrome-hidden="true"] .page-shell__main::before {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-1.25rem);
