@@ -91,33 +91,40 @@
 @media (max-width: 720px) {
   .page-header {
     min-height: auto;
-    padding: var(--space-2) var(--space-4) var(--space-3);
+    height: var(--mobile-header-row-height, 4rem);
+    align-items: center;
+    padding: var(--space-3) 7rem var(--space-3) var(--space-4);
   }
 
   .page-header__title-row {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
     gap: var(--space-3);
+    overflow: hidden;
+  }
+
+  .page-header__title-group {
+    overflow: hidden;
+  }
+
+  .page-header__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .page-header__mark {
-    width: 3rem;
-    height: 3rem;
+    display: none;
   }
 }
 
 @media (max-width: 520px) {
   .page-header {
-    gap: var(--space-3);
-    align-items: flex-start;
+    padding-right: 6.5rem;
+    padding-left: var(--space-3);
   }
 
   .page-header__title-row {
     flex: 1 1 auto;
-  }
-
-  .page-header__mark {
-    width: 2.5rem;
-    height: 2.5rem;
   }
 }

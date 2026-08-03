@@ -27,8 +27,9 @@
 
 @media (max-width: 900px) {
   .page-shell {
+    --mobile-header-row-height: 4rem;
     --mobile-nav-clearance: 5rem;
-    --mobile-header-clearance: 9.5rem;
+    --mobile-header-clearance: 2.5rem;
 
     grid-template-columns: 1fr;
     gap: var(--space-3);
@@ -61,7 +62,7 @@
 
   .page-shell .page-header {
     position: absolute;
-    top: 4rem;
+    top: 0;
     right: 0;
     left: 0;
     overflow: hidden;
@@ -75,7 +76,7 @@
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav:not([data-open="true"]),
   .page-shell[data-mobile-chrome-hidden="true"] .page-header {
     pointer-events: none;
-    transform: translateY(-14rem);
+    transform: translateY(-6rem);
   }
 
   .page-shell[data-mobile-chrome-hidden="true"] .mobile-nav[data-open="true"] {

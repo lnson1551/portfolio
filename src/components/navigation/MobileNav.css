@@ -7,8 +7,10 @@
     position: relative;
     z-index: 40;
     display: grid;
-    padding: var(--space-4) var(--space-3);
-    background: var(--color-background-primary);
+    min-height: var(--mobile-header-row-height, 4rem);
+    padding: var(--space-3);
+    background: transparent;
+    pointer-events: none;
   }
 
   .mobile-nav[data-open="true"] {
@@ -18,8 +20,12 @@
   .mobile-nav__bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: var(--space-4);
+  }
+
+  .mobile-nav__bar .brand-mark {
+    display: none;
   }
 
   .mobile-nav__toggle {
@@ -34,6 +40,7 @@
     background: var(--color-background-primary);
     color: var(--color-text-primary);
     cursor: pointer;
+    pointer-events: auto;
     transition:
       background-color var(--duration-fast) var(--ease-standard),
       border-color var(--duration-fast) var(--ease-standard);
@@ -73,6 +80,7 @@
     border: 1px solid var(--color-border-default);
     border-radius: var(--radius-medium);
     background: var(--color-background-primary);
+    pointer-events: auto;
     box-shadow:
       0 12px 40px rgb(0 8 25 / 8%),
       0 0 1px rgb(0 8 25 / 12%);
@@ -155,7 +163,7 @@
 
 @media (max-width: 520px) {
   .mobile-nav {
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2);
   }
 
   .mobile-nav__menu {
