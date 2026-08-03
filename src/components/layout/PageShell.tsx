@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Sidebar } from "../navigation/Sidebar";
 import { MobileNav } from "../navigation/MobileNav";
 import { navigationSections, socialLinks } from "../../data/site";
@@ -9,14 +9,41 @@ type PageShellProps = {
   children: ReactNode;
 };
 
+const scrollContainerSelector =
+  ".article-view__content, .catalog-view__grid, .catalog-view__grouped, .catalog-view__project-list, .info-view__content, .home-view";
+
 export function PageShell({ activePath, children }: PageShellProps) {
   const [mobileChromeState, setMobileChromeState] = useState({ hidden: false, path: activePath });
+  const [isRouteResetting, setIsRouteResetting] = useState(false);
   const mainRef = useRef<HTMLDivElement | null>(null);
   const lastScrollRef = useRef({ path: activePath, top: 0 });
   const isMobileChromeHidden = mobileChromeState.path === activePath && mobileChromeState.hidden;
 
   useEffect(() => {
     lastScrollRef.current = { path: activePath, top: 0 };
+  }, [activePath]);
+
+  useLayoutEffect(() => {
+    const mainElement = mainRef.current;
+
+    if (!mainElement) {
+      return;
+    }
+
+    setIsRouteResetting(true);
+    mainElement.querySelectorAll<HTMLElement>(scrollContainerSelector).forEach((scrollElement) => {
+      scrollElement.scrollTop = 0;
+    });
+    lastScrollRef.current = { path: activePath, top: 0 };
+    setMobileChromeState({ hidden: false, path: activePath });
+
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        setIsRouteResetting(false);
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, [activePath]);
 
   const setMobileChromeHidden = useCallback((hidden: boolean) => {
@@ -83,9 +110,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
       }
     }
 
-    const scrollElements = mainElement.querySelectorAll<HTMLElement>(
-      ".article-view__content, .catalog-view__grid, .catalog-view__grouped, .catalog-view__project-list, .info-view__content, .home-view",
-    );
+    const scrollElements = mainElement.querySelectorAll<HTMLElement>(scrollContainerSelector);
 
     scrollElements.forEach((scrollElement) => {
       scrollElement.addEventListener("scroll", handleScroll, { passive: true });
@@ -99,7 +124,7 @@ export function PageShell({ activePath, children }: PageShellProps) {
   }, [activePath, isMobileChromeHidden, setMobileChromeHidden]);
 
   return (
-    <div className="page-shell" data-mobile-chrome-hidden={isMobileChromeHidden}>
+    <div className="page-shell" data-mobile-chrome-hidden={isMobileChromeHidden} data-route-resetting={isRouteResetting}>
       <Sidebar activePath={activePath} sections={navigationSections} socialLinks={socialLinks} />
       <div className="page-shell__main" ref={mainRef}>
         <MobileNav

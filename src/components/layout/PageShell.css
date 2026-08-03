@@ -45,6 +45,11 @@
     transition: transform var(--duration-base) var(--ease-standard);
   }
 
+  .page-shell[data-route-resetting="true"] .mobile-nav,
+  .page-shell[data-route-resetting="true"] .page-header {
+    transition: none;
+  }
+
   .page-shell .mobile-nav {
     position: absolute;
     top: 0;
