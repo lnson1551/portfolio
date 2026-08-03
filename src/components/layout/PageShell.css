@@ -27,7 +27,7 @@
 
 @media (max-width: 900px) {
   .page-shell {
-    --mobile-nav-clearance: 4rem;
+    --mobile-nav-clearance: 5rem;
     --mobile-header-clearance: 9.5rem;
 
     grid-template-columns: 1fr;
