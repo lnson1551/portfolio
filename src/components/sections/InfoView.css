@@ -122,6 +122,10 @@
     padding: var(--space-3);
   }
 
+  .info-view__content {
+    padding-top: calc(2.5rem + var(--mobile-header-clearance, 0rem));
+  }
+
   .info-section {
     grid-template-columns: 1fr;
   }
@@ -137,7 +141,7 @@
   }
 
   .info-view__content {
-    padding: 2.5rem var(--space-3) 5rem;
+    padding: calc(2.5rem + var(--mobile-header-clearance, 0rem)) var(--space-3) 5rem;
     border-radius: var(--radius-small);
   }
 

@@ -168,6 +168,12 @@
     padding: var(--space-3);
   }
 
+  .catalog-view__grid,
+  .catalog-view__grouped,
+  .catalog-view__project-list {
+    padding-top: calc(var(--space-5) + var(--mobile-header-clearance, 0rem));
+  }
+
   .project-list-card {
     grid-template-columns: 1fr;
     gap: var(--space-5);
@@ -184,7 +190,7 @@
   .catalog-view__grid,
   .catalog-view__grouped,
   .catalog-view__project-list {
-    padding: var(--space-4);
+    padding: calc(var(--space-4) + var(--mobile-header-clearance, 0rem)) var(--space-4) var(--space-4);
   }
 
   .project-list-card {
@@ -204,7 +210,7 @@
   .catalog-view__grid,
   .catalog-view__grouped,
   .catalog-view__project-list {
-    padding: var(--space-3);
+    padding: calc(var(--space-3) + var(--mobile-header-clearance, 0rem)) var(--space-3) var(--space-3);
     border-radius: var(--radius-small);
   }
 

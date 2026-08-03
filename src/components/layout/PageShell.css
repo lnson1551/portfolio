@@ -27,6 +27,8 @@
 
 @media (max-width: 900px) {
   .page-shell {
+    --mobile-header-clearance: 9.5rem;
+
     grid-template-columns: 1fr;
     gap: var(--space-3);
     padding: var(--space-3);
