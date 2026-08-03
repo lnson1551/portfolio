@@ -12,24 +12,10 @@ type PageShellProps = {
 export function PageShell({ activePath, children }: PageShellProps) {
   const [mobileChromeState, setMobileChromeState] = useState({ hidden: false, path: activePath });
   const lastScrollRef = useRef({ path: activePath, top: 0 });
-  const mobileChromeSettleTimerRef = useRef<number | null>(null);
-  const snapFrameRef = useRef<number | null>(null);
   const isMobileChromeHidden = mobileChromeState.path === activePath && mobileChromeState.hidden;
 
   useEffect(() => {
     lastScrollRef.current = { path: activePath, top: 0 };
-
-    return () => {
-      if (snapFrameRef.current !== null) {
-        window.cancelAnimationFrame(snapFrameRef.current);
-        snapFrameRef.current = null;
-      }
-
-      if (mobileChromeSettleTimerRef.current !== null) {
-        window.clearTimeout(mobileChromeSettleTimerRef.current);
-        mobileChromeSettleTimerRef.current = null;
-      }
-    };
   }, [activePath]);
 
   function setMobileChromeHidden(hidden: boolean) {
@@ -42,27 +28,6 @@ export function PageShell({ activePath, children }: PageShellProps) {
     });
   }
 
-  function clearMobileChromeSettleTimer() {
-    if (mobileChromeSettleTimerRef.current === null) {
-      return;
-    }
-
-    window.clearTimeout(mobileChromeSettleTimerRef.current);
-    mobileChromeSettleTimerRef.current = null;
-  }
-
-  function snapMobileChromeToTop(scrollTarget: HTMLElement) {
-    if (snapFrameRef.current !== null) {
-      return;
-    }
-
-    snapFrameRef.current = window.requestAnimationFrame(() => {
-      scrollTarget.scrollTo({ top: 0, behavior: "auto" });
-      lastScrollRef.current = { path: activePath, top: 0 };
-      snapFrameRef.current = null;
-    });
-  }
-
   function handleScrollCapture(event: UIEvent<HTMLDivElement>) {
     const scrollTarget = event.target;
 
@@ -71,7 +36,6 @@ export function PageShell({ activePath, children }: PageShellProps) {
       scrollTarget.closest(".mobile-nav__menu") ||
       document.querySelector(".article-switcher.is-open")
     ) {
-      clearMobileChromeSettleTimer();
       return;
     }
 
@@ -80,14 +44,13 @@ export function PageShell({ activePath, children }: PageShellProps) {
     }
 
     if (!window.matchMedia("(max-width: 900px)").matches) {
-      clearMobileChromeSettleTimer();
       setMobileChromeHidden(false);
       return;
     }
 
     const nextScrollTop = scrollTarget.scrollTop;
     const previousScrollTop = lastScrollRef.current.top;
-    const isScrollingTowardTop = nextScrollTop < previousScrollTop;
+    const scrollDelta = nextScrollTop - previousScrollTop;
 
     if (lastScrollRef.current.path !== activePath) {
       lastScrollRef.current = { path: activePath, top: nextScrollTop };
@@ -96,26 +59,20 @@ export function PageShell({ activePath, children }: PageShellProps) {
     }
 
     lastScrollRef.current = { path: activePath, top: nextScrollTop };
-    clearMobileChromeSettleTimer();
-    mobileChromeSettleTimerRef.current = window.setTimeout(() => {
-      mobileChromeSettleTimerRef.current = null;
 
-      if (document.querySelector(".article-switcher.is-open")) {
-        return;
-      }
+    if (nextScrollTop < 24) {
+      setMobileChromeHidden(false);
+      return;
+    }
 
-      const settledScrollTop = scrollTarget.scrollTop;
+    if (scrollDelta > 8 && nextScrollTop > 120) {
+      setMobileChromeHidden(true);
+      return;
+    }
 
-      if (settledScrollTop < 32 || (isMobileChromeHidden && isScrollingTowardTop && settledScrollTop < 112)) {
-        snapMobileChromeToTop(scrollTarget);
-        setMobileChromeHidden(false);
-        return;
-      }
-
-      if (!isMobileChromeHidden && settledScrollTop > 180) {
-        setMobileChromeHidden(true);
-      }
-    }, 140);
+    if (scrollDelta < -8) {
+      setMobileChromeHidden(false);
+    }
   }
 
   return (
@@ -127,7 +84,6 @@ export function PageShell({ activePath, children }: PageShellProps) {
           sections={navigationSections}
           onOpenChange={(isOpen) => {
             if (isOpen) {
-              clearMobileChromeSettleTimer();
               setMobileChromeState({ hidden: false, path: activePath });
             }
           }}
