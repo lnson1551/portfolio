@@ -17,12 +17,12 @@
   .home-view {
     grid-template-rows: auto auto;
     overflow-y: auto;
-    padding: var(--space-3);
+    padding: calc(var(--space-3) + var(--mobile-nav-clearance, 0rem)) var(--space-3) var(--space-3);
   }
 }
 
 @media (max-width: 520px) {
   .home-view {
-    padding: var(--space-2);
+    padding: calc(var(--space-2) + var(--mobile-nav-clearance, 0rem)) var(--space-2) var(--space-2);
   }
 }
