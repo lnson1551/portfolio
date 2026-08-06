@@ -105,22 +105,19 @@ export const socialLinks = [
   { label: "Facebook", href: "https://facebook.com" },
 ];
 
-const genericOverview = {
+const genericOverview: DetailSection = {
   title: "Tổng quan",
-  body: [
-    "Vay cầm cố tiền gửi tại [BANK] là việc khách hàng dùng khoản tiền gửi hoặc thẻ tiết kiệm làm tài sản bảo đảm để vay tiền, thay vì tất toán khoản tiền gửi trước hạn.",
-    "Ví dụ: khách hàng có 500 triệu đồng đang gửi tiết kiệm nhưng cần gấp 300 triệu đồng trong hai tháng. Khách hàng có thể cầm cố khoản tiền gửi đó để vay 300 triệu đồng; khoản tiền gửi bị phong tỏa trong thời gian bảo đảm khoản vay nhưng không phải rút trước hạn.",
-  ],
+  body: ["Nội dung đang được cập nhật."],
 };
 
 const pledgedDepositLoanSections: DetailSection[] = [
   {
-    title: "Dùng sổ đi vay",
+    title: "Tổng quan",
     body: [
-      "“Vay cầm cố tiền gửi” rộng hơn “vay cầm cố sổ tiết kiệm”. Sổ hoặc thẻ tiết kiệm chỉ là một loại tài sản thuộc nhóm này.",
+      "Vay cầm cố tiền gửi tại [BANK] là việc khách hàng dùng khoản tiền gửi hoặc thẻ tiết kiệm làm tài sản bảo đảm để vay tiền, thay vì tất toán khoản tiền gửi trước hạn.",
+      "Ví dụ: khách hàng có 500 triệu đồng đang gửi tiết kiệm nhưng cần gấp 300 triệu đồng trong hai tháng. Khách hàng có thể cầm cố khoản tiền gửi đó để vay 300 triệu đồng; khoản tiền gửi bị phong tỏa trong thời gian bảo đảm khoản vay nhưng không phải rút trước hạn.",
     ],
   },
-  genericOverview,
   {
     title: "Hạn mức vay",
     body: [
@@ -134,12 +131,7 @@ const pledgedDepositLoanSections: DetailSection[] = [
   },
   {
     title: "Điều kiện",
-    body: [
-      "Mức vay tối đa 100 triệu/khách.",
-      "Phải có sổ tiết kiệm.",
-      "Số tiền vay không được vượt quá sổ tiết kiệm.",
-      "Thời hạn vay là thời hạn còn lại của sổ tiết kiệm được chọn và không vượt quá 12 tháng.",
-    ],
+    body: ["Mức vay tối đa 100 triệu/khách", "Phải có sổ tiết kiệm", "Số tiền vay không được vượt quá sổ tiết kiệm", "Thời hạn vay là thời hạn còn lại của sổ tiết kiệm được chọn và không vượt quá 12 tháng"],
   },
 ];
 
@@ -147,8 +139,10 @@ const overdraftLoanSections: DetailSection[] = [
   {
     title: "Tổng quan",
     body: [
-      "Khi tài khoản về 0đ thanh toán vẫn được chấp nhận.",
       "Lãi suất chỉ phát sinh trên số tiền bạn đã chi vượt mức và tính theo số ngày thực tế tiền bị âm. Khi tài khoản có tiền (lương về, nạp tiền vào), hệ thống sẽ tự động trừ để cấn trừ nợ thấu chi.",
+      "Có 2 loại",
+      "Thấu chi tín chấp: Dựa vào lương và lịch sử tính dụng",
+      "Thấu chi thế chấp: Dựa vào tài sản tiết kiệm, bất động sản",
     ],
   },
   {
@@ -173,10 +167,10 @@ const overdraftLoanSections: DetailSection[] = [
       { type: "paragraph", text: "Có 2 loại" },
       {
         type: "paragraph",
-        text: "Thấu chi tín chấp: Dựa vào lương và lịch sử tín dụng",
+        text: "Thấu chi tín chấp: Dựa vào lương và lịch sử tính dụng",
         segments: [
           { text: "Thấu chi tín chấp:", emphasized: true },
-          { text: " Dựa vào lương và lịch sử tín dụng" },
+          { text: " Dựa vào lương và lịch sử tính dụng" },
         ],
       },
       {
@@ -288,8 +282,9 @@ const loanSettlementSections: DetailSection[] = [
   {
     title: "Giải chấp hoặc xử lý tài sản",
     body: [
-      "Sau khi khoản vay được tất toán, ngân hàng thực hiện giải chấp tài sản bảo đảm theo quy trình và trả lại quyền sử dụng tài sản cho khách hàng.",
-      "Nếu khách hàng không hoàn thành nghĩa vụ trả nợ, ngân hàng có thể xử lý tài sản bảo đảm theo hợp đồng và quy định pháp luật để thu hồi gốc, lãi và các nghĩa vụ liên quan.",
+      "Có 2 loại",
+      "Thấu chi tín chấp: Dựa vào lương và lịch sử tính dụng",
+      "Thấu chi thế chấp: Dựa vào tài sản tiết kiệm, bất động sản",
     ],
   },
 ];
@@ -329,17 +324,6 @@ const autoRateReductionSections: DetailSection[] = [
 ];
 
 const creditCardSections: DetailSection[] = [
-  {
-    title: "Không cần thế chấp",
-    blocks: [
-      { type: "paragraph", text: "Khác với thẻ ghi nợ (Debit):", segments: [{ text: "Khác với thẻ ghi nợ (Debit):", emphasized: true }] },
-      {
-        type: "list",
-        items: ["Thẻ ghi nợ sử dụng tiền có sẵn trong tài khoản.", "Thẻ tín dụng sử dụng hạn mức do ngân hàng cấp."],
-      },
-      { type: "paragraph", text: "Rút tiền mặt, trả thiếu hoặc trả trễ có thể phát sinh phí và lãi." },
-    ],
-  },
   {
     title: "Tổng quan",
     blocks: [
@@ -381,10 +365,16 @@ const creditCardSections: DetailSection[] = [
         ],
       },
       { type: "paragraph", text: "Cấp thẻ: Nhận tại quầy / Giao tận nơi" },
+      { type: "paragraph", text: "Khác với thẻ ghi nợ (Debit):", segments: [{ text: "Khác với thẻ ghi nợ (Debit):", emphasized: true }] },
+      {
+        type: "list",
+        items: ["Thẻ ghi nợ sử dụng tiền có sẵn trong tài khoản.", "Thẻ tín dụng sử dụng hạn mức do ngân hàng cấp."],
+      },
+      { type: "paragraph", text: "Rút tiền mặt, trả thiếu hoặc trả trễ có thể phát sinh phí và lãi." },
     ],
   },
   {
-    title: "Điều kiện mở thẻ",
+    title: "Điều kiện",
     blocks: [
       { type: "heading", text: "Hình thức tín chấp theo thu nhập" },
       {
@@ -417,7 +407,7 @@ const creditCardSections: DetailSection[] = [
     ],
   },
   {
-    title: "Loại thẻ",
+    title: "Thanh toán thẻ",
     blocks: [
       { type: "heading", text: "1. Thẻ tín dụng nội địa: ACB Express – Napas" },
       {
@@ -441,7 +431,7 @@ const creditCardSections: DetailSection[] = [
     ],
   },
   {
-    title: "Cách thanh toán",
+    title: "Các hình thức trả nợ",
     blocks: [
       { type: "heading", text: "1. Trả toàn bộ dư nợ sao kê" },
       { type: "paragraph", text: "Khách hàng thanh toán toàn bộ số tiền đã chốt trên sao kê trước ngày đến hạn." },
@@ -470,7 +460,7 @@ const creditCardSections: DetailSection[] = [
     ],
   },
   {
-    title: "Phí và lãi",
+    title: "Lãi suất",
     blocks: [
       { type: "paragraph", text: "Thẻ khác nhau phí khác nhau." },
       {
@@ -493,37 +483,19 @@ const creditCardSections: DetailSection[] = [
 
 const certificateOfDepositSections: DetailSection[] = [
   {
-    title: "Cho bank mượn tiền",
-    blocks: [
-      { type: "paragraph", text: "Cách [BANK] dùng vốn:", segments: [{ text: "Cách [BANK] dùng vốn:", emphasized: true }] },
-      {
-        type: "paragraph",
-        text: "Bạn đầu tư vào Chứng chỉ tiền gửi → [BANK] huy động nguồn vốn → nguồn vốn được sử dụng theo quy định để phục vụ hoạt động ngân hàng.",
-      },
-      {
-        type: "list",
-        items: [
-          "Cấp tín dụng.",
-          "Cung ứng dịch vụ tài chính.",
-          "Quản lý thanh khoản và các hoạt động kinh doanh ngân hàng khác theo quy định.",
-        ],
-      },
-    ],
-  },
-  {
     title: "Tổng quan",
     blocks: [
       {
         type: "paragraph",
-        text: "[BANK] phát hành một loại giấy tờ gọi là CCTG với đơn vị tính mệnh giá: 1 CCTG = 1 triệu VND.",
+        text: "[BANK] phát hành 1 loại giấy tờ gọi là CCTG với đơn vị tính mệnh giá là: 1 CCTG = 1 triệu VND.",
       },
       {
         type: "paragraph",
-        text: "Một lần phát hành sẽ theo lô có nhiều CCTG. Mỗi lô gắn với lợi suất sinh lời cụ thể và có ngày đáo hạn, tương tự tiết kiệm.",
+        text: "1 lần phát hành sẽ phát hành theo lô có nhiều CCTG, mỗi lô sẽ gắn với lợi suất % sinh lời cụ thể, và có ngày đáo hạn (tương tự tiết kiệm).",
       },
       {
         type: "paragraph",
-        text: "*Sản phẩm CCTG này đang tập trung vào luồng bán trước hạn.",
+        text: "*Sản phẩm CCTG này mình đang đánh vào phần bán trước hạn.",
       },
       {
         type: "image",
@@ -536,17 +508,34 @@ const certificateOfDepositSections: DetailSection[] = [
   {
     title: "Điều kiện",
     body: [
-      "User gửi tiết kiệm phải giữ theo thời hạn cụ thể mới hưởng được lãi tốt. Nếu rút tiết kiệm trước hạn, bất kể sớm hay muộn, khoản tiền thường chỉ được tính lãi không kỳ hạn khoảng 0.01–0.5% theo chính sách chung.",
-      "User mua CCTG có thể giữ đến đáo hạn để nhận tiền lời hoặc bán trước hạn CCTG linh hoạt để nhận lãi theo thời gian nắm giữ. Ví dụ 3 ngày được 3%, 10 ngày được 4%, 15 ngày được 5%, tùy chính sách sản phẩm.",
+      "User gửi tiết kiệm phải giữ theo thời hạn cụ thể mới hưởng được lãi ngon, rút tiết kiệm trước hạn bất kể sớm hay muộn thì sẽ chỉ được tính lãi 0.01-0.5% (lãi không kỳ hạn-chính sách chung không thay đổi).",
+      "User mua CCTG thì có thể giữ đến đáo hạn nhận tiền lời hoặc bán trước hạn CCTG linh hoạt để nhận lãi theo thời gian nắm giữ CCTG ví dụ 3 ngày dc 3%, 10 ngày dc 4%, 15 ngày 5%,... theo chính sách sản phẩm.",
+    ],
+  },
+  {
+    title: "Ngân hàng đầu tư",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "Bạn đầu tư vào Chứng chỉ tiền gửi → [BANK] huy động nguồn vốn → Nguồn vốn được sử dụng theo quy định để phục vụ hoạt động ngân hàng",
+      },
+      {
+        type: "list",
+        items: [
+          "Cấp tín dụng",
+          "Cung ứng dịch vụ tài chính",
+          "Quản lý thanh khoản và các hoạt động kinh doanh ngân hàng khác theo quy định.",
+        ],
+      },
     ],
   },
   {
     title: "Tham gia",
     body: [
-      "Số tiền tối thiểu là 10 triệu đồng và theo bội số 1 triệu đồng, tương đương ít nhất 10 CCTG.",
-      "Thời điểm tham gia phụ thuộc ngày đáo hạn của CCTG hoặc hạn bán.",
-      "Có phí giao dịch.",
-      "Giao dịch mua bán thực hiện trong khung thời gian quy định, thường từ thứ 2 đến thứ 6 trong giờ hành chính.",
+      "Tối thiểu là 10tr và bội số là 1 triệu ( ít nhất 10 CCTG).",
+      "Theo ngày đáo hạn của CCTG hoặc hạn bán",
+      "Có phí giao dịch",
+      "Có thời gian Mua bán (Thứ 2 đến thứ 6 giờ hành chính)X",
     ],
   },
 ];
@@ -557,70 +546,80 @@ const corporateBondSections: DetailSection[] = [
     blocks: [
       {
         type: "paragraph",
-        text:
-          "Trái phiếu doanh nghiệp được hiểu là một loại chứng khoán có thời hạn từ 1 năm trở lên, do doanh nghiệp phát hành nhằm huy động vốn. Trái phiếu này thể hiện cam kết của doanh nghiệp trong việc thanh toán nợ và đảm bảo quyền lợi hợp pháp cho người sở hữu.",
+        text: "Trái phiếu doanh nghiệp được hiểu là một loại chứng khoán có thời hạn từ 1 năm trở lên, do doanh nghiệp phát hành nhằm huy động vốn.",
       },
+      { type: "paragraph", text: "Cơ chế hoạt động:", segments: [{ text: "Cơ chế hoạt động:", emphasized: true }] },
       {
-        type: "image",
-        src: "/assets/figma/banking-investment/trai-phieu-doanh-nghiep.png",
-        alt: "Minh họa trái phiếu doanh nghiệp",
+        type: "list",
+        items: [
+          "Khi doanh nghiệp có nhu cầu huy động vốn, họ sẽ mở các đợt chào bán trái phiếu ra thị trường.",
+          "Nhà đầu tư mua trái phiếu và trở thành chủ nợ của doanh nghiệp.",
+          "Doanh nghiệp có nghĩa vụ trả lãi định kỳ và hoàn vốn cho nhà đầu tư khi đáo hạn.",
+        ],
       },
     ],
   },
   {
     title: "Đặc điểm",
-    blocks: [
-      {
-        type: "paragraph",
-        text: "Kỳ hạn của trái phiếu: Tùy thuộc vào nhu cầu sử dụng vốn của mỗi doanh nghiệp để xác định kỳ hạn của mỗi đợt phát hành trái phiếu.",
-        segments: [
-          { text: "Kỳ hạn của trái phiếu:", emphasized: true },
-          { text: " Tùy thuộc vào nhu cầu sử dụng vốn của mỗi doanh nghiệp để xác định kỳ hạn của mỗi đợt phát hành trái phiếu." },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Số lượng phát hành: Doanh nghiệp được tự do quyết định số lượng phát hành trái phiếu, căn cứ trên nhu cầu sử dụng vốn và khả năng huy động trên thị trường tương ứng với từng thời kỳ.",
-        segments: [
-          { text: "Số lượng phát hành:", emphasized: true },
-          {
-            text: " Doanh nghiệp được tự do quyết định số lượng phát hành trái phiếu, căn cứ trên nhu cầu sử dụng vốn và khả năng huy động trên thị trường tương ứng với từng thời kỳ.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Mệnh giá trái phiếu: Đối với thị trường trong nước, mệnh giá trái phiếu là 100.000 VNĐ hoặc bội số của 100.000 VNĐ.",
-        segments: [
-          { text: "Mệnh giá trái phiếu:", emphasized: true },
-          { text: " Đối với thị trường trong nước, mệnh giá trái phiếu là 100.000 VNĐ hoặc bội số của 100.000 VNĐ." },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Hình thức phát hành: Bút toán ghi nợ, chứng chỉ hoặc dữ liệu điện tử, tùy theo quyết định của doanh nghiệp tại thời kỳ phát hành.",
-        segments: [
-          { text: "Hình thức phát hành:", emphasized: true },
-          { text: " Bút toán ghi nợ, chứng chỉ hoặc dữ liệu điện tử, tùy theo quyết định của doanh nghiệp tại thời kỳ phát hành." },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "So với cổ phiếu, trái phiếu có độ rủi ro thấp hơn. Trong trường hợp doanh nghiệp phá sản, nhà đầu tư trái phiếu được ưu tiên thanh toán trước cổ đông.",
-      },
-      {
-        type: "paragraph",
-        text: "Trường hợp giá trái phiếu tăng, nhà đầu tư có thể bán trái phiếu với giá cao hơn, từ đó tạo ra lợi nhuận chênh lệch.",
-      },
+    body: [
+      "Kỳ hạn của trái phiếu: Căn cứ vào nhu cầu sử dụng vốn của doanh nghiệp, doanh nghiệp phát hành tự quyết định kỳ hạn trái phiếu đối với từng đợt chào bán (từ 01 năm trở lên).",
+      "Số lượng phát hành: Căn cứ vào nhu cầu sử dụng vốn của doanh nghiệp, doanh nghiệp phát hành tự quyết định khối lượng phát hành đối với từng đợt chào bán trái phiếu.",
+      "Mệnh giá trái phiếu: Đối với thị trường trong nước, mệnh giá trái phiếu là 10,000,000 VNĐ hoặc bội số của 10,000,000 VNĐ.",
+      "Hình thức phát hành: Chứng chỉ, bút toán ghi sổ hoặc dữ liệu điện tử.",
+    ],
+  },
+  {
+    title: "Lợi ích nhà đầu tư",
+    body: [
+      "Trái chủ sẽ được thanh toán tiền lãi định kỳ và hoàn lại gốc khi đáo hạn trái phiếu.",
+      "Trái chủ được hưởng đầy đủ các loại quyền lợi liên quan đến trái phiếu như: quyền chuyển nhượng, quyền tài sản, quyền cho – nhận và thừa kế.",
+      "So với cổ phiếu, trái phiếu có độ rủi ro thấp hơn. Trong trường hợp doanh nghiệp phá sản, nhà đầu tư trái phiếu được ưu tiên thanh toán trước cổ đông.",
+      "Trường hợp giá trái phiếu tăng, nhà đầu tư có thể bán trái phiếu với giá cao hơn, từ đó tạo ra lợi nhuận chênh lệch.",
+    ],
+  },
+  {
+    title: "Hình thức",
+    body: [
+      "Phân loại theo thị trường giao dịch",
+      "Trái phiếu Niêm yết trên Sở Giao dịch Chứng khoán Hà Nội (HNX) là trái phiếu được phát hành theo hình thức chào bán ra công chúng, được niêm yết và giao dịch trên HNX. Các giao dịch trái phiếu sẽ tuân theo quy định nghiêm ngặt của HNX và các quy định có liên quan.",
+      "Trái phiếu Đăng ký Giao dịch (Chưa niêm yết) trên Sở Giao dịch Chứng khoán Hà Nội (HNX) là trái phiếu được phát hành theo hình thức chào bán riêng lẻ, được đăng ký giao dịch và giao dịch trên HNX. Các giao dịch trái phiếu sẽ tuân theo quy định nghiêm ngặt của HNX và các quy định có liên quan.",
+      "Phân loại theo lợi tức",
+      "Trái phiếu lãi suất thả nổi (lãi suất biến đổi) có lợi tức thay đổi theo từng thời kỳ dựa vào lãi suất tham chiếu và biên độ lãi suất. Khoản lợi tức này được tính theo mức lãi suất biến đổi cùng với lãi suất tham chiếu.",
+      "Trái phiếu lãi suất cố định có lợi tức được ấn định tại thời điểm phát hành và không thay đổi trong suốt kỳ hạn trái phiếu.",
+    ],
+  },
+  {
+    title: "So sánh",
+    body: [
+      "Quyền lợi, mức sinh lời và rủi ro của từng kênh đầu tư:",
+      "Trái phiếu doanh nghiệp nổi bật với tính ổn định.",
+      "Cổ phiếu hấp dẫn bởi tiềm năng sinh lời cao nhưng biến động lớn.",
+      "Gửi tiết kiệm phù hợp với người cực kỳ thận trọng, chấp nhận lãi suất thấp.",
+      "Cơ hội và rủi ro khi đầu tư trái phiếu doanh nghiệp:",
+    ],
+  },
+  {
+    title: "Lưu ý quan trọng",
+    body: [
+      "Các kênh mua trái phiếu doanh nghiệp:",
+      "Thị trường Sơ cấp: Nhà đầu tư mua/giao dịch trái phiếu thông qua Đại lý phát hành (Ngân hàng thương mại, chi nhánh ngân hàng nước ngoài, công ty chứng khoán, tổ chức tín dụng phi ngân hàng, các tổ chức tài chính khác được phép) hoặc mua trực tiếp tại Tổ chức phát hành do Tổ chức phát hành thực hiện phát hành.",
+      "Thị trường Thứ cấp: Nhà đầu tư mua/giao dịch trái phiếu phải có tài khoản chứng khoán và thực hiện giao dịch thông qua các thành viên giao dịch của Sở Giao dịch Chứng khoán. Hình thức giao dịch là Khớp lệnh hoặc Thỏa thuận, đồng thời nhà đầu tư có thể phải đáp ứng các tiêu chí, điều kiện về nhà đầu tư chuyên nghiệp.",
+      "Tại app ngân hàng",
+      "Tối thiểu là 10tr và bội số là 1 triệu ( ít nhất 10 CCTG).",
+      "Theo ngày đáo hạn của CCTG hoặc hạn bán",
+      "Có phí giao dịch",
+      "Có thời gian Mua bán (Thứ 2 đến thứ 6 giờ hành chính)X",
     ],
   },
   {
     title: "Tham gia",
     body: [
-      "Số tiền tối thiểu là 10 triệu đồng và theo bội số 1 triệu đồng.",
-      "Thời điểm giao dịch phụ thuộc ngày đáo hạn hoặc hạn bán của sản phẩm.",
-      "Có phí giao dịch.",
-      "Giao dịch mua bán thực hiện trong khung thời gian quy định, thường từ thứ 2 đến thứ 6 trong giờ hành chính.",
+      "Bộ Tài chính đưa ra 5 khuyến nghị dành cho nhà đầu tư cá nhân khi tham gia mua trái phiếu doanh nghiệp như sau:",
+      "Nguyên tắc phát hành và rủi ro: Trái phiếu doanh nghiệp được phát hành theo nguyên tắc tự vay, tự trả và tự chịu trách nhiệm về khả năng thanh toán. Do đó, nhà đầu tư cần lường trước rủi ro nếu doanh nghiệp không thực hiện được nghĩa vụ thanh toán gốc và lãi khi đến hạn.",
+      "Đối tượng đầu tư: Chỉ nhà đầu tư chuyên nghiệp mới được phép mua trái phiếu doanh nghiệp phát hành riêng lẻ. Nhà đầu tư cá nhân muốn mua trái phiếu riêng lẻ phải thông qua các quỹ đầu tư chuyên biệt được quản lý bởi các nhà đầu tư tổ chức.",
+      "Vai trò của tổ chức trung gian: Các tổ chức tín dụng và công ty chứng khoán chỉ đóng vai trò cung cấp dịch vụ phân phối trái phiếu và hưởng phí dịch vụ từ doanh nghiệp phát hành. Họ không có trách nhiệm đảm bảo an toàn hoặc khả năng thanh toán của trái phiếu.",
+      "Phân biệt bảo lãnh phát hành và bảo lãnh thanh toán: Bảo lãnh phát hành chỉ là việc tổ chức bảo lãnh có cam kết với doanh nghiệp phát hành để phân phối số trái phiếu cần phát hành, vì thế không có bất kỳ nghĩa vụ nào với nhà đầu tư. Đối với bảo lãnh thanh toán, nhà đầu tư cũng cần tìm hiểu kỹ phạm vi bảo lãnh.",
+      "Tìm hiểu về tài sản đảm bảo: Khi thị trường biến động, giá trị tài sản đảm bảo có thể giảm sút và không đủ để thanh toán gốc và lãi trái phiếu. Do đó, nhà đầu tư cần nghiên cứu kỹ thông tin về giá trị và chất lượng của tài sản đảm bảo.",
     ],
   },
 ];
@@ -1031,6 +1030,7 @@ const bankingPosts: BankingPost[] = [
     category: "Cơ bản",
     href: "#/banking-domain/lai-suat",
     coverSrc: "/assets/figma/banking-covers/lai-suat.svg",
+    description: "Tiền lời",
     sections: loanInterestFormulaSections,
   },
   {
@@ -1046,6 +1046,7 @@ const bankingPosts: BankingPost[] = [
     category: "Cơ bản",
     href: "#/banking-domain/xac-dinh-han-vay",
     coverSrc: "/assets/figma/banking-covers/xac-dinh-han-vay.svg",
+    description: "Thời hạn trả hết khoản vay",
     sections: loanTermSections,
   },
   {
@@ -1053,6 +1054,7 @@ const bankingPosts: BankingPost[] = [
     category: "Cơ bản",
     href: "#/banking-domain/ky-han-tra-no",
     coverSrc: "/assets/figma/banking-covers/ky-han-tra-no.svg",
+    description: "Số lần trả nợ.",
     sections: repaymentPeriodSections,
   },
   {
@@ -1069,13 +1071,15 @@ const bankingPosts: BankingPost[] = [
     category: "Vay",
     href: "#/banking-domain/vay-han-muc-thau-chi",
     coverSrc: "/assets/figma/banking-covers/vay-han-muc-thau-chi.svg",
+    description: "Khi tài khoản về 0đ thanh toán vẫn được chấp nhận.",
     sections: overdraftLoanSections,
   },
   {
-    title: "Tất toán khoản vay",
+    title: "Tất toán khoản vay trước hạn",
     category: "Vay",
     href: "#/banking-domain/tat-toan-khoan-vay",
     coverSrc: "/assets/figma/banking-covers/tat-toan-khoan-vay.svg",
+    description: "Giúp khách hàng giải phóng tài sản bảo đảm (nếu có) và tránh phát sinh thêm lãi vay cho khoản vay còn lại.",
     sections: loanSettlementSections,
   },
   {
@@ -1083,6 +1087,7 @@ const bankingPosts: BankingPost[] = [
     category: "Vay",
     href: "#/banking-domain/giam-lai-vay-tu-dong",
     coverSrc: "/assets/figma/banking-covers/giam-lai-vay-tu-dong.svg",
+    description: "Giảm dần lãi sau các kỳ.",
     sections: autoRateReductionSections,
   },
   {
@@ -1090,6 +1095,7 @@ const bankingPosts: BankingPost[] = [
     category: "Vay",
     href: "#/banking-domain/tin-dung",
     coverSrc: "/assets/figma/banking-covers/tin-dung.svg",
+    description: "Không cần thế chấp tài sản.",
     sections: creditCardSections,
   },
   {
@@ -1097,6 +1103,7 @@ const bankingPosts: BankingPost[] = [
     category: "Đầu tư",
     href: "#/banking-domain/chung-chi-tien-gui",
     coverSrc: "/assets/figma/banking-covers/chung-chi-tien-gui.svg",
+    description: "Cho ngân hàng mượn tiền với lãi suất cao và ngắn hạn.",
     sections: certificateOfDepositSections,
   },
   {
@@ -1104,6 +1111,7 @@ const bankingPosts: BankingPost[] = [
     category: "Đầu tư",
     href: "#/banking-domain/trai-phieu-doanh-nghiep",
     coverSrc: "/assets/figma/banking-covers/trai-phieu-doanh-nghiep.svg",
+    description: "Một kênh đầu tư ít rủi ro hơn cổ phiếu và có lãi suất hấp dẫn hơn gửi tiết kiệm ngân hàng.",
     sections: corporateBondSections,
   },
   {
@@ -1111,6 +1119,7 @@ const bankingPosts: BankingPost[] = [
     category: "Giao dịch ngoại tệ",
     href: "#/banking-domain/mua-ban-ngoai-te-t0",
     coverSrc: "/assets/figma/banking-covers/mua-ban-ngoai-te-t0.svg",
+    description: "Mua bán ngay lập tức, ít thời gian đợi",
     sections: foreignExchangeSections,
   },
   {
@@ -1118,6 +1127,7 @@ const bankingPosts: BankingPost[] = [
     category: "Giao dịch ngoại tệ",
     href: "#/banking-domain/chuyen-ngoai-te",
     coverSrc: "/assets/figma/banking-covers/chuyen-ngoai-te.svg",
+    description: "Chuyển khoản ngoại tệ",
     sections: foreignTransferSections,
   },
 ];
