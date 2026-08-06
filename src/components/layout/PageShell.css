@@ -33,17 +33,17 @@
 
     grid-template-columns: 1fr;
     gap: var(--space-3);
-    padding: var(--space-3);
+    padding: 3.5rem var(--space-3) var(--space-3);
   }
 
   .page-shell[data-has-compact-menu="false"] {
-    --mobile-nav-clearance: 3.5rem;
-    --mobile-header-clearance: 1rem;
+    --mobile-nav-clearance: 0rem;
+    --mobile-header-clearance: 0rem;
   }
 
   .page-shell__main {
     position: relative;
-    height: calc(100vh - (var(--space-3) * 2));
+    height: calc(100vh - 3.5rem - var(--space-3));
   }
 
   .page-shell .mobile-nav,
@@ -97,11 +97,11 @@
 
 @media (max-width: 520px) {
   .page-shell {
-    padding: var(--space-2);
+    padding: 3.5rem var(--space-2) var(--space-2);
   }
 
   .page-shell__main {
-    height: calc(100vh - (var(--space-2) * 2));
+    height: calc(100vh - 3.5rem - var(--space-2));
     border-radius: 1.125rem;
   }
 
