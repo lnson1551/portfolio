@@ -85,14 +85,19 @@
 
 @media (max-width: 720px) {
   .article-switcher {
-    position: fixed;
+    position: absolute;
     z-index: 60;
-    top: calc(var(--shell-padding, 1rem) + 0.75rem);
-    right: calc(var(--shell-padding, 1rem) + 3.75rem);
+    top: var(--space-3);
+    right: calc(var(--space-3) + 3.25rem);
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 0;
   }
 
   .article-switcher__trigger {
-    width: 3rem;
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
     min-height: 2.5rem;
     justify-content: center;
     padding: 0;
@@ -121,8 +126,8 @@
   }
 
   .article-switcher {
-    top: calc(var(--space-2) + 0.75rem);
-    right: calc(var(--space-2) + 3.5rem);
+    top: var(--space-3);
+    right: calc(var(--space-2) + 3rem);
   }
 
   .article-switcher__menu {
