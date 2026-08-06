@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrandMark } from "../content/BrandMark";
 import type { NavigationSection } from "../../types/content";
 import "./MobileNav.css";
 
@@ -24,23 +25,22 @@ export function MobileNav({ activePath, mode = "regular", onOpenChange, sections
 
   return (
     <header className="mobile-nav" data-compact={isCompact} data-open={isOpen}>
-      {isCompact ? (
-        <div className="mobile-nav__bar">
-          <button
-            aria-controls="mobile-navigation"
-            aria-expanded={isOpen}
-            aria-label="Open navigation"
-            className="mobile-nav__toggle"
-            type="button"
-            onClick={() => setMenuOpen(!isOpen)}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
-        </div>
-      ) : null}
-      <nav className="mobile-nav__menu" data-open={isCompact ? isOpen : true} id="mobile-navigation" aria-label="Primary navigation">
+      <div className="mobile-nav__bar">
+        {isCompact ? null : <BrandMark />}
+        <button
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
+          aria-label="Open navigation"
+          className="mobile-nav__toggle"
+          type="button"
+          onClick={() => setMenuOpen(!isOpen)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
+      </div>
+      <nav className="mobile-nav__menu" data-open={isOpen} id="mobile-navigation" aria-label="Primary navigation">
         {sections.map((section) => (
           <section className="mobile-nav__section" key={section.title}>
             <p className="mobile-nav__section-title">{section.title}</p>
