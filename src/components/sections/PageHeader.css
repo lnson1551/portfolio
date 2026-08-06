@@ -142,9 +142,7 @@
     width: 2.5rem;
     height: 2.5rem;
     flex: 0 0 auto;
-    border: 1px solid var(--color-border-default);
-    border-radius: 999px;
-    background: var(--color-background-primary);
+    border-radius: 0.5rem;
   }
 
   .page-header__back img {
