@@ -30,16 +30,21 @@
     --mobile-header-row-height: 4rem;
     --mobile-nav-clearance: 5rem;
     --mobile-header-clearance: 2.5rem;
-    --mobile-canvas-top-padding: 2.5rem;
+    --mobile-canvas-top-padding: 4.5rem;
 
     grid-template-columns: 1fr;
     gap: var(--space-3);
     padding: var(--mobile-canvas-top-padding) var(--space-3) var(--space-3);
+    transition: padding var(--duration-base) var(--ease-standard);
   }
 
   .page-shell[data-has-compact-menu="false"] {
     --mobile-nav-clearance: 0rem;
     --mobile-header-clearance: 0rem;
+  }
+
+  .page-shell[data-has-compact-menu="false"][data-mobile-chrome-hidden="true"] {
+    --mobile-canvas-top-padding: var(--space-2);
   }
 
   .page-shell[data-has-compact-menu="true"] {
@@ -49,6 +54,7 @@
   .page-shell__main {
     position: relative;
     height: calc(100vh - var(--mobile-canvas-top-padding) - var(--space-3));
+    transition: height var(--duration-base) var(--ease-standard);
   }
 
   .page-shell .mobile-nav,
@@ -58,7 +64,9 @@
   }
 
   .page-shell[data-route-resetting="true"] .mobile-nav,
-  .page-shell[data-route-resetting="true"] .page-header {
+  .page-shell[data-route-resetting="true"] .page-header,
+  .page-shell[data-route-resetting="true"],
+  .page-shell[data-route-resetting="true"] .page-shell__main {
     transition: none;
   }
 
