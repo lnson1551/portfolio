@@ -42,6 +42,10 @@
     --mobile-header-clearance: 0rem;
   }
 
+  .page-shell[data-has-compact-menu="true"] {
+    --mobile-canvas-top-padding: 1rem;
+  }
+
   .page-shell__main {
     position: relative;
     height: calc(100vh - var(--mobile-canvas-top-padding) - var(--space-3));
