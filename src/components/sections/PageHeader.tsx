@@ -9,7 +9,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ title, backHref, children }: PageHeaderProps) {
   return (
-    <header className="page-header">
+    <header className={`page-header${children ? " page-header--has-actions" : ""}`}>
       <div className="page-header__title-row">
         <div className="page-header__title-group">
           {backHref ? (

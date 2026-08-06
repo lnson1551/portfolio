@@ -10,7 +10,7 @@
 .article-view__surface {
   flex: 1;
   min-height: 0;
-  padding: var(--space-3);
+  padding: 0.8125rem var(--space-3) var(--space-3);
   border-radius: var(--radius-large);
   background: var(--color-background-secondary);
   overflow: hidden;
@@ -22,11 +22,51 @@
   height: 100%;
   min-height: 0;
   align-content: start;
-  padding: 2.5rem var(--space-5) 5rem;
+  padding: var(--space-5) var(--space-8) 5rem var(--space-5);
   border-radius: var(--radius-medium);
   background: var(--color-background-primary);
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+.article-summary {
+  display: grid;
+  grid-template-columns: minmax(12rem, 17.5rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+  padding: var(--space-6);
+  border-radius: var(--radius-medium);
+  background: var(--color-background-secondary);
+}
+
+.article-summary__title,
+.article-summary__description p {
+  margin: 0;
+}
+
+.article-summary__title {
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-display-medium-size);
+  font-weight: 400;
+  line-height: var(--text-display-medium-line);
+}
+
+.article-summary__description {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  color: var(--color-text-primary);
+  font-size: var(--text-body-large-size);
+  line-height: var(--text-body-large-line);
+}
+
+.article-summary__description p {
+  white-space: pre-line;
+}
+
+.article-summary__description strong {
+  font-weight: 700;
 }
 
 .article-section {
@@ -154,9 +194,10 @@
 @media (max-width: 1180px) {
   .article-view__content {
     gap: var(--space-5);
-    padding: 2.5rem var(--space-4) 5rem;
+    padding: var(--space-5) var(--space-4) 5rem;
   }
 
+  .article-summary,
   .article-section {
     grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
   }
@@ -179,6 +220,17 @@
   .article-view__content {
     gap: var(--space-5);
     padding-top: var(--space-5);
+  }
+
+  .article-summary {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .article-summary__description {
+    gap: var(--space-2);
   }
 
   .article-section__body {
@@ -233,6 +285,12 @@
     line-height: 2rem;
   }
 
+  .article-summary__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .article-summary__description,
   .article-section__body {
     font-size: var(--text-body-base-size);
     line-height: var(--text-body-base-line);

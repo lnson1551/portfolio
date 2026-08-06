@@ -104,6 +104,11 @@
     background: var(--color-background-primary);
   }
 
+  .page-header--has-actions .article-switcher__trigger {
+    width: 2.5rem;
+    padding: 0;
+  }
+
   .article-switcher__trigger span:first-child {
     position: absolute;
     width: 1px;
