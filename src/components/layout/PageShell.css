@@ -61,7 +61,7 @@
   }
 
   .page-shell[data-has-compact-menu="false"] .page-header {
-    padding-right: var(--space-4);
+    display: none;
   }
 
   .page-shell .page-header {
