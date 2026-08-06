@@ -141,17 +141,16 @@ export function PageShell({ activePath, children }: PageShellProps) {
     >
       <Sidebar activePath={activePath} sections={navigationSections} socialLinks={socialLinks} />
       <div className="page-shell__main" ref={mainRef}>
-        {hasCompactMenu && (
-          <MobileNav
-            activePath={activePath}
-            sections={navigationSections}
-            onOpenChange={(isOpen) => {
-              if (isOpen) {
-                setMobileChromeState({ hidden: false, path: activePath });
-              }
-            }}
-          />
-        )}
+        <MobileNav
+          activePath={activePath}
+          mode={hasCompactMenu ? "compact" : "regular"}
+          sections={navigationSections}
+          onOpenChange={(isOpen) => {
+            if (isOpen) {
+              setMobileChromeState({ hidden: false, path: activePath });
+            }
+          }}
+        />
         {children}
       </div>
     </div>
