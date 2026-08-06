@@ -15,8 +15,7 @@ function getBackHref(path: string) {
 }
 
 export function ArticleView({ route }: ArticleViewProps) {
-  const summarySection = route.currentItemTitle ? route.sections[0] : undefined;
-  const contentSections = summarySection ? route.sections.slice(1) : route.sections;
+  const summaryDescription = route.currentItemTitle ? route.description : undefined;
 
   function renderSectionContent(section: ArticleRoute["sections"][number]) {
     if (section.blocks) {
@@ -108,33 +107,6 @@ export function ArticleView({ route }: ArticleViewProps) {
     );
   }
 
-  function renderSummaryDescription(section: ArticleRoute["sections"][number]) {
-    if (section.body?.length) {
-      return section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>);
-    }
-
-    const paragraphs = section.blocks?.filter((block) => block.type === "paragraph") ?? [];
-    return paragraphs.map((block, index) => {
-      const key = `${section.title}-summary-${index}`;
-
-      if (block.segments) {
-        return (
-          <p key={key}>
-            {block.segments.map((segment, segmentIndex) =>
-              segment.emphasized ? (
-                <strong key={`${key}-${segmentIndex}`}>{segment.text}</strong>
-              ) : (
-                <span key={`${key}-${segmentIndex}`}>{segment.text}</span>
-              ),
-            )}
-          </p>
-        );
-      }
-
-      return <p key={key}>{block.text}</p>;
-    });
-  }
-
   return (
     <main className="article-view">
       <PageHeader title={route.title} backHref={getBackHref(route.path)}>
@@ -144,13 +116,17 @@ export function ArticleView({ route }: ArticleViewProps) {
       </PageHeader>
       <article className="article-view__surface">
         <div className="article-view__content">
-          {summarySection ? (
+          {route.currentItemTitle ? (
             <section className="article-summary">
               <h2 className="article-summary__title">{route.currentItemTitle}</h2>
-              <div className="article-summary__description">{renderSummaryDescription(summarySection)}</div>
+              {summaryDescription ? (
+                <div className="article-summary__description">
+                  <p>{summaryDescription}</p>
+                </div>
+              ) : null}
             </section>
           ) : null}
-          {contentSections.map((section) => (
+          {route.sections.map((section) => (
             <section className="article-section" key={section.title}>
               <h2 className="article-section__title">{section.title}</h2>
               <div className="article-section__body">{renderSectionContent(section)}</div>

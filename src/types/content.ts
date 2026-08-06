@@ -82,6 +82,7 @@ export type ArticleRoute = {
   kind: "article";
   path: string;
   title: string;
+  description?: string;
   sections: DetailSection[];
   switcherItems?: ArticleSwitcherItem[];
   currentItemTitle?: string;

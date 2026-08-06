@@ -37,7 +37,7 @@ function createArticleRoute(
   path: string,
   title: string,
   sections: DetailSection[],
-  options: Pick<ArticleRoute, "currentItemTitle" | "switcherItems"> = {},
+  options: Pick<ArticleRoute, "currentItemTitle" | "switcherItems" | "description"> = {},
 ): ArticleRoute {
   return {
     kind: "article",
@@ -53,6 +53,7 @@ type BankingPost = {
   category: string;
   href: string;
   coverSrc: string;
+  description?: string;
   sections: DetailSection[];
 };
 
@@ -1037,6 +1038,7 @@ const bankingPosts: BankingPost[] = [
     category: "Cơ bản",
     href: "#/banking-domain/bien-do-lai-suat",
     coverSrc: "/assets/figma/banking-covers/bien-do-lai-suat.svg",
+    description: "Thay đổi tuỳ doanh nghiệp",
     sections: loanMarginSections,
   },
   {
@@ -1058,6 +1060,8 @@ const bankingPosts: BankingPost[] = [
     category: "Vay",
     href: "#/banking-domain/vay",
     coverSrc: "/assets/figma/banking-covers/vay-cam-co-tien-gui.svg",
+    description:
+      "“Vay cầm cố tiền gửi” rộng hơn “vay cầm cố sổ tiết kiệm”. Sổ hoặc thẻ tiết kiệm chỉ là một loại tài sản thuộc nhóm này.",
     sections: pledgedDepositLoanSections,
   },
   {
@@ -1127,6 +1131,7 @@ const bankingPostCards = bankingPosts.map((item, index) => ({
   title: item.title,
   href: item.href,
   coverSrc: item.coverSrc,
+  description: item.description,
   topic: item.category,
   tone: getCardTone(index),
 }));
@@ -1483,6 +1488,7 @@ export const pageRoutes: PageRoute[] = [
   ...bankingPosts.map((post) =>
     createArticleRoute(post.href.replace("#", ""), post.category, post.sections, {
       currentItemTitle: post.title,
+      description: post.description,
       switcherItems: bankingSwitcherItemsByCategory[post.category],
     }),
   ),
