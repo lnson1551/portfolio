@@ -12,12 +12,21 @@ type PageShellProps = {
 const scrollContainerSelector =
   ".article-view__content, .catalog-view__grid, .catalog-view__grouped, .catalog-view__project-list, .info-view__content, .home-view";
 
+function getRouteLevel(path: string) {
+  if (path === "/") {
+    return 0;
+  }
+
+  return path.split("/").filter(Boolean).length;
+}
+
 export function PageShell({ activePath, children }: PageShellProps) {
   const [mobileChromeState, setMobileChromeState] = useState({ hidden: false, path: activePath });
   const [isRouteResetting, setIsRouteResetting] = useState(false);
   const mainRef = useRef<HTMLDivElement | null>(null);
   const lastScrollRef = useRef({ path: activePath, top: 0 });
   const isMobileChromeHidden = mobileChromeState.path === activePath && mobileChromeState.hidden;
+  const hasCompactMenu = getRouteLevel(activePath) >= 2;
 
   useEffect(() => {
     lastScrollRef.current = { path: activePath, top: 0 };
@@ -124,18 +133,25 @@ export function PageShell({ activePath, children }: PageShellProps) {
   }, [activePath, isMobileChromeHidden, setMobileChromeHidden]);
 
   return (
-    <div className="page-shell" data-mobile-chrome-hidden={isMobileChromeHidden} data-route-resetting={isRouteResetting}>
+    <div
+      className="page-shell"
+      data-has-compact-menu={hasCompactMenu}
+      data-mobile-chrome-hidden={isMobileChromeHidden}
+      data-route-resetting={isRouteResetting}
+    >
       <Sidebar activePath={activePath} sections={navigationSections} socialLinks={socialLinks} />
       <div className="page-shell__main" ref={mainRef}>
-        <MobileNav
-          activePath={activePath}
-          sections={navigationSections}
-          onOpenChange={(isOpen) => {
-            if (isOpen) {
-              setMobileChromeState({ hidden: false, path: activePath });
-            }
-          }}
-        />
+        {hasCompactMenu && (
+          <MobileNav
+            activePath={activePath}
+            sections={navigationSections}
+            onOpenChange={(isOpen) => {
+              if (isOpen) {
+                setMobileChromeState({ hidden: false, path: activePath });
+              }
+            }}
+          />
+        )}
         {children}
       </div>
     </div>
