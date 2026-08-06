@@ -124,7 +124,7 @@
     min-height: 45rem;
     grid-template-columns: 1fr;
     gap: var(--space-5);
-    padding: var(--space-6) var(--space-5) 8.25rem;
+    padding: 4rem var(--space-5) 8.25rem;
   }
 
   .hero-icon {
@@ -157,7 +157,7 @@
 @media (max-width: 420px) {
   .hero-panel {
     min-height: 43.5rem;
-    padding: var(--space-5) var(--space-4) 7.75rem;
+    padding: 3.75rem var(--space-4) 7.75rem;
     gap: var(--space-5);
   }
 

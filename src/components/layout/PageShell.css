@@ -36,6 +36,11 @@
     padding: var(--space-3);
   }
 
+  .page-shell[data-has-compact-menu="false"] {
+    --mobile-nav-clearance: 0rem;
+    --mobile-header-clearance: 0rem;
+  }
+
   .page-shell__main {
     position: relative;
     height: calc(100vh - (var(--space-3) * 2));
@@ -100,7 +105,4 @@
     border-radius: 1.125rem;
   }
 
-  .page-shell[data-has-compact-menu="false"] .page-header {
-    padding-right: var(--space-3);
-  }
 }
