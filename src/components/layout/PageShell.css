@@ -30,7 +30,7 @@
     --mobile-header-row-height: 4rem;
     --mobile-nav-clearance: 5rem;
     --mobile-header-clearance: 2.5rem;
-    --mobile-canvas-top-padding: 4.5rem;
+    --mobile-canvas-top-padding: 6rem;
 
     grid-template-columns: 1fr;
     gap: var(--space-3);
