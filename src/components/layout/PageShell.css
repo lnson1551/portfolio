@@ -48,7 +48,7 @@
   }
 
   .page-shell[data-has-compact-menu="true"] {
-    --mobile-canvas-top-padding: 1rem;
+    --mobile-canvas-top-padding: 0rem;
   }
 
   .page-shell__main {
