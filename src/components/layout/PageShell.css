@@ -58,10 +58,10 @@
   }
 
   .page-shell .mobile-nav {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
-    left: 0;
+    right: var(--space-3);
+    left: var(--space-3);
     overflow: visible;
   }
 
@@ -103,6 +103,11 @@
   .page-shell__main {
     height: calc(100vh - 3.5rem - var(--space-2));
     border-radius: 1.125rem;
+  }
+
+  .page-shell .mobile-nav {
+    right: var(--space-2);
+    left: var(--space-2);
   }
 
 }
