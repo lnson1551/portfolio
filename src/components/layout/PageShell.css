@@ -64,6 +64,10 @@
     overflow: visible;
   }
 
+  .page-shell[data-has-compact-menu="false"] .mobile-nav {
+    display: none;
+  }
+
   .page-shell[data-has-compact-menu="false"] .page-header {
     padding-right: var(--space-4);
   }
