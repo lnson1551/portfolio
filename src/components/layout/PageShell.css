@@ -37,8 +37,8 @@
   }
 
   .page-shell[data-has-compact-menu="false"] {
-    --mobile-nav-clearance: 0rem;
-    --mobile-header-clearance: 0rem;
+    --mobile-nav-clearance: 3.5rem;
+    --mobile-header-clearance: 1rem;
   }
 
   .page-shell__main {
